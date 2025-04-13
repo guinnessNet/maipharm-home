@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import CustomerServicePage from './pages/CustomerServicePage';
 import Navigation from './components/Navigation';
+import { ProductProvider } from './components/Provider.tsx';
 
 import './index.css';
 
@@ -28,13 +29,16 @@ export function App() {
       <Navigation />
       <main className="flex-grow">
         <Suspense fallback={<div>Loading...</div>}>
+        
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/customer" element={<CustomerServicePage />} />
+            <ProductProvider> 
             <Route path="/pos" element={<PosHome />} />
             <Route path="/upload" element={<Upload />} />
+            </ProductProvider>
           </Routes>
         </Suspense>
       </main>
