@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import SearchBar from '../component/SearchBar'
-import Headers from '../component/Headers'
-import SalesProductLine from '../component/SalesProductLine'
+import SearchBar from '../components/SearchBar'
+import Headers from '../components/Headers'
+import SalesProductLine from '../components/SalesProductLine'
 import ProductDataContext from '../context/Product'
 import useItemsStore from '../store/itemsStore'
 

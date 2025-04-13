@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,9 +7,12 @@ import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import CustomerServicePage from './pages/CustomerServicePage';
 import Navigation from './components/Navigation';
-import PosHome from "./pages/Home"
 
 import './index.css';
+
+// Lazy import 적용
+const PosHome = lazy(() => import('./pages/Home'));
+const Upload = lazy(() => import('./pages/Upload'));
 
 export function App() {
   useEffect(() => {
@@ -24,13 +27,16 @@ export function App() {
       <Header />
       <Navigation />
       <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/customer" element={<CustomerServicePage />} />
-          <Route path="/pos" element={<PosHome/>}/>
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/customer" element={<CustomerServicePage />} />
+            <Route path="/pos" element={<PosHome />} />
+            <Route path="/upload" element={<Upload />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>

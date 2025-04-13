@@ -42,7 +42,9 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">AI로 약국 운영 최적화</h3>
+              <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">AI로 약국 
+                <Link to="/pos">운영 최적화</Link>
+              </h3>
               <p className="text-gray-600 mb-6">
                 EzPharm AI는 약국 운영의 모든 측면을 자동화하고 최적화하여 약사님들이 본연의 업무에 집중할 수 있도록 도와드립니다. 
                 처방전 관리부터 재고 자동화, 매출 분석까지 약국 경영에 필요한 모든 것을 한 곳에서 관리하세요.

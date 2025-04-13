@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import ProductDataContext from '../context/Product'
 import readXlsx from '../lib/readXlsx'
 import useHeaderStore from '../store/headerStore'
-import HeaderInfo from '../component/HeaderInfo'
+import HeaderInfo from '../components/HeaderInfo'
 
 function Upload() {
   const { productData, setProductData, setHeaders } = React.useContext(ProductDataContext)
@@ -39,7 +39,7 @@ function Upload() {
         }
       }
       reader.readAsArrayBuffer(file) // 파일 내용을 텍스트로 읽음
-      navigate('/')
+      navigate('/pos')
     }
   }
 
@@ -57,7 +57,7 @@ function Upload() {
         setLocalHeaders(JSON.parse(headers)) // 로컬 스토리지에서 불러온 헤더
       }
       window.alert('로컬 스토리지에서 파일을 불러왔습니다.')
-      navigate('/')
+      navigate('/pos')
       // window.location.href = '/home'
       // window.location.href = '/'
       // console.log('@@@',cachedData)
