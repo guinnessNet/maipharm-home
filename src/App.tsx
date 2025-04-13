@@ -29,17 +29,16 @@ export function App() {
       <Navigation />
       <main className="flex-grow">
         <Suspense fallback={<div>Loading...</div>}>
-        
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/customer" element={<CustomerServicePage />} />
-            <ProductProvider> 
-            <Route path="/pos" element={<PosHome />} />
-            <Route path="/upload" element={<Upload />} />
-            </ProductProvider>
-          </Routes>
+          <ProductProvider> {/* ProductProvider를 Routes 외부로 이동 */}
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/customer" element={<CustomerServicePage />} />
+              <Route path="/pos" element={<PosHome />} />
+              <Route path="/upload" element={<Upload />} />
+            </Routes>
+          </ProductProvider>
         </Suspense>
       </main>
       <Footer />
