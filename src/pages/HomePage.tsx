@@ -151,20 +151,20 @@ const HomePage = () => {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="divide-y">
               <div className="py-5">
-                <div className="text-sm text-indigo-500 font-medium mb-1">2024.06.01</div>
-                <h3 className="font-semibold text-lg">EzPharm AI, 시리즈 A 50억원 투자 유치 성공</h3>
+                <div className="text-sm text-indigo-500 font-medium mb-1">2025.03.29</div>
+                <h3 className="font-semibold text-lg">마이팜(주),중소벤처진흥공단 창업성공패키지 선정</h3>
                 <p className="text-gray-600 mt-1">인공지능 약국 관리 시스템 고도화 및
-                국내외 시장 확장을 위한 투자</p>
+                국내외 시장 확장을 위한 자본 마련</p>
               </div>
               <div className="py-5">
-                <div className="text-sm text-indigo-500 font-medium mb-1">2024.05.15</div>
-                <h3 className="font-semibold text-lg">약국 경영 빅데이터 분석 기능 출시</h3>
-                <p className="text-gray-600 mt-1">처방 패턴 및 매출 데이터 분석으로 약국 경영 최적화 기능 강화</p>
+                <div className="text-sm text-indigo-500 font-medium mb-1">2024.09.15</div>
+                <h3 className="font-semibold text-lg">팜스퀘어, 베타서비스 출시</h3>
+                <p className="text-gray-600 mt-1">처방데이터 관리 및 조제 및 복약 간편 서비스 제공</p>
               </div>
               <div className="py-5">
-                <div className="text-sm text-indigo-500 font-medium mb-1">2024.05.01</div>
-                <h3 className="font-semibold text-lg">약품 자동 발주 시스템 개선 업데이트</h3>
-                <p className="text-gray-600 mt-1">인공지능 학습 알고리즘 적용으로 재고 관리 정확도 25% 향상</p>
+                <div className="text-sm text-indigo-500 font-medium mb-1">2024.04.29</div>
+                <h3 className="font-semibold text-lg">창업진흥원 예비창업패키지 선정</h3>
+                <p className="text-gray-600 mt-1">정부지원금으로 창업 자본의 마중물을 마련</p>
               </div>
             </div>
           </div>

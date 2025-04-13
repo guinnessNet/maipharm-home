@@ -16,9 +16,11 @@ const Header = () => {
         </button>
         
         <Link to="/" className="flex items-center">
-          <div className="text-2xl font-bold ezpharm-text-blue">
-            EzPharm<span className="text-indigo-400 text-sm ml-1">AI</span>
-          </div>
+            <img 
+            src="/img/logo.png" 
+            alt="Mai Pharm Logo" 
+            className="h-10 w-auto"
+            />
         </Link>
         
         <div className="flex items-center space-x-3">

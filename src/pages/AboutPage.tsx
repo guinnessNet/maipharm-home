@@ -11,19 +11,19 @@ const AboutPage = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
         <div className="order-2 md:order-1">
-          <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">EzPharm AI 소개</h3>
+          <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">마이팜 소개</h3>
           <p className="mb-4 text-gray-700">
-            EzPharm AI는 2020년 설립된 테크 스타트업으로, 인공지능과 자동화 기술을 활용하여 약국 운영을 혁신하는 통합 플랫폼을 제공합니다.
+            마이팜(주)는 2024년 설립된 테크 스타트업으로, 인공지능과 자동화 기술을 활용하여 약국 운영을 혁신하는 통합 플랫폼을 제공합니다.
             우리는 약사들이 약국 경영에 필요한 복잡한 업무를 효율적으로 관리할 수 있도록 도와 궁극적으로 환자 케어에 더 집중할 수 있게 합니다.
           </p>
           <p className="text-gray-700">
             최첨단 AI 기술과 클라우드 기반 솔루션을 통해 처방전 관리, 재고 자동화, 매출 분석 등 약국 운영의 모든 측면을 최적화하고 있습니다.
-            EzPharm AI는 지속적인 연구개발과 혁신을 통해 약국 경영의 새로운 패러다임을 제시합니다.
+            마이팜(주)는 지속적인 연구개발과 혁신을 통해 약국 경영의 새로운 패러다임을 제시합니다.
           </p>
         </div>
         <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-lg">
           <img 
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop" 
+            src="https://via.placeholder.com/1000x600?text=EzPharm+Team" 
             alt="EzPharm 팀" 
             className="w-full h-auto"
           />
@@ -95,30 +95,30 @@ const AboutPage = () => {
           </div>
           <div className="space-y-4">
             <div className="flex">
+              <div className="w-24 font-semibold ezpharm-text-blue">2025</div>
+              <div>
+                <p className="font-medium">창업성공패키지 선정</p>
+                <p className="text-gray-600 text-sm">팜스퀘어 고도화 및 하드웨어 추가 개발 시작</p>
+              </div>
+            </div>
+            <div className="flex">
               <div className="w-24 font-semibold ezpharm-text-blue">2024</div>
               <div>
-                <p className="font-medium">시리즈 A 투자 유치 및 해외 시장 진출</p>
-                <p className="text-gray-600 text-sm">50억원 규모 투자 유치 및 동남아시아 시장 진출</p>
+                <p className="font-medium">약국 관리 플랫폼-팜스퀘어 베타서비스 출시</p>
+                <p className="text-gray-600 text-sm">국내 4개 약국 서비스 도입</p>
               </div>
             </div>
             <div className="flex">
-              <div className="w-24 font-semibold ezpharm-text-blue">2023</div>
+              <div className="w-24 font-semibold ezpharm-text-blue">2024</div>
               <div>
-                <p className="font-medium">AI 약국 관리 플랫폼 정식 출시</p>
-                <p className="text-gray-600 text-sm">국내 500개 약국 서비스 도입</p>
+                <p className="font-medium">예비창업패키지 선정</p>
+                <p className="text-gray-600 text-sm">사업초기 비용을 위한 마중물</p>
               </div>
             </div>
             <div className="flex">
-              <div className="w-24 font-semibold ezpharm-text-blue">2022</div>
+              <div className="w-24 font-semibold ezpharm-text-blue">2024</div>
               <div>
-                <p className="font-medium">시드 투자 유치 및 베타 서비스 출시</p>
-                <p className="text-gray-600 text-sm">10억원 규모 시드 투자 유치 성공</p>
-              </div>
-            </div>
-            <div className="flex">
-              <div className="w-24 font-semibold ezpharm-text-blue">2020</div>
-              <div>
-                <p className="font-medium">EzPharm AI 설립</p>
+                <p className="font-medium">마이팜주식회사 설립</p>
                 <p className="text-gray-600 text-sm">약국 경영 혁신을 위한 스타트업 출범</p>
               </div>
             </div>
@@ -154,11 +154,11 @@ const AboutPage = () => {
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="p-6">
-            <div className="text-4xl font-bold ezpharm-text-blue mb-2">500+</div>
+            <div className="text-4xl font-bold ezpharm-text-blue mb-2">4+</div>
             <p className="text-gray-700">서비스 도입 약국</p>
           </div>
           <div className="p-6">
-            <div className="text-4xl font-bold ezpharm-text-blue mb-2">30%</div>
+            <div className="text-4xl font-bold ezpharm-text-blue mb-2">40%</div>
             <p className="text-gray-700">업무 효율성 향상</p>
           </div>
           <div className="p-6">
@@ -166,7 +166,7 @@ const AboutPage = () => {
             <p className="text-gray-700">재고 관리 비용 절감</p>
           </div>
           <div className="p-6">
-            <div className="text-4xl font-bold ezpharm-text-blue mb-2">50M+</div>
+            <div className="text-4xl font-bold ezpharm-text-blue mb-2">100K+</div>
             <p className="text-gray-700">처리된 처방전 데이터</p>
           </div>
         </div>
