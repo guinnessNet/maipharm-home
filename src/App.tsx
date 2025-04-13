@@ -7,6 +7,8 @@ import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import CustomerServicePage from './pages/CustomerServicePage';
 import Navigation from './components/Navigation';
+import PosHome from "./pages/Home"
+
 import './index.css';
 
 export function App() {
@@ -27,6 +29,7 @@ export function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/customer" element={<CustomerServicePage />} />
+          <Route path="/pos" element={<PosHome/>}/>
         </Routes>
       </main>
       <Footer />
