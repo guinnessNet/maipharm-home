@@ -17,12 +17,12 @@ const Header = () => {
         
         <Link to="/" className="flex items-center">
           <div className="text-2xl font-bold ezpharm-text-blue">
-            이지팜
+            EzPharm<span className="text-indigo-400 text-sm ml-1">AI</span>
           </div>
         </Link>
         
         <div className="flex items-center space-x-3">
-          <button className="p-1 rounded-full">
+          <button className="p-1 rounded-full hover:bg-gray-100">
             <Search size={20} />
           </button>
         </div>
@@ -38,7 +38,7 @@ const Header = () => {
               회사소개
             </Link>
             <Link to="/products" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsMenuOpen(false)}>
-              제품소개
+              솔루션
             </Link>
             <Link to="/customer" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsMenuOpen(false)}>
               고객센터

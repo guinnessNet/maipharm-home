@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
-import { CircleHelp, Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { CircleHelp, Mail, MapPin, MessageSquare, Phone, Server } from 'lucide-react';
 
 type FaqItem = {
   id: number;
@@ -11,28 +11,28 @@ type FaqItem = {
 const faqs: FaqItem[] = [
   {
     id: 1,
-    question: '이지팜 제품은 어디서 구매할 수 있나요?',
-    answer: '이지팜 제품은 전국 주요 약국 및 공식 온라인 스토어에서 구매하실 수 있습니다. 자세한 구매처는 고객센터로 문의해 주세요.'
+    question: 'EzPharm AI 솔루션은 어떤 약국에 적합한가요?',
+    answer: '모든 규모의 약국에 맞춤형으로 제공됩니다. 소형 개인 약국부터 대형 체인 약국까지 규모와 필요에 맞게 확장 가능한 솔루션을 제공합니다.'
   },
   {
     id: 2,
-    question: '제품 부작용이 있을 경우 어떻게 해야 하나요?',
-    answer: '제품 사용 중 이상 증상이 발생할 경우, 즉시 사용을 중단하고 의사와 상담하신 후 고객센터로 연락해 주시기 바랍니다.'
+    question: '기존 약국 시스템과 통합이 가능한가요?',
+    answer: '네, 가능합니다. EzPharm AI는 개방형 API를 통해 기존 약국 시스템과 쉽게 통합할 수 있습니다. 저희 기술팀이 원활한 마이그레이션을 도와드립니다.'
   },
   {
     id: 3,
-    question: '건강기능식품 복용 방법은 어떻게 되나요?',
-    answer: '각 제품별로 권장 복용량이 다르므로 제품 패키지에 표기된 복용법을 확인해 주세요. 일반적으로 하루 1-2회, 식후 물과 함께 복용하시는 것이 좋습니다.'
+    question: '데이터 보안은 어떻게 보장되나요?',
+    answer: 'EzPharm AI는 의료 데이터 관련 법규를 준수하는 엄격한 보안 프로토콜을 적용하고 있습니다. 256비트 암호화, 다중 인증 시스템, 그리고 정기적인 보안 감사를 통해 고객 데이터를 안전하게 보호합니다.'
   },
   {
     id: 4,
-    question: '제품 반품 및 교환은 어떻게 진행되나요?',
-    answer: '구매일로부터 14일 이내에 고객센터로 연락주시면 반품 및 교환 절차를 안내해 드립니다. 단, 개봉 후에는 품질 문제가 아닌 경우 교환 및 반품이 어려울 수 있습니다.'
+    question: '서비스 구독 비용은 어떻게 되나요?',
+    answer: '다양한 구독 플랜을 제공하고 있으며, 약국 규모와 필요한 기능에 따라 비용이 달라집니다. 기본 플랜은 월 10만원부터 시작하며, 상세한 가격 정보는 영업팀에 문의해 주세요.'
   },
   {
     id: 5,
-    question: '임산부도 복용 가능한 제품이 있나요?',
-    answer: '임신 중이거나 수유 중인 경우, 제품 복용 전 반드시 의사와 상담하시는 것이 좋습니다. 일부 제품은 임산부를 위해 특별히 개발된 제품도 있으니 고객센터로 문의해 주세요.'
+    question: '시스템 사용법 교육은 제공되나요?',
+    answer: '모든 구독 플랜에는 초기 시스템 설정 및 기본 사용법 교육이 포함되어 있습니다. 추가적인 심화 교육이나 맞춤형 트레이닝도 제공하고 있으며, 언제든지 온라인 교육 자료를 통해 학습하실 수 있습니다.'
   }
 ];
 
@@ -48,46 +48,55 @@ const CustomerServicePage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-16">
       <SectionTitle 
         title="고객센터" 
-        subtitle="이지팜은 고객님의 건강과 만족을 최우선으로 생각합니다"
+        subtitle="EzPharm AI는 고객의 성공을 위해 항상 함께합니다"
       />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <h3 className="text-xl font-semibold mb-4 ezpharm-text-blue flex items-center">
-            <MessageSquare className="mr-2" size={20} />
-            문의 안내
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="bg-white rounded-lg shadow-sm p-8">
+          <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue flex items-center">
+            <MessageSquare className="mr-3" size={22} />
+            고객 지원 안내
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-5">
             <p className="text-gray-700">
-              이지팜 제품 및 서비스에 관한 문의사항이 있으시면 아래 연락처로 문의해 주세요.
-              평일 09:00~18:00 사이에 상담이 가능합니다. (점심시간 12:00~13:00)
+              EzPharm AI 솔루션과 서비스에 관한 문의사항이 있으시면 아래 연락처로 문의해 주세요.
+              평일 09:00~18:00 사이에 전문 기술 지원팀이 신속하게 응대해 드립니다.
             </p>
-            <div className="flex items-center gap-2">
-              <Phone size={18} />
-              <span>고객센터: 02-123-4567</span>
+            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <Phone size={20} className="text-indigo-500" />
+              <div>
+                <div className="font-medium">기술 지원 핫라인</div>
+                <span className="text-gray-600">02-123-4567</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Mail size={18} />
-              <span>이메일: customer@ezpharm.co.kr</span>
+            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <Mail size={20} className="text-indigo-500" />
+              <div>
+                <div className="font-medium">이메일 지원</div>
+                <span className="text-gray-600">support@ezpharm.ai</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin size={18} />
-              <span>주소: 서울특별시 강남구 테헤란로 123</span>
+            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <Server size={20} className="text-indigo-500" />
+              <div>
+                <div className="font-medium">온라인 지원 포털</div>
+                <span className="text-gray-600">help.ezpharm.ai</span>
+              </div>
             </div>
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <h3 className="text-xl font-semibold mb-4 ezpharm-text-blue">문의하기</h3>
-          <form className="space-y-4">
+        <div className="bg-white rounded-lg shadow-sm p-8">
+          <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue">문의하기</h3>
+          <form className="space-y-5">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">이름</label>
               <input 
                 type="text" 
-                className="w-full px-3 py-2 border rounded-md"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                 placeholder="이름을 입력하세요"
               />
             </div>
@@ -95,20 +104,30 @@ const CustomerServicePage = () => {
               <label className="block text-sm font-medium text-gray-700 mb-1">이메일</label>
               <input 
                 type="email" 
-                className="w-full px-3 py-2 border rounded-md"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
                 placeholder="이메일을 입력하세요"
               />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">문의 유형</label>
+              <select className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                <option value="">문의 유형을 선택하세요</option>
+                <option value="technical">기술 지원</option>
+                <option value="sales">도입 문의</option>
+                <option value="partnership">파트너십</option>
+                <option value="others">기타</option>
+              </select>
+            </div>
+            <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">문의내용</label>
               <textarea 
-                className="w-full px-3 py-2 border rounded-md h-24"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all h-32"
                 placeholder="문의내용을 입력하세요"
               ></textarea>
             </div>
             <button 
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+              className="w-full py-3 rounded-lg text-white font-medium ezpharm-gradient hover:opacity-90 transition-all"
             >
               문의하기
             </button>
@@ -116,9 +135,9 @@ const CustomerServicePage = () => {
         </div>
       </div>
       
-      <div className="bg-white rounded-lg shadow-sm p-6">
-        <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue flex items-center">
-          <CircleHelp className="mr-2" size={20} />
+      <div className="bg-white rounded-lg shadow-sm p-8 mb-16">
+        <h3 className="text-xl font-semibold mb-8 ezpharm-text-blue flex items-center">
+          <CircleHelp className="mr-3" size={22} />
           자주 묻는 질문
         </h3>
         
@@ -126,20 +145,51 @@ const CustomerServicePage = () => {
           {faqs.map((faq) => (
             <div key={faq.id} className="border rounded-lg overflow-hidden">
               <button
-                className="w-full text-left p-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100"
+                className="w-full text-left p-5 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-all"
                 onClick={() => toggleFaq(faq.id)}
               >
                 <span className="font-medium">{faq.question}</span>
-                <span className="text-xl">{expandedFaq === faq.id ? '−' : '+'}</span>
+                <span className={`text-indigo-500 transition-transform transform ${expandedFaq === faq.id ? 'rotate-180' : ''}`}>
+                  {expandedFaq === faq.id ? '−' : '+'}
+                </span>
               </button>
               
               {expandedFaq === faq.id && (
-                <div className="p-4 bg-white">
+                <div className="p-5 bg-white">
                   <p className="text-gray-700">{faq.answer}</p>
                 </div>
               )}
             </div>
           ))}
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+          <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+            <MapPin size={24} className="text-white" />
+          </div>
+          <h3 className="text-lg font-semibold mb-2">방문 상담</h3>
+          <p className="text-gray-600 mb-3">서울특별시 강남구 테헤란로 123 AI 빌딩 14층</p>
+          <p className="text-sm text-gray-500">평일 09:00 - 18:00 (예약제)</p>
+        </div>
+        
+        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+          <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+            <Server size={24} className="text-white" />
+          </div>
+          <h3 className="text-lg font-semibold mb-2">기술 자료실</h3>
+          <p className="text-gray-600 mb-3">사용 가이드, API 문서, 동영상 튜토리얼 제공</p>
+          <p className="text-sm text-gray-500">help.ezpharm.ai에서 확인하세요</p>
+        </div>
+        
+        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+          <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+            <MessageSquare size={24} className="text-white" />
+          </div>
+          <h3 className="text-lg font-semibold mb-2">온라인 채팅 지원</h3>
+          <p className="text-gray-600 mb-3">실시간 채팅 상담으로 빠른 문제 해결</p>
+          <p className="text-sm text-gray-500">평일 09:00 - 22:00 운영</p>
         </div>
       </div>
     </div>

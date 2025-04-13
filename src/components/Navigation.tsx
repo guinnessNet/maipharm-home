@@ -33,7 +33,7 @@ const Navigation = () => {
                 `py-2 px-1 text-gray-700 hover:ezpharm-text-blue ${isActive ? 'navigator-active' : ''}`
               }
             >
-              제품소개
+              솔루션
             </NavLink>
           </li>
           <li>

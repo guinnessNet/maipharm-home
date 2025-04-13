@@ -10,15 +10,15 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #f6f8fc;
 }
 
-.ezpharm-blue {
-  background-color: #0053a6;
+.ezpharm-gradient {
+  background: linear-gradient(90deg, #4264fb 0%, #6e8eff 100%);
 }
 
 .ezpharm-text-blue {
-  color: #0053a6;
+  color: #4264fb;
 }
 
 .banner-slide {
@@ -26,7 +26,16 @@ body {
 }
 
 .navigator-active {
-  color: #0053a6;
+  color: #4264fb;
   font-weight: bold;
-  border-bottom: 2px solid #0053a6;
+  border-bottom: 2px solid #4264fb;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(66, 100, 251, 0.1);
 }

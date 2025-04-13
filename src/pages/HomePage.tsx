@@ -1,27 +1,30 @@
 import Banner from '../components/Banner';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChartBar, Database, Shield, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const featuredProducts = [
+const solutions = [
   {
     id: 1,
-    name: '이지헬스 비타민C',
-    category: '건강기능식품',
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500&auto=format&fit=crop'
+    name: 'AI 약국 관리 시스템',
+    category: '핵심 솔루션',
+    description: '인공지능으로 약국 운영 전반을 최적화하는 올인원 플랫폼',
+    image: 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=500&auto=format&fit=crop'
   },
   {
     id: 2,
-    name: '이지헬스 프로바이오틱스',
-    category: '건강기능식품',
-    image: 'https://images.unsplash.com/photo-1626285861696-9f131406e305?q=80&w=500&auto=format&fit=crop'
+    name: '스마트 재고 관리',
+    category: '자동화 솔루션',
+    description: '약품 재고를 실시간으로 모니터링하고 자동 발주하는 시스템',
+    image: 'https://images.unsplash.com/photo-1642933946304-67b441b595d1?q=80&w=500&auto=format&fit=crop'
   },
   {
     id: 3,
-    name: '이지헬스 오메가3',
-    category: '건강기능식품',
-    image: 'https://images.unsplash.com/photo-1577174881658-0f30ed549adc?q=80&w=500&auto=format&fit=crop'
+    name: '처방전 데이터 분석',
+    category: '데이터 솔루션',
+    description: '처방 패턴을 분석하여 약국 운영 최적화에 도움을 주는 도구',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=500&auto=format&fit=crop'
   }
 ];
 
@@ -30,49 +33,109 @@ const HomePage = () => {
     <div>
       <Banner />
       
-      <div className="container mx-auto px-4 py-8">
-        <section className="mb-12">
+      <div className="container mx-auto px-4 py-16">
+        <section className="mb-20">
           <SectionTitle 
-            title="이지팜 소개" 
-            subtitle="건강한 내일을 약속하는 글로벌 헬스케어 기업"
+            title="약국 경영의 미래를 만듭니다" 
+            subtitle="EzPharm AI는 인공지능과 자동화 기술을 활용해 약국 운영을 혁신하는 통합 플랫폼을 제공합니다"
           />
           
-          <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <p className="mb-4 text-gray-700">
-              이지팜은 인류의 건강과 행복을 위한 혁신적인 의약품 개발에 앞장서고 있습니다. 
-              끊임없는 연구개발과 철저한 품질관리를 통해 신뢰할 수 있는 제품을 제공합니다.
-            </p>
-            
-            <Link to="/about" className="inline-flex items-center text-blue-600 font-medium">
-              더 알아보기 <ArrowRight size={16} className="ml-1" />
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">AI로 약국 운영 최적화</h3>
+              <p className="text-gray-600 mb-6">
+                EzPharm AI는 약국 운영의 모든 측면을 자동화하고 최적화하여 약사님들이 본연의 업무에 집중할 수 있도록 도와드립니다. 
+                처방전 관리부터 재고 자동화, 매출 분석까지 약국 경영에 필요한 모든 것을 한 곳에서 관리하세요.
+              </p>
+              
+              <Link to="/about" className="inline-flex items-center px-6 py-3 rounded-md ezpharm-gradient text-white font-medium">
+                자세히 알아보기 <ArrowRight size={16} className="ml-2" />
+              </Link>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="AI 데이터 분석" 
+                className="w-full h-auto"
+              />
+            </div>
           </div>
         </section>
         
-        <section className="mb-12">
+        <section className="mb-20">
           <SectionTitle 
-            title="제품 소개" 
-            subtitle="이지팜의 대표 제품들을 만나보세요"
+            title="주요 기능" 
+            subtitle="EzPharm AI가 제공하는 핵심 기능들을 소개합니다"
           />
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {featuredProducts.map(product => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center card-hover">
+              <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap size={28} className="text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">AI 운영 자동화</h3>
+              <p className="text-gray-600 text-sm">
+                인공지능으로 일상적인 약국 업무를 자동화하여 시간을 절약합니다
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center card-hover">
+              <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                <Database size={28} className="text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">통합 데이터 관리</h3>
+              <p className="text-gray-600 text-sm">
+                약품, 고객, 처방전 정보를 하나의 시스템에서 효율적으로 관리합니다
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center card-hover">
+              <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                <ChartBar size={28} className="text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">비즈니스 인사이트</h3>
+              <p className="text-gray-600 text-sm">
+                실시간 데이터 분석으로 약국 경영에 필요한 통찰력을 제공합니다
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center card-hover">
+              <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield size={28} className="text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">보안 및 규정 준수</h3>
+              <p className="text-gray-600 text-sm">
+                의료 데이터 보안과 규정 준수를 위한 강력한 보안 시스템을 제공합니다
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        <section className="mb-20">
+          <SectionTitle 
+            title="솔루션" 
+            subtitle="약국 운영의 효율성을 높이는 EzPharm AI의 솔루션"
+          />
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {solutions.map(solution => (
               <ProductCard 
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                category={product.category}
-                image={product.image}
+                key={solution.id}
+                id={solution.id}
+                name={solution.name}
+                category={solution.category}
+                image={solution.image}
+                description={solution.description}
               />
             ))}
           </div>
           
-          <div className="text-center mt-8">
+          <div className="text-center mt-12">
             <Link 
               to="/products" 
-              className="inline-flex items-center bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+              className="inline-flex items-center px-6 py-3 rounded-md ezpharm-gradient text-white font-medium"
             >
-              모든 제품 보기 <ArrowRight size={16} className="ml-1" />
+              모든 솔루션 보기 <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>
         </section>
@@ -80,22 +143,26 @@ const HomePage = () => {
         <section>
           <SectionTitle 
             title="최신 소식" 
-            subtitle="이지팜의 새로운 소식을 확인하세요"
+            subtitle="EzPharm AI의 새로운 소식을 확인하세요"
           />
           
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="divide-y">
-              <div className="py-4">
-                <div className="text-sm text-gray-500 mb-1">2024.06.01</div>
-                <h3 className="font-medium">이지팜, 신규 건강기능식품 라인업 출시</h3>
+              <div className="py-5">
+                <div className="text-sm text-indigo-500 font-medium mb-1">2024.06.01</div>
+                <h3 className="font-semibold text-lg">EzPharm AI, 시리즈 A 50억원 투자 유치 성공</h3>
+                <p className="text-gray-600 mt-1">인공지능 약국 관리 시스템 고도화 및
+                국내외 시장 확장을 위한 투자</p>
               </div>
-              <div className="py-4">
-                <div className="text-sm text-gray-500 mb-1">2024.05.15</div>
-                <h3 className="font-medium">이지팜, 글로벌 제약회사와 기술협력 MOU 체결</h3>
+              <div className="py-5">
+                <div className="text-sm text-indigo-500 font-medium mb-1">2024.05.15</div>
+                <h3 className="font-semibold text-lg">약국 경영 빅데이터 분석 기능 출시</h3>
+                <p className="text-gray-600 mt-1">처방 패턴 및 매출 데이터 분석으로 약국 경영 최적화 기능 강화</p>
               </div>
-              <div className="py-4">
-                <div className="text-sm text-gray-500 mb-1">2024.05.01</div>
-                <h3 className="font-medium">이지팜, 친환경 패키징으로 전환 완료</h3>
+              <div className="py-5">
+                <div className="text-sm text-indigo-500 font-medium mb-1">2024.05.01</div>
+                <h3 className="font-semibold text-lg">약품 자동 발주 시스템 개선 업데이트</h3>
+                <p className="text-gray-600 mt-1">인공지능 학습 알고리즘 적용으로 재고 관리 정확도 25% 향상</p>
               </div>
             </div>
           </div>
