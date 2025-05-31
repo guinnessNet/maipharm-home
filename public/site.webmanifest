@@ -1,7 +1,7 @@
 {
   "name": "MaiPharm",
   "short_name": "MaiPharm",
-  "description": "AI 기반 스마트 약국 관리 시스템",
+  "description": "AI 스마트 약국 관리 시스템",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
