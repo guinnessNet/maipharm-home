@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import emailjs from '@emailjs/browser';
 import SectionTitle from '../components/SectionTitle';
 import { CircleHelp, Mail, MapPin, MessageSquare, Phone, Server } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 type FaqItem = {
   id: number;
@@ -8,60 +11,98 @@ type FaqItem = {
   answer: string;
 };
 
-const faqs: FaqItem[] = [
-  {
-    id: 1,
-    question: '팜스퀘어 솔루션은 어떤 약국에 적합한가요?',
-    answer: '모든 규모의 약국에 맞춤형으로 제공됩니다. 소형 개인 약국부터 대형 체인 약국까지 규모와 필요에 맞게 확장 가능한 솔루션을 제공합니다.'
-  },
-  {
-    id: 2,
-    question: '기존 약국 시스템과 통합이 가능한가요?',
-    answer: '네, 가능합니다. 팜스퀘어는 개방형 API를 통해 기존 약국 시스템과 쉽게 통합할 수 있습니다. 저희 기술팀이 원활한 마이그레이션을 도와드립니다.'
-  },
-  {
-    id: 3,
-    question: '데이터 보안은 어떻게 보장되나요?',
-    answer: '팜스퀘어는 개인정보보호법을 준수하는 엄격한 보안 프로토콜을 적용하고 있습니다. 256비트 암호화, 다중 인증 시스템, 그리고 정기적인 보안 감사를 통해 고객 데이터를 안전하게 보호합니다.'
-  },
-  {
-    id: 4,
-    question: '서비스 구독 비용은 어떻게 되나요?',
-    answer: '다양한 구독 플랜을 제공하고 있으며, 약국 규모와 필요한 기능에 따라 비용이 달라집니다. 기본 플랜은 월 33,000원부터 시작하며, 상세한 가격 정보는 영업팀에 문의해 주세요.'
-  },
-  {
-    id: 5,
-    question: '시스템 사용법 교육은 제공되나요?',
-    answer: '모든 구독 플랜에는 초기 시스템 설정 및 기본 사용법 교육이 포함되어 있습니다. 추가적인 심화 교육이나 맞춤형 트레이닝도 제공하고 있으며, 언제든지 온라인 교육 자료를 통해 학습하실 수 있습니다.'
-  }
-];
-
 const CustomerServicePage = () => {
+  const { t } = useTranslation();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    type: '',
-    message: '',
+    type: t('customer.inquiry.type.general'),
+    message: ''
   });
+
+  const [status, setStatus] = useState({
+    loading: false,
+    success: false,
+    error: false,
+    message: ''
+  });
+
+  const faqs: FaqItem[] = [
+    {
+      id: 1,
+      question: t('customer.faq.q1'),
+      answer: t('customer.faq.a1')
+    },
+    {
+      id: 2,
+      question: t('customer.faq.q2'),
+      answer: t('customer.faq.a2')
+    },
+    {
+      id: 3,
+      question: t('customer.faq.q3'),
+      answer: t('customer.faq.a3')
+    },
+    {
+      id: 4,
+      question: t('customer.faq.q4'),
+      answer: t('customer.faq.a4')
+    },
+    {
+      id: 5,
+      question: t('customer.faq.q5'),
+      answer: t('customer.faq.a5')
+    }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus({ loading: true, success: false, error: false, message: '' });
 
-    // 이메일 내용 구성
-    const subject = `문의 유형: ${formData.type}`;
-    const body = `이름: ${formData.name}%0A이메일: ${formData.email}%0A문의 내용:%0A${formData.message}`;
+    try {
+      await emailjs.send(
+        'service_k8ig91q',
+        'template_it59s7o',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          time: new Date().toISOString(),
+          message: formData.message,
+          type: formData.type
+        },
+        'YwTrEuJnKfGLfA1Mg'
+      );
 
-    // mailto 링크 생성
-    const mailtoLink = `mailto:kjh@maipharm.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus({
+        loading: false,
+        success: true,
+        error: false,
+        message: t('customer.inquiry.success')
+      });
 
-    // mailto 링크 열기
-    window.location.href = mailtoLink;
+      setFormData({
+        name: '',
+        email: '',
+        type: t('customer.inquiry.type.general'),
+        message: ''
+      });
+    } catch (error) {
+      setStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: t('customer.inquiry.error')
+      });
+    }
   };
   
   const toggleFaq = (id: number) => {
@@ -73,166 +114,214 @@ const CustomerServicePage = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <SectionTitle 
-        title="고객센터" 
-        subtitle="마이팜(주)는 고객의 성공을 위해 항상 함께합니다"
-      />
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <div className="bg-white rounded-lg shadow-sm p-8">
-          <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue flex items-center">
-            <MessageSquare className="mr-3" size={22} />
-            고객 지원 안내
-          </h3>
-          <div className="space-y-5">
-            <p className="text-gray-700">
-              EzPharm AI 솔루션과 서비스에 관한 문의사항이 있으시면 아래 연락처로 문의해 주세요.
-              평일 09:00~18:00 사이에 전문 기술 지원팀이 신속하게 응대해 드립니다.
-            </p>
-            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-              <Phone size={20} className="text-indigo-500" />
-              <div>
-                <div className="font-medium">기술 지원 핫라인</div>
-                <span className="text-gray-600">010-8588-8999</span>
+    <div>
+      <Helmet>
+        <title>{t('customer.title')} | {t('site.name')} - {t('site.description')}</title>
+        <meta name="description" content={t('customer.subtitle')} />
+        <meta name="keywords" content={`${t('site.name')} ${t('customer.title')}, ${t('customer.inquiry.title')}, ${t('site.description')} ${t('customer.inquiry.title')}`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://maipharm.com/customer" />
+        <meta property="og:title" content={`${t('customer.title')} | ${t('site.name')}`} />
+        <meta property="og:description" content={t('customer.subtitle')} />
+        <meta property="og:image" content="https://maipharm.com/img/customer-og.jpg" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://maipharm.com/customer" />
+        <meta property="twitter:title" content={`${t('customer.title')} | ${t('site.name')}`} />
+        <meta property="twitter:description" content={t('customer.subtitle')} />
+        <meta property="twitter:image" content="https://maipharm.com/img/customer-og.jpg" />
+      </Helmet>
+
+      <div className="container mx-auto px-4 py-16">
+        <SectionTitle 
+          title={t('customer.title')} 
+          subtitle={t('customer.subtitle')}
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue flex items-center">
+              <MessageSquare className="mr-3" size={22} />
+              {t('customer.support.title')}
+            </h3>
+            <div className="space-y-5">
+              <p className="text-gray-700">
+                {t('customer.support.description')}
+              </p>
+              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <Phone size={20} className="text-green-500" />
+                <div>
+                  <div className="font-medium">{t('customer.support.phone')}</div>
+                  <span className="text-gray-600">{t('footer.phone')}</span>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-              <Mail size={20} className="text-indigo-500" />
-              <div>
-                <div className="font-medium">이메일 지원</div>
-                <span className="text-gray-600">kjh@maipharm.com</span>
+              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <Mail size={20} className="text-green-500" />
+                <div>
+                  <div className="font-medium">{t('customer.support.email')}</div>
+                  <span className="text-gray-600">kjh@maipharm.com</span>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-              <Server size={20} className="text-indigo-500" />
-              <div>
-                <div className="font-medium">온라인 지원 포털</div>
-                <span className="text-gray-600">help.ezpharm.ai</span>
+              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <Server size={20} className="text-green-500" />
+                <div>
+                  <div className="font-medium">{t('customer.support.portal')}</div>
+                  <span className="text-gray-600">help.maipharm.com</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div className="bg-white rounded-lg shadow-sm p-8">
-          <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue">문의하기</h3>
-          <form className="space-y-5" onSubmit={handleSubmit}>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">이름</label>
-              <input 
-                type="text" 
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
-                placeholder="이름을 입력하세요"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">이메일</label>
-              <input 
-                type="email" 
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
-                placeholder="이메일을 입력하세요"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">문의 유형</label>
-              <select 
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
-                required
-              >
-                <option value="">문의 유형을 선택하세요</option>
-                <option value="technical">기술 지원</option>
-                <option value="sales">도입 문의</option>
-                <option value="partnership">파트너십</option>
-                <option value="others">기타</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">문의내용</label>
-              <textarea 
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all h-32"
-                placeholder="문의내용을 입력하세요"
-                required
-              ></textarea>
-            </div>
-            <button 
-              type="submit"
-              className="w-full py-3 rounded-lg text-white font-medium ezpharm-gradient hover:opacity-90 transition-all"
-            >
-              문의하기
-            </button>
-          </form>
-        </div>
-      </div>
-      
-      <div className="bg-white rounded-lg shadow-sm p-8 mb-16">
-        <h3 className="text-xl font-semibold mb-8 ezpharm-text-blue flex items-center">
-          <CircleHelp className="mr-3" size={22} />
-          자주 묻는 질문
-        </h3>
-        
-        <div className="space-y-4">
-          {faqs.map((faq) => (
-            <div key={faq.id} className="border rounded-lg overflow-hidden">
-              <button
-                className="w-full text-left p-5 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-all"
-                onClick={() => toggleFaq(faq.id)}
-              >
-                <span className="font-medium">{faq.question}</span>
-                <span className={`text-indigo-500 transition-transform transform ${expandedFaq === faq.id ? 'rotate-180' : ''}`}>
-                  {expandedFaq === faq.id ? '−' : '+'}
-                </span>
-              </button>
-              
-              {expandedFaq === faq.id && (
-                <div className="p-5 bg-white">
-                  <p className="text-gray-700">{faq.answer}</p>
+          
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue">{t('customer.inquiry.title')}</h3>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('customer.inquiry.name')}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('customer.inquiry.email')}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="type" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('customer.inquiry.type')}
+                </label>
+                <select
+                  id="type"
+                  name="type"
+                  value={formData.type}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                >
+                  <option value={t('customer.inquiry.type.general')}>{t('customer.inquiry.type.general')}</option>
+                  <option value={t('customer.inquiry.type.technical')}>{t('customer.inquiry.type.technical')}</option>
+                  <option value={t('customer.inquiry.type.partnership')}>{t('customer.inquiry.type.partnership')}</option>
+                  <option value={t('customer.inquiry.type.other')}>{t('customer.inquiry.type.other')}</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  {t('customer.inquiry.message')}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={6}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+
+              {status.message && (
+                <div className={`p-4 rounded-md ${
+                  status.success ? 'bg-green-50 text-green-700' : 
+                  status.error ? 'bg-red-50 text-red-700' : 
+                  'bg-blue-50 text-blue-700'
+                }`}>
+                  {status.message}
                 </div>
               )}
+
+              <button
+                type="submit"
+                disabled={status.loading}
+                className={`w-full px-6 py-3 rounded-md text-white font-medium ${
+                  status.loading 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-indigo-600 hover:bg-indigo-700'
+                }`}
+              >
+                {status.loading ? t('customer.inquiry.sending') : t('customer.inquiry.submit')}
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-16">
+          <h3 className="text-xl font-semibold mb-8 ezpharm-text-blue flex items-center">
+            <CircleHelp className="mr-3" size={22} />
+            {t('customer.faq.title')}
+          </h3>
+          
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <div key={faq.id} className="border rounded-lg overflow-hidden">
+                <button
+                  className="w-full text-left p-5 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-all"
+                  onClick={() => toggleFaq(faq.id)}
+                >
+                  <span className="font-medium">{faq.question}</span>
+                  <span className={`text-green-500 transition-transform transform ${expandedFaq === faq.id ? 'rotate-180' : ''}`}>
+                    {expandedFaq === faq.id ? '−' : '+'}
+                  </span>
+                </button>
+                
+                {expandedFaq === faq.id && (
+                  <div className="p-5 bg-white">
+                    <p className="text-gray-700">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+            <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin size={24} className="text-white" />
             </div>
-          ))}
-        </div>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-          <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
-            <MapPin size={24} className="text-white" />
+            <h3 className="text-lg font-semibold mb-2">{t('customer.visit.title')}</h3>
+            <p className="text-gray-600 mb-3">{t('customer.visit.address')}</p>
+            <p className="text-sm text-gray-500">{t('customer.visit.hours')}</p>
           </div>
-          <h3 className="text-lg font-semibold mb-2">방문 상담</h3>
-          <p className="text-gray-600 mb-3">경기 시흥시 공단1대로 204, 32동 306호</p>
-          <p className="text-sm text-gray-500">평일 09:00 - 18:00 (예약제)</p>
-        </div>
-        
-        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-          <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
-            <Server size={24} className="text-white" />
+          
+          <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+            <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+              <Server size={24} className="text-white" />
+            </div>
+            <h3 className="text-lg font-semibold mb-2">{t('customer.docs.title')}</h3>
+            <p className="text-gray-600 mb-3">{t('customer.docs.description')}</p>
+            <p className="text-sm text-gray-500">{t('customer.docs.status')}</p>
           </div>
-          <h3 className="text-lg font-semibold mb-2">기술 자료실</h3>
-          <p className="text-gray-600 mb-3">사용 가이드, API 문서, 동영상 튜토리얼 제공</p>
-          <p className="text-sm text-gray-500">준비 중입니다</p>
-        </div>
-        
-        <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-          <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
-            <MessageSquare size={24} className="text-white" />
+          
+          <div className="bg-white rounded-lg shadow-sm p-6 text-center">
+            <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+              <MessageSquare size={24} className="text-white" />
+            </div>
+            <h3 className="text-lg font-semibold mb-2">{t('customer.chat.title')}</h3>
+            <p className="text-gray-600 mb-3">{t('customer.chat.description')}</p>
+            <p className="text-sm text-gray-500">{t('customer.chat.status')}</p>
           </div>
-          <h3 className="text-lg font-semibold mb-2">온라인 채팅 지원</h3>
-          <p className="text-gray-600 mb-3">실시간 채팅 상담으로 빠른 문제 해결</p>
-          <p className="text-sm text-gray-500">준비 중입니다</p>
         </div>
       </div>
     </div>

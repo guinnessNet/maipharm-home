@@ -20,7 +20,7 @@ const ProductCard = ({ id, name, category, image, description }: ProductCardProp
           />
         </div>
         <div className="p-5">
-          <div className="text-sm font-medium text-indigo-500 mb-1">{category}</div>
+          <div className="text-sm font-medium text-green-500 mb-1">{category}</div>
           <h3 className="font-medium text-lg mb-2">{name}</h3>
           {description && <p className="text-gray-600 text-sm">{description}</p>}
         </div>

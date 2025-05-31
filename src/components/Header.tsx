@@ -1,9 +1,12 @@
 import { Menu, Search, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
@@ -24,9 +27,7 @@ const Header = () => {
         </Link>
         
         <div className="flex items-center space-x-3">
-          <button className="p-1 rounded-full hover:bg-gray-100">
-            <Search size={20} />
-          </button>
+          <LanguageSwitcher />
         </div>
       </div>
 
@@ -34,16 +35,16 @@ const Header = () => {
         <div className="absolute top-full left-0 w-full bg-white border-t shadow-lg md:hidden">
           <div className="flex flex-col p-4 space-y-3">
             <Link to="/" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsMenuOpen(false)}>
-              홈
+              {t('nav.home')}
             </Link>
             <Link to="/about" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsMenuOpen(false)}>
-              회사소개
+              {t('nav.about')}
             </Link>
             <Link to="/products" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsMenuOpen(false)}>
-              솔루션
+              {t('nav.products')}
             </Link>
             <Link to="/customer" className="p-2 hover:bg-gray-100 rounded" onClick={() => setIsMenuOpen(false)}>
-              고객센터
+              {t('nav.contact')}
             </Link>
           </div>
         </div>

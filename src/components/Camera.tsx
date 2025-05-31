@@ -41,6 +41,7 @@ const Camera:React.FC<CameraProps> = ({setSearchString}) => {
             <h2 className="text-lg font-bold mb-4">QR/Barcode 스캔</h2>
             <Scanner
               onScan={(result) => handleScan(result[0].rawValue)}
+              components={{zoom: true}}
               constraints={{ facingMode: 'environment' }} // 후면 카메라 사용
                 styles={{container:{width: '300px', height: '300px'} }}
                 formats={["aztec","code_128","code_39","code_93","codabar", "databar", "databar_expanded", "databar_limited", "data_matrix", "dx_film_edge", "ean_13", "ean_8", "itf", "maxi_code", "micro_qr_code", "pdf417", "qr_code", "rm_qr_code", "upc_a", "upc_e", "linear_codes", "matrix_codes", "any", "unknown"]} // 지원하는 바코드 포맷

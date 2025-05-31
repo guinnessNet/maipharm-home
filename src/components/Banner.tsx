@@ -1,29 +1,31 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-const bannerImages = [
-  {
-    id: 1,
-    src: 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=1920&auto=format&fit=crop',
-    alt: 'AI 기술',
-    title: '약국 운영을 혁신하는 AI 솔루션',
-  },
-  {
-    id: 2,
-    src: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1920&auto=format&fit=crop',
-    alt: '데이터 분석',
-    title: '데이터 기반 약국 경영의 새로운 패러다임',
-  },
-  {
-    id: 3,
-    src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1920&auto=format&fit=crop',
-    alt: '자동화 기술',
-    title: '약국 업무 자동화로 시간과 비용 절감',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const Banner = () => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const bannerImages = [
+    {
+      id: 1,
+      src: 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=1920&auto=format&fit=crop',
+      alt: t('banner.ai.alt'),
+      title: t('banner.ai.title'),
+    },
+    {
+      id: 2,
+      src: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1920&auto=format&fit=crop',
+      alt: t('banner.data.alt'),
+      title: t('banner.data.title'),
+    },
+    {
+      id: 3,
+      src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1920&auto=format&fit=crop',
+      alt: t('banner.automation.alt'),
+      title: t('banner.automation.title'),
+    },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,7 +56,7 @@ const Banner = () => {
               alt={image.alt} 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-indigo-900/50 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/90 to-primary-700/70 flex items-center justify-center">
               <h2 className="text-white text-2xl md:text-4xl font-bold text-center px-4 max-w-3xl">
                 {image.title}
               </h2>
@@ -66,6 +68,7 @@ const Banner = () => {
       <button 
         onClick={goToPrev}
         className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full transition-all"
+        aria-label={t('banner.prev')}
       >
         <ChevronLeft size={24} className="text-white" />
       </button>
@@ -73,6 +76,7 @@ const Banner = () => {
       <button 
         onClick={goToNext}
         className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full transition-all"
+        aria-label={t('banner.next')}
       >
         <ChevronRight size={24} className="text-white" />
       </button>
@@ -83,6 +87,7 @@ const Banner = () => {
             key={index} 
             className={`h-2 w-10 rounded-full transition-all ${index === currentIndex ? 'bg-white' : 'bg-white/40'}`}
             onClick={() => setCurrentIndex(index)}
+            aria-label={t('banner.slide', { number: index + 1 })}
           />
         ))}
       </div>

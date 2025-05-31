@@ -8,8 +8,11 @@ import ProductsPage from './pages/ProductsPage';
 import CustomerServicePage from './pages/CustomerServicePage';
 import Navigation from './components/Navigation';
 import { ProductProvider } from './components/Provider.tsx';
+// import LoadingSpinner from './components/LoadingSpinner';
 
 import './index.css';
+import { CgSpinner } from 'react-icons/cg';
+import ProductDetail from './pages/ProductDetail.tsx';
 
 // Lazy import 적용
 const PosHome = lazy(() => import('./pages/Home'));
@@ -28,7 +31,7 @@ export function App() {
       <Header />
       <Navigation />
       <main className="flex-grow">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<CgSpinner className="animate-spin text-2xl" />}>
           <ProductProvider> {/* ProductProvider를 Routes 외부로 이동 */}
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -37,6 +40,7 @@ export function App() {
               <Route path="/customer" element={<CustomerServicePage />} />
               <Route path="/pos" element={<PosHome />} />
               <Route path="/upload" element={<Upload />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
             </Routes>
           </ProductProvider>
         </Suspense>

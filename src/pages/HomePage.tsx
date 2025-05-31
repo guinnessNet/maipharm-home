@@ -1,57 +1,97 @@
+import { Helmet } from 'react-helmet-async';
 import Banner from '../components/Banner';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
 import { ArrowRight, ChartBar, Database, Shield, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const solutions = [
-  {
-    id: 1,
-    name: 'AI 약국 관리 시스템',
-    category: '핵심 솔루션',
-    description: '인공지능으로 약국 운영 전반을 최적화하는 올인원 플랫폼',
-    image: 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=500&auto=format&fit=crop'
-  },
-  {
-    id: 2,
-    name: '스마트 재고 관리',
-    category: '자동화 솔루션',
-    description: '약품 재고를 실시간으로 모니터링하고 자동 발주하는 시스템',
-    image: 'https://images.unsplash.com/photo-1642933946304-67b441b595d1?q=80&w=500&auto=format&fit=crop'
-  },
-  {
-    id: 3,
-    name: '처방전 데이터 분석',
-    category: '데이터 솔루션',
-    description: '처방 패턴을 분석하여 약국 운영 최적화에 도움을 주는 도구',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=500&auto=format&fit=crop'
-  }
-];
+import { useTranslation } from 'react-i18next';
 
 const HomePage = () => {
+  const { t } = useTranslation();
+
+  const solutions = [
+    {
+      id: 1,
+      name: t('solutions.core.items.0.title'),
+      category: t('solutions.core.title'),
+      description: t('solutions.core.items.0.description'),
+      image: 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=500&auto=format&fit=crop'
+    },
+    {
+      id: 2,
+      name: t('solutions.automation.items.0.title'),
+      category: t('solutions.automation.title'),
+      description: t('solutions.automation.items.0.description'),
+      image: '/img/stock.jpg'
+    },
+    {
+      id: 3,
+      name: t('solutions.data.items.0.title'),
+      category: t('solutions.data.title'),
+      description: t('solutions.data.items.0.description'),
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=500&auto=format&fit=crop'
+    }
+  ];
+
   return (
     <div>
+      <Helmet>
+        <title>{t('site.name')} - {t('site.description')}</title>
+        <meta name="description" content={t('site.description')} />
+        <meta name="keywords" content={t('site.keywords')} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.maipharm.co.kr/" />
+        <meta property="og:title" content={`${t('site.name')} - ${t('site.description')}`} />
+        <meta property="og:description" content={t('site.description')} />
+        <meta property="og:image" content="https://www.maipharm.co.kr/img/og-image.jpg" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.maipharm.co.kr/" />
+        <meta property="twitter:title" content={`${t('site.name')} - ${t('site.description')}`} />
+        <meta property="twitter:description" content={t('site.description')} />
+        <meta property="twitter:image" content="https://www.maipharm.co.kr/img/og-image.jpg" />
+
+        {/* 구조화된 데이터 */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": `${t('site.name')} - ${t('site.description')}`,
+            "description": t('site.description'),
+            "url": "https://www.maipharm.co.kr",
+            "publisher": {
+              "@type": "Organization",
+              "name": t('site.name'),
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.maipharm.co.kr/img/logo.png"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+
       <Banner />
       
       <div className="container mx-auto px-4 py-16">
         <section className="mb-20">
           <SectionTitle 
-            title="약국 경영의 미래를 만듭니다" 
-            subtitle="EzPharm AI는 인공지능과 자동화 기술을 활용해 약국 운영을 혁신하는 통합 플랫폼을 제공합니다"
+            title={t('home.title')} 
+            subtitle={t('home.subtitle')}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">AI로 약국 
-                <Link to="/pos">운영 최적화</Link>
-              </h3>
+              <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">{t('home.ai.title')}</h3>
               <p className="text-gray-600 mb-6">
-                EzPharm AI는 약국 운영의 모든 측면을 자동화하고 최적화하여 약사님들이 본연의 업무에 집중할 수 있도록 도와드립니다. 
-                처방전 관리부터 재고 자동화, 매출 분석까지 약국 경영에 필요한 모든 것을 한 곳에서 관리하세요.
+                {t('home.ai.description')}
               </p>
               
               <Link to="/about" className="inline-flex items-center px-6 py-3 rounded-md ezpharm-gradient text-white font-medium">
-                자세히 알아보기 <ArrowRight size={16} className="ml-2" />
+                {t('home.ai.button')} <ArrowRight size={16} className="ml-2" />
               </Link>
             </div>
             <div className="rounded-xl overflow-hidden shadow-lg">
@@ -66,8 +106,8 @@ const HomePage = () => {
         
         <section className="mb-20">
           <SectionTitle 
-            title="주요 기능" 
-            subtitle="EzPharm AI가 제공하는 핵심 기능들을 소개합니다"
+            title={t('home.features.title')} 
+            subtitle={t('home.features.subtitle')}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -75,9 +115,9 @@ const HomePage = () => {
               <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap size={28} className="text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">AI 운영 자동화</h3>
+              <h3 className="text-lg font-semibold mb-2">{t('home.features.ai.title')}</h3>
               <p className="text-gray-600 text-sm">
-                인공지능으로 일상적인 약국 업무를 자동화하여 시간을 절약합니다
+                {t('home.features.ai.description')}
               </p>
             </div>
             
@@ -85,9 +125,9 @@ const HomePage = () => {
               <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
                 <Database size={28} className="text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">통합 데이터 관리</h3>
+              <h3 className="text-lg font-semibold mb-2">{t('home.features.data.title')}</h3>
               <p className="text-gray-600 text-sm">
-                약품, 고객, 처방전 정보를 하나의 시스템에서 효율적으로 관리합니다
+                {t('home.features.data.description')}
               </p>
             </div>
             
@@ -95,9 +135,9 @@ const HomePage = () => {
               <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
                 <ChartBar size={28} className="text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">비즈니스 인사이트</h3>
+              <h3 className="text-lg font-semibold mb-2">{t('home.features.insight.title')}</h3>
               <p className="text-gray-600 text-sm">
-                실시간 데이터 분석으로 약국 경영에 필요한 통찰력을 제공합니다
+                {t('home.features.insight.description')}
               </p>
             </div>
             
@@ -105,9 +145,9 @@ const HomePage = () => {
               <div className="w-16 h-16 ezpharm-gradient rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield size={28} className="text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">보안 및 규정 준수</h3>
+              <h3 className="text-lg font-semibold mb-2">{t('home.features.security.title')}</h3>
               <p className="text-gray-600 text-sm">
-                의료 데이터 보안과 규정 준수를 위한 강력한 보안 시스템을 제공합니다
+                {t('home.features.security.description')}
               </p>
             </div>
           </div>
@@ -115,8 +155,8 @@ const HomePage = () => {
         
         <section className="mb-20">
           <SectionTitle 
-            title="솔루션" 
-            subtitle="약국 운영의 효율성을 높이는 EzPharm AI의 솔루션"
+            title={t('solutions.title')} 
+            subtitle={t('solutions.subtitle')}
           />
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -137,34 +177,33 @@ const HomePage = () => {
               to="/products" 
               className="inline-flex items-center px-6 py-3 rounded-md ezpharm-gradient text-white font-medium"
             >
-              모든 솔루션 보기 <ArrowRight size={16} className="ml-2" />
+              {t('home.solutions.button')} <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>
         </section>
         
         <section>
           <SectionTitle 
-            title="최신 소식" 
-            subtitle="EzPharm AI의 새로운 소식을 확인하세요"
+            title={t('home.news.title')} 
+            subtitle={t('home.news.subtitle')}
           />
           
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <div className="divide-y">
-              <div className="py-5">
-                <div className="text-sm text-indigo-500 font-medium mb-1">2025.03.29</div>
-                <h3 className="font-semibold text-lg">마이팜(주),중소벤처진흥공단 창업성공패키지 선정</h3>
-                <p className="text-gray-600 mt-1">인공지능 약국 관리 시스템 고도화 및
-                국내외 시장 확장을 위한 자본 마련</p>
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <div className="divide-y divide-gray-100">
+              <div className="py-8">
+                <div className="text-sm text-green-500 font-medium mb-2">2025.03.29</div>
+                <h3 className="font-semibold text-xl mb-3">{t('about.history.2025.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">{t('about.history.2025.description')}</p>
               </div>
-              <div className="py-5">
-                <div className="text-sm text-indigo-500 font-medium mb-1">2024.09.15</div>
-                <h3 className="font-semibold text-lg">팜스퀘어, 베타서비스 출시</h3>
-                <p className="text-gray-600 mt-1">처방데이터 관리 및 조제 및 복약 간편 서비스 제공</p>
+              <div className="py-8">
+                <div className="text-sm text-green-500 font-medium mb-2">2024.09.15</div>
+                <h3 className="font-semibold text-xl mb-3">{t('about.history.2024_1.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">{t('about.history.2024_1.description')}</p>
               </div>
-              <div className="py-5">
-                <div className="text-sm text-indigo-500 font-medium mb-1">2024.04.29</div>
-                <h3 className="font-semibold text-lg">창업진흥원 예비창업패키지 선정</h3>
-                <p className="text-gray-600 mt-1">정부지원금으로 창업 자본의 마중물을 마련</p>
+              <div className="py-8">
+                <div className="text-sm text-green-500 font-medium mb-2">2024.04.29</div>
+                <h3 className="font-semibold text-xl mb-3">{t('about.history.2024_2.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">{t('about.history.2024_2.description')}</p>
               </div>
             </div>
           </div>

@@ -1,10 +1,27 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    ViteImageOptimizer({
+      test: /\.(jpe?g|png|gif|tiff|webp|svg)$/i,
+      includePublic: true,
+      logStats: true,
+      webp: {
+        quality: 80,
+        lossless: false,
+      },
+      jpg: {
+        quality: 80,
+      },
+      png: {
+        quality: 80,
+        compressionLevel: 9,
+      },
+    }),
     {
       name: "mocha-error-reporter",
 
@@ -52,22 +69,22 @@ export default defineConfig({
                 }
               `,
             },
-            {
-              tag: "script",
-              attrs: { type: "module" },
-              injectTo: "body",
-              children: `
-                const watermark = document.createElement('a');
-                watermark.href = 'https://getmocha.com?a_id=' + encodeURIComponent('01962e56-b657-7c65-9bc5-06b22e736190');
-                watermark.target = '_blank';
-                watermark.className = 'mocha-watermark';
-                watermark.innerHTML = \`
-                  <img src="https://mocha-cdn.com/favicon.svg" alt="Mocha Logo" />
-                  Made in Mocha
-                \`;
-                document.body.appendChild(watermark);
-              `,
-            },
+            // {
+            //   tag: "script",
+            //   attrs: { type: "module" },
+            //   injectTo: "body",
+            //   children: `
+            //     const watermark = document.createElement('a');
+            //     watermark.href = 'https://getmocha.com?a_id=' + encodeURIComponent('01962e56-b657-7c65-9bc5-06b22e736190');
+            //     watermark.target = '_blank';
+            //     watermark.className = 'mocha-watermark';
+            //     watermark.innerHTML = \`
+            //       <img src="https://mocha-cdn.com/favicon.svg" alt="Mocha Logo" />
+            //       Made in Mocha
+            //     \`;
+            //     document.body.appendChild(watermark);
+            //   `,
+            // },
           ];
         }
 
@@ -156,5 +173,16 @@ export default defineConfig({
   ],
   server: {
     allowedHosts: true,
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['lucide-react'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
   },
 });
