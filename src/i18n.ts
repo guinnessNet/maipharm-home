@@ -239,7 +239,7 @@ i18n
 
           //footer
           'footer.address': '경기 시흥시 공단1대로 204, 32동 306호',
-          'footer.phone': '010-8588-8999',
+          'footer.phone': '010-2991-6610',
           'footer.email': 'kjh@maipharm.com',
           'footer.copyright': 'Copyright 2025 MaiPharm. All rights reserved.',
 
@@ -832,7 +832,7 @@ i18n
 
           //footer
           'footer.address': '204 Gongdan 1-daero, 32-dong 306-ho, Siheung-si, Gyeonggi-do',
-          'footer.phone': '(82) 10-8588-8999',
+          'footer.phone': '(82) 10-2991-6610',
           'footer.email': 'kjh@maipharm.com',
           'footer.copyright': 'Copyright 2025 MaiPharm. All rights reserved.',
 
