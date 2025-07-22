@@ -2,20 +2,124 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#184230" />
     
+    <!-- 기본 SEO 메타 태그 -->
+    <title>마이팜 - AI 스마트 약국 관리 시스템</title>
+    <meta name="description" content="AI 기반 스마트 약국 관리 시스템으로 약국 운영을 혁신하세요. 처방전 관리, 재고 자동화, 매출 분석까지 모든 것을 한 곳에서 관리할 수 있습니다." />
+    <meta name="keywords" content="약국 관리, AI 약국, 스마트 약국, 처방전 관리, 약국 자동화, 약국 POS, 약국 재고관리, 약국 매출관리, 약국 데이터분석, 약국 운영시스템, 마이팜" />
+    <meta name="author" content="MaiPharm Inc." />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="ko" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maipharm.com/" />
+    <meta property="og:title" content="마이팜 - AI 스마트 약국 관리 시스템" />
+    <meta property="og:description" content="AI 기반 스마트 약국 관리 시스템으로 약국 운영을 혁신하세요. 처방전 관리, 재고 자동화, 매출 분석까지 모든 것을 한 곳에서 관리할 수 있습니다." />
+    <meta property="og:image" content="https://maipharm.com/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="마이팜" />
+    <meta property="og:locale" content="ko_KR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://maipharm.com/" />
+    <meta property="twitter:title" content="마이팜 - AI 스마트 약국 관리 시스템" />
+    <meta property="twitter:description" content="AI 기반 스마트 약국 관리 시스템으로 약국 운영을 혁신하세요." />
+    <meta property="twitter:image" content="https://maipharm.com/img/og-image.jpg" />
+    
+    <!-- 파비콘 및 아이콘 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
     <!-- PWA 관련 메타 태그 -->
     <link rel="manifest" href="/site.webmanifest" type="application/manifest+json" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="마이팜" />
+    
+    <!-- DNS Prefetch 및 Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
     
-    <title>마이팜 - AI 스마트 약국 관리 시스템</title>
+    <!-- 구조화된 데이터 (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "마이팜",
+      "alternateName": "MaiPharm",
+      "url": "https://maipharm.com",
+      "logo": "https://maipharm.com/img/logo.png",
+      "description": "AI 기반 스마트 약국 관리 시스템",
+      "foundingDate": "2024",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "KR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "Korean"
+      },
+      "sameAs": [
+        "https://blog.naver.com/maipharm"
+      ]
+    }
+    </script>
+    
+    <!-- 추가 구조화된 데이터 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "마이팜",
+      "url": "https://maipharm.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://maipharm.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- SPA 라우팅 지원 스크립트 -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment.
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+    
+    <!-- 성능 최적화를 위한 메타 태그 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- 보안 헤더 -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <script type="module" crossorigin src="/assets/index-D16EmcsQ.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-X3vhryMx.js">
     <link rel="modulepreload" crossorigin href="/assets/ui--Hq1sDTq.js">
@@ -57,15 +161,47 @@
               </style>
   </head>
   <body>
+    <!-- 로딩 상태를 위한 기본 콘텐츠 -->
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: 'Noto Sans KR', sans-serif;">
+        <h1>마이팜 - AI 스마트 약국 관리 시스템</h1>
+        <p>이 웹사이트를 사용하려면 JavaScript를 활성화해야 합니다.</p>
+        <p>JavaScript를 활성화한 후 페이지를 새로고침해주세요.</p>
+      </div>
+    </noscript>
+    
     <div id="root"></div>
-    <!-- Google tag (gtag.js) -->
+    
+    <!-- 메인 애플리케이션 스크립트 -->
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMXE35L4DQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-ZMXE35L4DQ');
+      gtag('config', 'G-ZMXE35L4DQ', {
+        'page_title': '마이팜 - AI 스마트 약국 관리 시스템',
+        'page_location': window.location.href
+      });
+    </script>
+    
+    <!-- 성능 모니터링 -->
+    <script>
+      // Core Web Vitals 모니터링
+      if ('performance' in window) {
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            if (perfData) {
+              gtag('event', 'timing_complete', {
+                'name': 'load',
+                'value': Math.round(perfData.loadEventEnd - perfData.loadEventStart)
+              });
+            }
+          }, 0);
+        });
+      }
     </script>
   </body>
 </html>

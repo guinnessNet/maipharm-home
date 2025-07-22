@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.maipharm.co.kr/sitemap.xml
+Sitemap: https://maipharm.com/sitemap.xml
 
 # Disallow admin and api routes
 Disallow: /admin/
