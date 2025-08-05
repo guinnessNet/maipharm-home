@@ -159,8 +159,8 @@ i18n
           'products.list.core.1.name': 'AI 약국 관리 시스템 - 팜스퀘어',
           'products.list.core.1.description': '인공지능으로 약국 운영 전반을 최적화하는 올인원 플랫폼',
           
-          'products.list.automation.1.name': '가루약 자동 토출기 - 메디믹스',
-          'products.list.automation.1.description': '일일히 계량하는 가루약을 자동으로 토출하는 기기',
+          'products.list.automation.1.name': '가루약 자동 정량 토출기 - 메디믹스',
+          'products.list.automation.1.description': '일일히 계량하는 가루약을 자동으로 정량 토출하는 기기',
           
           'products.list.core.2.name': '인공지능 복약 에이전트',
           'products.list.core.2.description': '처방 내용과 병원 정보를 분석하여 최적의 복약안내를 제안하는 인공지능 에이전트',
@@ -281,9 +281,9 @@ i18n
               description: '맞춤형 서비스로 고객 만족도 40% 향상'
             }
           ],
-          'product.medimix.name': '가루약 자동토출기 - 메디믹스',
+          'product.medimix.name': '가루약 자동 정량 토출기 - 메디믹스',
           'product.medimix.category': '자동화 장비',
-          'product.medimix.description': '정확하고 효율적인 가루약 분배를 위한 자동화 시스템',
+          'product.medimix.description': '정확하고 효율적인 가루약 정량 토출을 위한 자동화 시스템',
           'product.medimix.longDescription': `메디믹스는 약국에서 가루약 처방을 자동화하는 최첨단 시스템입니다.
           정밀한 계량과 분배를 통해 약사들의 업무 효율성을 높이고, 처방 오류를 최소화합니다.
           
@@ -303,11 +303,11 @@ i18n
           'product.medimix.benefits': [
             {
               title: '처방 정확도 향상',
-              description: '가루약 분배 정확도 99.99% 달성'
+              description: '가루약 정량 토출 정확도 99.99% 달성'
             },
             {
               title: '업무 시간 단축',
-              description: '가루약 처방 시간 70% 단축'
+              description: '가루약 정량 토출 시간 70% 단축'
             },
             {
               title: '안전성 강화',
@@ -540,8 +540,8 @@ i18n
           'solutions.automation.description': '반복적인 업무를 자동화하여 효율성 극대화',
           'solutions.automation.items': [
             {
-              title: '가루약 자동 분배기',
-              description: '정확하고 효율적인 가루약 처방 자동화'
+              title: '가루약 자동 정량 토출기',
+              description: '정확하고 효율적인 가루약 정량 토출 자동화'
             },
             {
               title: '자동 청구 시스템',
