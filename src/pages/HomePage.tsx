@@ -191,6 +191,16 @@ const HomePage = () => {
           <div className="bg-white rounded-lg shadow-sm p-8">
             <div className="divide-y divide-gray-100">
               <div className="py-8">
+                <div className="text-sm text-green-500 font-medium mb-2">2025.07.29</div>
+                <h3 className="font-semibold text-xl mb-3">{t('about.history.2025_2.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">{t('about.history.2025_2.description')}</p>
+              </div>
+              <div className="py-8">
+                <div className="text-sm text-green-500 font-medium mb-2">2025.06.23</div>
+                <h3 className="font-semibold text-xl mb-3">{t('about.history.2025_1.title')}</h3>
+                <p className="text-gray-600 leading-relaxed">{t('about.history.2025_1.description')}</p>
+              </div>
+              <div className="py-8">
                 <div className="text-sm text-green-500 font-medium mb-2">2025.03.29</div>
                 <h3 className="font-semibold text-xl mb-3">{t('about.history.2025.title')}</h3>
                 <p className="text-gray-600 leading-relaxed">{t('about.history.2025.description')}</p>
