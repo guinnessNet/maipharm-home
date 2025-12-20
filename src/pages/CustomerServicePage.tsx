@@ -18,7 +18,8 @@ const CustomerServicePage = () => {
     name: '',
     email: '',
     type: t('customer.inquiry.type.general'),
-    message: ''
+    message: '',
+    company: ''
   });
 
   const [status, setStatus] = useState({
@@ -27,6 +28,34 @@ const CustomerServicePage = () => {
     error: false,
     message: ''
   });
+
+  const submissionKey = 'customer_inquiry_last_submission';
+  const cooldownMs = 60 * 1000;
+
+  const createCaptcha = () => {
+    const left = Math.floor(Math.random() * 9) + 1;
+    const right = Math.floor(Math.random() * 9) + 1;
+    return { question: `${left} + ${right} = ?`, answer: left + right };
+  };
+
+  const [captcha, setCaptcha] = useState(createCaptcha);
+  const [captchaInput, setCaptchaInput] = useState('');
+
+  const sanitizeInput = (value: string) =>
+    value
+      .replace(/<[^>]*>/g, '')
+      .replace(/[<>]/g, '')
+      .replace(/javascript:/gi, '')
+      .trim();
+
+  const isSafeText = (value: string) =>
+    !/(?:<|>|script|on\w+\s*=|data:|javascript:|vbscript:)/i.test(value);
+
+  const hasUrl = (value: string) =>
+    /(?:https?:\/\/|www\.)/i.test(value);
+
+  const isValidEmail = (value: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
   const faqs: FaqItem[] = [
     {
@@ -60,7 +89,7 @@ const CustomerServicePage = () => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: name === 'type' ? value : sanitizeInput(value)
     }));
   };
 
@@ -69,19 +98,83 @@ const CustomerServicePage = () => {
     setStatus({ loading: true, success: false, error: false, message: '' });
 
     try {
+      if (formData.company.trim()) {
+        setStatus({
+          loading: false,
+          success: false,
+          error: true,
+          message: t('customer.inquiry.error')
+        });
+        return;
+      }
+
+      if (!isValidEmail(formData.email)) {
+        setStatus({
+          loading: false,
+          success: false,
+          error: true,
+          message: '유효한 이메일을 입력해주세요.'
+        });
+        return;
+      }
+
+      if (hasUrl(formData.message) || hasUrl(formData.name)) {
+        setStatus({
+          loading: false,
+          success: false,
+          error: true,
+          message: '링크가 포함된 문의는 접수할 수 없습니다.'
+        });
+        return;
+      }
+
+      if (!isSafeText(formData.name) || !isSafeText(formData.message)) {
+        setStatus({
+          loading: false,
+          success: false,
+          error: true,
+          message: '허용되지 않는 문자가 포함되어 있습니다.'
+        });
+        return;
+      }
+
+      if (Number(captchaInput) !== captcha.answer) {
+        setStatus({
+          loading: false,
+          success: false,
+          error: true,
+          message: '보안 질문 답이 올바르지 않습니다.'
+        });
+        setCaptcha(createCaptcha());
+        setCaptchaInput('');
+        return;
+      }
+
+      const lastSubmission = Number(localStorage.getItem(submissionKey) || 0);
+      if (Date.now() - lastSubmission < cooldownMs) {
+        setStatus({
+          loading: false,
+          success: false,
+          error: true,
+          message: '잠시 후 다시 시도해주세요.'
+        });
+        return;
+      }
+
       await emailjs.send(
-        'service_k8ig91q',
+        'service_ak0v26a',
         'template_it59s7o',
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          from_name: sanitizeInput(formData.name),
+          from_email: sanitizeInput(formData.email),
           time: new Date().toISOString(),
-          message: formData.message,
+          message: sanitizeInput(formData.message),
           type: formData.type
         },
         'YwTrEuJnKfGLfA1Mg'
       );
 
+      localStorage.setItem(submissionKey, String(Date.now()));
       setStatus({
         loading: false,
         success: true,
@@ -93,8 +186,11 @@ const CustomerServicePage = () => {
         name: '',
         email: '',
         type: t('customer.inquiry.type.general'),
-        message: ''
+        message: '',
+        company: ''
       });
+      setCaptcha(createCaptcha());
+      setCaptchaInput('');
     } catch (error) {
       setStatus({
         loading: false,
@@ -179,6 +275,22 @@ const CustomerServicePage = () => {
             <h3 className="text-xl font-semibold mb-6 ezpharm-text-blue">{t('customer.inquiry.title')}</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
+                <label htmlFor="company" className="sr-only">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   {t('customer.inquiry.name')}
                 </label>
@@ -189,6 +301,8 @@ const CustomerServicePage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  minLength={2}
+                  maxLength={50}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -204,6 +318,7 @@ const CustomerServicePage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  maxLength={100}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
@@ -237,6 +352,23 @@ const CustomerServicePage = () => {
                   onChange={handleChange}
                   required
                   rows={6}
+                  maxLength={1000}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="captcha" className="block text-sm font-medium text-gray-700 mb-1">
+                  보안 질문: {captcha.question}
+                </label>
+                <input
+                  type="text"
+                  id="captcha"
+                  name="captcha"
+                  value={captchaInput}
+                  onChange={(event) => setCaptchaInput(event.target.value.replace(/[^\d]/g, ''))}
+                  inputMode="numeric"
+                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
