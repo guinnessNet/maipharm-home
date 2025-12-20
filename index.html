@@ -102,10 +102,10 @@
     
     <!-- 보안 헤더 -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <script type="module" crossorigin src="/assets/index-BX11auOg.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-BdgMq7FH.js">
-    <link rel="modulepreload" crossorigin href="/assets/ui-DQzowYc_.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-CutD-Ixd.css">
+    <script type="module" crossorigin src="/assets/index-Du1hisU6.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-X7fwGug_.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-52BpOxf5.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CnZzQcnO.css">
     <style type="text/css">
                 .mocha-watermark {
                   position: fixed;
@@ -153,7 +153,21 @@
     </noscript>
     
     <div id="root"></div>
-    
+
+    <!-- GitHub Pages SPA 리다이렉트 처리 -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+
     <!-- 메인 애플리케이션 스크립트 -->
     
     <!-- Google Analytics -->
