@@ -14,9 +14,6 @@ import './index.css';
 import { CgSpinner } from 'react-icons/cg';
 import ProductDetail from './pages/ProductDetail.tsx';
 
-// Lazy import 적용
-const PosHome = lazy(() => import('./pages/Home'));
-const Upload = lazy(() => import('./pages/Upload'));
 
 export function App() {
   useEffect(() => {
@@ -38,8 +35,6 @@ export function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/products" element={<ProductsPage />} />
               <Route path="/customer" element={<CustomerServicePage />} />
-              <Route path="/pos" element={<PosHome />} />
-              <Route path="/upload" element={<Upload />} />
               <Route path="/products/:id" element={<ProductDetail />} />
             </Routes>
           </ProductProvider>
