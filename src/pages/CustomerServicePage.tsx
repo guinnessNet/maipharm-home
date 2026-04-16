@@ -214,21 +214,52 @@ const CustomerServicePage = () => {
       <Helmet>
         <title>{t('customer.title')} | {t('site.name')} - {t('site.description')}</title>
         <meta name="description" content={t('customer.subtitle')} />
-        <meta name="keywords" content={`${t('site.name')} ${t('customer.title')}, ${t('customer.inquiry.title')}, ${t('site.description')} ${t('customer.inquiry.title')}`} />
-        
-        {/* Open Graph / Facebook */}
+        <meta name="keywords" content={`마이팜 고객지원, 약국 관리 시스템 문의, ${t('customer.title')}, ${t('customer.inquiry.title')}, 약국 솔루션 도입 상담, FAQ`} />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://maipharm.com/customer" />
+        <link rel="alternate" hrefLang="ko" href="https://maipharm.com/customer" />
+        <link rel="alternate" hrefLang="en" href="https://maipharm.com/customer?lang=en" />
+        <link rel="alternate" hrefLang="x-default" href="https://maipharm.com/customer" />
+
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maipharm.com/customer" />
         <meta property="og:title" content={`${t('customer.title')} | ${t('site.name')}`} />
         <meta property="og:description" content={t('customer.subtitle')} />
         <meta property="og:image" content="https://maipharm.com/img/customer-og.jpg" />
+        <meta property="og:site_name" content={t('site.name')} />
+        <meta property="og:locale" content="ko_KR" />
 
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://maipharm.com/customer" />
-        <meta property="twitter:title" content={`${t('customer.title')} | ${t('site.name')}`} />
-        <meta property="twitter:description" content={t('customer.subtitle')} />
-        <meta property="twitter:image" content="https://maipharm.com/img/customer-og.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://maipharm.com/customer" />
+        <meta name="twitter:title" content={`${t('customer.title')} | ${t('site.name')}`} />
+        <meta name="twitter:description" content={t('customer.subtitle')} />
+        <meta name="twitter:image" content="https://maipharm.com/img/customer-og.jpg" />
+
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: `${t('customer.title')} | ${t('site.name')}`,
+          description: t('customer.subtitle'),
+          url: 'https://maipharm.com/customer',
+          inLanguage: 'ko-KR',
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: 'https://maipharm.com/' },
+            { '@type': 'ListItem', position: 2, name: t('customer.title'), item: 'https://maipharm.com/customer' },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+          })),
+        })}</script>
       </Helmet>
 
       <div className="container mx-auto px-4 py-16">

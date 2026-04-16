@@ -10,8 +10,17 @@
     <meta name="description" content="AI 기반 스마트 약국 관리 시스템으로 약국 운영을 혁신하세요. 처방전 관리, 재고 자동화, 매출 분석까지 모든 것을 한 곳에서 관리할 수 있습니다." />
     <meta name="keywords" content="약국 관리, AI 약국, 스마트 약국, 처방전 관리, 약국 자동화, 약국 POS, 약국 재고관리, 약국 매출관리, 약국 데이터분석, 약국 운영시스템, 마이팜" />
     <meta name="author" content="MaiPharm Inc." />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="language" content="ko" />
+    <meta name="geo.region" content="KR" />
+    <meta name="geo.placename" content="Seoul" />
+
+    <!-- Canonical & Hreflang (default; per-route Helmet overrides) -->
+    <link rel="canonical" href="https://maipharm.com/" />
+    <link rel="alternate" hreflang="ko" href="https://maipharm.com/" />
+    <link rel="alternate" hreflang="en" href="https://maipharm.com/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://maipharm.com/" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -24,12 +33,16 @@
     <meta property="og:site_name" content="마이팜" />
     <meta property="og:locale" content="ko_KR" />
     
+    <meta property="og:image:alt" content="마이팜 - AI 스마트 약국 관리 시스템" />
+    <meta property="og:locale:alternate" content="en_US" />
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://maipharm.com/" />
-    <meta property="twitter:title" content="마이팜 - AI 스마트 약국 관리 시스템" />
-    <meta property="twitter:description" content="AI 기반 스마트 약국 관리 시스템으로 약국 운영을 혁신하세요." />
-    <meta property="twitter:image" content="https://maipharm.com/img/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://maipharm.com/" />
+    <meta name="twitter:title" content="마이팜 - AI 스마트 약국 관리 시스템" />
+    <meta name="twitter:description" content="AI 기반 스마트 약국 관리 시스템으로 약국 운영을 혁신하세요." />
+    <meta name="twitter:image" content="https://maipharm.com/img/og-image.jpg" />
+    <meta name="twitter:image:alt" content="마이팜 대시보드 미리보기" />
     
     <!-- 파비콘 및 아이콘 -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -58,37 +71,79 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "마이팜",
-      "alternateName": "MaiPharm",
+      "alternateName": ["MaiPharm", "마이팜 주식회사", "MaiPharm Inc."],
       "url": "https://maipharm.com",
       "logo": "https://maipharm.com/img/logo.png",
-      "description": "AI 기반 스마트 약국 관리 시스템",
+      "image": "https://maipharm.com/img/og-image.jpg",
+      "description": "AI 기반 스마트 약국 관리 시스템 - 처방전 관리, 재고 자동화, 매출 분석을 한 곳에서.",
       "foundingDate": "2024",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "KR"
+        "addressCountry": "KR",
+        "addressLocality": "Seoul"
       },
-      "contactPoint": {
+      "contactPoint": [{
         "@type": "ContactPoint",
         "contactType": "customer service",
-        "availableLanguage": "Korean"
-      },
+        "email": "kjh@maipharm.com",
+        "availableLanguage": ["Korean", "English"],
+        "areaServed": "KR"
+      }],
       "sameAs": [
         "https://blog.naver.com/maipharm"
+      ],
+      "knowsAbout": [
+        "약국 관리 시스템",
+        "처방전 관리",
+        "약국 재고 자동화",
+        "AI 복약지도",
+        "약국 데이터 분석"
+      ],
+      "award": [
+        "중소벤처기업부 장관상 (2025) - AI 스마트 복약지도 시스템"
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "마이팜 - AI 스마트 약국 관리 시스템",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Pharmacy Management Software",
+      "operatingSystem": "Web, Windows, macOS",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "KRW",
+        "price": "0",
+        "description": "도입 상담 후 견적 제공"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "마이팜",
+        "url": "https://maipharm.com"
+      },
+      "url": "https://maipharm.com",
+      "inLanguage": ["ko-KR", "en-US"]
+    }
+    </script>
     
-    <!-- 추가 구조화된 데이터 -->
+    <!-- WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "마이팜",
+      "alternateName": "MaiPharm",
       "url": "https://maipharm.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://maipharm.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+      "inLanguage": ["ko-KR", "en-US"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "마이팜",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://maipharm.com/img/logo.png"
+        }
       }
     }
     </script>

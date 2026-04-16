@@ -70,6 +70,47 @@ const ProductDetail = () => {
       <Helmet>
         <title>{`${productPage.name} | ${t('site.name')} - ${t('site.description')}`}</title>
         <meta name="description" content={productPage.description} />
+        <meta name="keywords" content={`${productPage.name}, ${productPage.category}, 마이팜, 약국 솔루션, 약국 관리 시스템, ${t('site.name')}`} />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href={`https://maipharm.com/products/${productId}`} />
+        <link rel="alternate" hrefLang="ko" href={`https://maipharm.com/products/${productId}`} />
+        <link rel="alternate" hrefLang="en" href={`https://maipharm.com/products/${productId}?lang=en`} />
+        <link rel="alternate" hrefLang="x-default" href={`https://maipharm.com/products/${productId}`} />
+
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={`https://maipharm.com/products/${productId}`} />
+        <meta property="og:title" content={`${productPage.name} | ${t('site.name')}`} />
+        <meta property="og:description" content={productPage.description} />
+        <meta property="og:image" content={productPage.image} />
+        <meta property="og:site_name" content={t('site.name')} />
+        <meta property="og:locale" content="ko_KR" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${productPage.name} | ${t('site.name')}`} />
+        <meta name="twitter:description" content={productPage.description} />
+        <meta name="twitter:image" content={productPage.image} />
+
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: productPage.name,
+          description: productPage.description,
+          image: productPage.image,
+          category: productPage.category,
+          url: `https://maipharm.com/products/${productId}`,
+          brand: { '@type': 'Brand', name: t('site.name') },
+          manufacturer: { '@type': 'Organization', name: 'MaiPharm Inc.' },
+          inLanguage: 'ko-KR',
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: 'https://maipharm.com/' },
+            { '@type': 'ListItem', position: 2, name: t('products.title'), item: 'https://maipharm.com/products' },
+            { '@type': 'ListItem', position: 3, name: productPage.name, item: `https://maipharm.com/products/${productId}` },
+          ],
+        })}</script>
       </Helmet>
 
       <div className="container mx-auto px-4 py-16">

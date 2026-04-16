@@ -1,75 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://maipharm.com/</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maipharm.com/" />
   </url>
   <url>
     <loc>https://maipharm.com/about</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/about?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maipharm.com/about" />
   </url>
   <url>
     <loc>https://maipharm.com/products</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maipharm.com/products" />
   </url>
   <url>
     <loc>https://maipharm.com/customer</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/customer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/customer?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maipharm.com/customer" />
   </url>
   <url>
     <loc>https://maipharm.com/products/1</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/1" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/1?lang=en" />
   </url>
   <url>
     <loc>https://maipharm.com/products/2</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/2" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/2?lang=en" />
   </url>
   <url>
     <loc>https://maipharm.com/products/3</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/3" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/3?lang=en" />
   </url>
   <url>
     <loc>https://maipharm.com/products/4</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/4" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/4?lang=en" />
   </url>
   <url>
     <loc>https://maipharm.com/products/5</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/5" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/5?lang=en" />
   </url>
   <url>
     <loc>https://maipharm.com/products/6</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/6" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/6?lang=en" />
   </url>
   <url>
     <loc>https://maipharm.com/products/7</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/7" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/7?lang=en" />
   </url>
   <url>
     <loc>https://maipharm.com/products/8</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://maipharm.com/products/8" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://maipharm.com/products/8?lang=en" />
   </url>
 </urlset>

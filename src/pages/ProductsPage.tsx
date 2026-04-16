@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
 import { Filter } from 'lucide-react';
@@ -83,8 +84,58 @@ const ProductsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <SectionTitle 
-        title={t('products.title')} 
+      <Helmet>
+        <title>{t('products.title')} | {t('site.name')} - {t('site.description')}</title>
+        <meta name="description" content={t('products.subtitle')} />
+        <meta name="keywords" content="약국 솔루션, 팜스퀘어, 메디믹스, PS인사이트, 약국 자동화, 약국 데이터, 약국 마케팅, 약국 API, 마이팜 제품" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://maipharm.com/products" />
+        <link rel="alternate" hrefLang="ko" href="https://maipharm.com/products" />
+        <link rel="alternate" hrefLang="en" href="https://maipharm.com/products?lang=en" />
+        <link rel="alternate" hrefLang="x-default" href="https://maipharm.com/products" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://maipharm.com/products" />
+        <meta property="og:title" content={`${t('products.title')} | ${t('site.name')}`} />
+        <meta property="og:description" content={t('products.subtitle')} />
+        <meta property="og:image" content="https://maipharm.com/img/og-image.jpg" />
+        <meta property="og:site_name" content={t('site.name')} />
+        <meta property="og:locale" content="ko_KR" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${t('products.title')} | ${t('site.name')}`} />
+        <meta name="twitter:description" content={t('products.subtitle')} />
+        <meta name="twitter:image" content="https://maipharm.com/img/og-image.jpg" />
+
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: `${t('products.title')} | ${t('site.name')}`,
+          description: t('products.subtitle'),
+          url: 'https://maipharm.com/products',
+          inLanguage: 'ko-KR',
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: 'https://maipharm.com/' },
+            { '@type': 'ListItem', position: 2, name: t('products.title'), item: 'https://maipharm.com/products' },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          itemListElement: allProducts.map((p, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 1,
+            url: `https://maipharm.com/products/${p.id}`,
+            name: p.name,
+          })),
+        })}</script>
+      </Helmet>
+      <SectionTitle
+        title={t('products.title')}
         subtitle={t('products.subtitle')}
       />
       

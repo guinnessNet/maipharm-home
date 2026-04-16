@@ -1,10 +1,30 @@
+# https://maipharm.com robots.txt
 User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*?*lang=
+
+# Friendly to major bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /img/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: DaumoaBot
 Allow: /
 
 # Sitemap
 Sitemap: https://maipharm.com/sitemap.xml
-
-# Disallow admin and api routes
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
+Host: https://maipharm.com

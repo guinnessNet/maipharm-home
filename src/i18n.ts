@@ -11,6 +11,7 @@ i18n
         translation: {
           // 공통
           'site.name': '마이팜',
+          'site.htmlLang': 'ko',
           'site.description': 'AI 기반 스마트 약국 관리 시스템',
           'site.keywords': '약국 관리, AI 약국, 스마트 약국, 처방전 관리, 약국 자동화, 약국 POS, 약국 재고관리, 약국 매출관리, 약국 데이터분석, 약국 운영시스템',
           
@@ -45,6 +46,20 @@ i18n
           
           'home.news.title': '최신 소식',
           'home.news.subtitle': '마이팜의 새로운 소식을 확인하세요',
+          'home.news.more': '더보기',
+          'home.news.collapse': '접기',
+          'home.news.readArticle': '기사 보기',
+          'home.news.pressBadge': '언론보도',
+          'home.opensource.eyebrow': 'OPEN SOURCE',
+          'home.opensource.title': '오픈소스로 함께 만드는 약국 자동화',
+          'home.opensource.description': '약국 관리 프로그램이 대체조제 엑셀을 NDSD(심평원)에 자동 업로드하는 Electron 모듈을 오픈소스로 공개했습니다. GitHub에서 코드를 확인하거나 Windows 설치 파일을 바로 내려받아 사용해 보세요.',
+          'home.opensource.repo': 'GitHub 저장소 보기',
+          'home.opensource.download': 'Windows 설치 파일 다운로드',
+          'home.opensource.note': '최신 릴리스로 자동 연결됩니다. (Windows 64bit, .exe)',
+          'home.opensource.badgeOss': 'Open Source',
+          'home.opensource.badgeLang': 'TypeScript',
+          'home.opensource.badgeStack': 'Electron',
+          'footer.opensource': '오픈소스 (pharmsq-ndsd)',
           
           // 제품 설명
           'product.crm.name': '고객 관리 시스템 - 마이팜 CRM',
@@ -207,6 +222,12 @@ i18n
           'about.values.trust.description': '안정적이고 신뢰할 수 있는 서비스를 제공합니다',
 
           'about.history.title': '연혁',
+          'about.history.2025_press_dailypharm.title': '데일리팜 인터뷰 - "프로그램·조제장비 직접 개발"...소청과 약국 무한도전',
+          'about.history.2025_press_dailypharm.description': '경기 평택 소아청소년과 인근 약국이 자체 개발한 약국 프로그램과 분말·시럽 조제장비로 효율을 높인 사례가 데일리팜에 소개되었습니다.',
+          'about.history.2026_1.title': '인공지능 스타트업 달파와 서비스이관계약 체결',
+          'about.history.2026_1.description': '마이팜 AI 스마트 약국 서비스의 차세대 기술 고도화를 위해 AI 스타트업 달파(Dalpha)와 서비스이관계약을 체결했습니다.',
+          'about.history.2025_3.title': '중소벤처기업부 장관상 수상 - AI 스마트 복약지도 시스템',
+          'about.history.2025_3.description': 'AI 스마트 복약지도 시스템의 혁신성과 약국 현장 적용 성과를 인정받아 중소벤처기업부 장관상을 수상했습니다.',
           'about.history.2025_2.title': '산업재산권 등록 완료',
           'about.history.2025_2.description': '분말 약물 디스펜서 특허 등록',
           'about.history.2025_1.title': '네이버 스타트업지원 프로그램 선정',
@@ -609,6 +630,7 @@ i18n
         translation: {
           // Common
           'site.name': 'MaiPharm',
+          'site.htmlLang': 'en',
           'site.description': 'AI-based Smart Pharmacy Management System',
           'site.keywords': 'pharmacy management, AI pharmacy, smart pharmacy, prescription management, pharmacy automation, pharmacy POS, inventory management, sales management, data analysis, pharmacy operation system',
           
@@ -643,6 +665,20 @@ i18n
           
           'home.news.title': 'Latest News',
           'home.news.subtitle': 'Check out the latest news from MaiPharm',
+          'home.news.more': 'See more',
+          'home.news.collapse': 'Collapse',
+          'home.news.readArticle': 'Read article',
+          'home.news.pressBadge': 'Press',
+          'home.opensource.eyebrow': 'OPEN SOURCE',
+          'home.opensource.title': 'Building pharmacy automation in the open',
+          'home.opensource.description': "We've open-sourced an Electron module that auto-uploads alternative dispensing Excel files from pharmacy software to NDSD (HIRA). Browse the source on GitHub or download the Windows installer directly.",
+          'home.opensource.repo': 'View on GitHub',
+          'home.opensource.download': 'Download Windows installer',
+          'home.opensource.note': 'Always points to the latest release. (Windows 64-bit, .exe)',
+          'home.opensource.badgeOss': 'Open Source',
+          'home.opensource.badgeLang': 'TypeScript',
+          'home.opensource.badgeStack': 'Electron',
+          'footer.opensource': 'Open Source (pharmsq-ndsd)',
           
           // Product Description
           'product.crm.name': 'Customer Management System - MaiPharm CRM',
@@ -805,6 +841,12 @@ i18n
           'about.values.trust.description': 'Providing stable and trustworthy services',
 
           'about.history.title': 'History',
+          'about.history.2025_press_dailypharm.title': 'Daily Pharm Interview – "Self-developed Programs & Dispensing Equipment" Pediatric Pharmacy Challenge',
+          'about.history.2025_press_dailypharm.description': 'Daily Pharm featured a pharmacy in Pyeongtaek that boosted efficiency with self-developed pharmacy software and powder/syrup dispensing equipment.',
+          'about.history.2026_1.title': "Service Transfer Agreement Signed with AI Startup Dalpha",
+          'about.history.2026_1.description': 'Signed a service transfer agreement with AI startup Dalpha to advance the next generation of MaiPharm AI smart pharmacy service.',
+          'about.history.2025_3.title': "Minister's Award from the Ministry of SMEs and Startups - AI Smart Medication Guidance System",
+          'about.history.2025_3.description': "Received the Minister's Award from the Ministry of SMEs and Startups in recognition of the innovation and field-proven impact of the AI smart medication guidance system.",
           'about.history.2025.title': 'Selected for Startup Success Package by the Korea SMEs and Startups Agency',
           'about.history.2025.description': 'Started PharmSquare enhancement and additional hardware development',
           'about.history.2025_2.title': 'Patent Registration Completed',

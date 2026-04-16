@@ -11,40 +11,50 @@ const AboutPage = () => {
       <Helmet>
         <title>{t('about.title')} | {t('site.name')} - {t('site.description')}</title>
         <meta name="description" content={t('about.subtitle')} />
-        <meta name="keywords" content="마이팜 소개, 약국 관리 시스템, AI 약국, 스마트 약국 솔루션, 약국 운영 혁신" />
-        
-        {/* Open Graph / Facebook */}
+        <meta name="keywords" content="마이팜 소개, 약국 관리 시스템, AI 약국, 스마트 약국 솔루션, 약국 운영 혁신, 마이팜 회사소개, 약국 SaaS, 디지털 약국" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://maipharm.com/about" />
+        <link rel="alternate" hrefLang="ko" href="https://maipharm.com/about" />
+        <link rel="alternate" hrefLang="en" href="https://maipharm.com/about?lang=en" />
+        <link rel="alternate" hrefLang="x-default" href="https://maipharm.com/about" />
+
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maipharm.com/about" />
         <meta property="og:title" content={`${t('about.title')} | ${t('site.name')}`} />
         <meta property="og:description" content={t('about.subtitle')} />
         <meta property="og:image" content="https://maipharm.com/img/about-og.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content={t('site.name')} />
+        <meta property="og:locale" content="ko_KR" />
 
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://maipharm.com/about" />
-        <meta property="twitter:title" content={`${t('about.title')} | ${t('site.name')}`} />
-        <meta property="twitter:description" content={t('about.subtitle')} />
-        <meta property="twitter:image" content="https://maipharm.com/img/about-og.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://maipharm.com/about" />
+        <meta name="twitter:title" content={`${t('about.title')} | ${t('site.name')}`} />
+        <meta name="twitter:description" content={t('about.subtitle')} />
+        <meta name="twitter:image" content="https://maipharm.com/img/about-og.jpg" />
 
-        {/* 구조화된 데이터 */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            "name": `${t('about.title')} | ${t('site.name')}`,
-            "description": t('about.subtitle'),
-            "url": "https://maipharm.com/about",
-            "publisher": {
-              "@type": "Organization",
-              "name": t('site.name'),
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://maipharm.com/img/logo.png"
-              }
-            }
-          })}
-        </script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: `${t('about.title')} | ${t('site.name')}`,
+          description: t('about.subtitle'),
+          url: 'https://maipharm.com/about',
+          inLanguage: 'ko-KR',
+          publisher: {
+            '@type': 'Organization',
+            name: t('site.name'),
+            logo: { '@type': 'ImageObject', url: 'https://maipharm.com/img/logo.png' },
+          },
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: 'https://maipharm.com/' },
+            { '@type': 'ListItem', position: 2, name: t('about.title'), item: 'https://maipharm.com/about' },
+          ],
+        })}</script>
       </Helmet>
 
       <div className="container mx-auto px-4 py-16">

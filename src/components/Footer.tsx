@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Github, Mail, MapPin, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
@@ -55,8 +55,17 @@ const Footer = () => {
           </div>
         </div> */}
         
-        <div className="text-xs border-t border-primary-700 pt-4 mt-4">
+        <div className="border-t border-primary-700 pt-4 mt-4 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between text-xs">
           <p>{t('footer.copyright')}</p>
+          <a
+            href="https://github.com/guinnessNet/pharmsq-ndsd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-primary-200 hover:text-white transition-colors"
+          >
+            <Github size={14} />
+            {t('footer.opensource')}
+          </a>
         </div>
       </div>
     </footer>
