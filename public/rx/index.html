@@ -1,285 +1,1392 @@
 <!doctype html>
 <html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>약사 AI 커뮤니티 · 창립 1기 모집</title>
-<link rel="icon" type="image/png" href="./assets/favicon-mark.png">
-<!-- 카카오톡·SNS 공유 카드 (maipharm.com/rx/ 배포 기준 절대경로) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://maipharm.com/rx/">
-<meta property="og:title" content="약사 AI 커뮤니티 · 창립 1기 모집">
-<meta property="og:description" content="약사를 AI 소비자가 아니라 창작자로. 무료 · 격주 웨비나. 창립 1기 모집.">
-<meta property="og:image" content="https://maipharm.com/rx/assets/og-card.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="마이팜">
-<meta property="og:locale" content="ko_KR">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://maipharm.com/rx/assets/og-card.png">
-<link rel="canonical" href="https://maipharm.com/rx/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<style>
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:#dedbd3;color:#141414;font-family:"Pretendard","Apple SD Gothic Neo",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-  ::selection{background:#c2402f;color:#fff}
-  @keyframes stampin{0%{opacity:0;transform:rotate(-8deg) scale(1.9)}70%{opacity:1;transform:rotate(-8deg) scale(.92)}100%{opacity:1;transform:rotate(-8deg) scale(1)}}
-  @media (prefers-reduced-motion:reduce){[data-stamp]{animation:none!important}}
-  /* 접수 버튼 hover/active — Claude Design support.js 대체(순수 CSS) */
-  .cta-receipt{transition:transform .14s ease,box-shadow .14s ease}
-  .cta-receipt:hover{transform:translateY(-1px);box-shadow:0 3px 0 #8f2c1f,0 18px 30px -14px rgba(140,40,30,.8)}
-  .cta-receipt:active{transform:translateY(2px);box-shadow:0 0 0 #8f2c1f,0 8px 18px -12px rgba(140,40,30,.7)}
-  .cta-receipt:focus-visible{outline:3px solid #8f2c1f;outline-offset:3px}
-  /* 언론 보도 링크 */
-  .press-link{transition:background .12s ease}
-  .press-link:hover{background:var(--fill)}
-  .press-link:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
-  .press-link:last-child{border-bottom:0!important}
-</style>
-</head>
-<body>
-<div style="--ln:#1c1c1c;--ln2:#5a5a5a;--hd:#d6e5f3;--hdln:#2f5f92;--fill:#f2f0ea;--paper:#fbfaf6;--red:#c2402f;--ink:#141414;--ink2:#3f3f3f;--ink3:#6f6f6f;min-height:100vh;padding:clamp(1rem,4vw,2.6rem) clamp(.6rem,3vw,1.6rem) clamp(2rem,6vw,3.2rem);background:radial-gradient(120% 90% at 50% -10%,#e7e4dc,#d4d1c8)">
-<div style="max-width:44rem;margin:0 auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>약사 AI 커뮤니티 · 창립 1기 모집</title>
+    <link rel="icon" type="image/png" href="./assets/favicon-mark.png" />
+    <!-- 카카오톡·SNS 공유 카드 (maipharm.com/rx/ 배포 기준 절대경로) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maipharm.com/rx/" />
+    <meta property="og:title" content="약사 AI 커뮤니티 · 창립 1기 모집" />
+    <meta
+      property="og:description"
+      content="약사를 AI 소비자가 아니라 창작자로. 무료 · 격주 웨비나. 창립 1기 모집."
+    />
+    <meta
+      property="og:image"
+      content="https://maipharm.com/rx/assets/og-card.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="마이팜" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://maipharm.com/rx/assets/og-card.png"
+    />
+    <link rel="canonical" href="https://maipharm.com/rx/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        background: #dedbd3;
+        color: #141414;
+        font-family: "Pretendard", "Apple SD Gothic Neo", system-ui, sans-serif;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::selection {
+        background: #c2402f;
+        color: #fff;
+      }
+      @keyframes stampin {
+        0% {
+          opacity: 0;
+          transform: rotate(-8deg) scale(1.9);
+        }
+        70% {
+          opacity: 1;
+          transform: rotate(-8deg) scale(0.92);
+        }
+        100% {
+          opacity: 1;
+          transform: rotate(-8deg) scale(1);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-stamp] {
+          animation: none !important;
+        }
+      }
+      /* 접수 버튼 hover/active — Claude Design support.js 대체(순수 CSS) */
+      .cta-receipt {
+        transition:
+          transform 0.14s ease,
+          box-shadow 0.14s ease;
+      }
+      .cta-receipt:hover {
+        transform: translateY(-1px);
+        box-shadow:
+          0 3px 0 #8f2c1f,
+          0 18px 30px -14px rgba(140, 40, 30, 0.8);
+      }
+      .cta-receipt:active {
+        transform: translateY(2px);
+        box-shadow:
+          0 0 0 #8f2c1f,
+          0 8px 18px -12px rgba(140, 40, 30, 0.7);
+      }
+      .cta-receipt:focus-visible {
+        outline: 3px solid #8f2c1f;
+        outline-offset: 3px;
+      }
+      /* 언론 보도 링크 */
+      .press-link {
+        transition: background 0.12s ease;
+      }
+      .press-link:hover {
+        background: var(--fill);
+      }
+      .press-link:focus-visible {
+        outline: 2px solid var(--red);
+        outline-offset: -2px;
+      }
+      .press-link:last-child {
+        border-bottom: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        --ln: #1c1c1c;
+        --ln2: #5a5a5a;
+        --hd: #d6e5f3;
+        --hdln: #2f5f92;
+        --fill: #f2f0ea;
+        --paper: #fbfaf6;
+        --red: #c2402f;
+        --ink: #141414;
+        --ink2: #3f3f3f;
+        --ink3: #6f6f6f;
+        min-height: 100vh;
+        padding: clamp(1rem, 4vw, 2.6rem) clamp(0.6rem, 3vw, 1.6rem)
+          clamp(2rem, 6vw, 3.2rem);
+        background: radial-gradient(120% 90% at 50% -10%, #e7e4dc, #d4d1c8);
+      "
+    >
+      <div style="max-width: 44rem; margin: 0 auto">
+        <!-- ══ THE SHEET ══ -->
+        <div
+          style="
+            position: relative;
+            background: var(--paper);
+            border: 1.5px solid var(--ln);
+            box-shadow:
+              0 1px 0 rgba(0, 0, 0, 0.04),
+              0 22px 48px -26px rgba(30, 25, 15, 0.55);
+            padding: clamp(1rem, 3.5vw, 1.7rem);
+            font-size: clamp(12px, 3.2vw, 13.5px);
+          "
+        >
+          <!-- 레터헤드: 엠블럼 + 약사 전용 tag -->
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 0.3rem;
+            "
+          >
+            <img
+              src="./assets/brand-emblem.png"
+              alt="약사 AI 커뮤니티 엠블럼"
+              style="width: clamp(42px, 11vw, 56px); height: auto"
+            />
+            <span
+              style="
+                border: 1.2px solid var(--red);
+                color: var(--red);
+                font-weight: 700;
+                font-size: 0.85em;
+                letter-spacing: 0.05em;
+                padding: 0.2em 0.6em;
+              "
+              >[ 약사 전용 ]</span
+            >
+          </div>
 
-  <!-- ══ THE SHEET ══ -->
-  <div style="position:relative;background:var(--paper);border:1.5px solid var(--ln);box-shadow:0 1px 0 rgba(0,0,0,.04),0 22px 48px -26px rgba(30,25,15,.55);padding:clamp(1rem,3.5vw,1.7rem);font-size:clamp(12px,3.2vw,13.5px)">
+          <!-- Title -->
+          <div
+            style="
+              text-align: center;
+              font-family: &quot;Noto Serif KR&quot;, serif;
+              font-weight: 700;
+              font-size: clamp(1.9rem, 7.5vw, 2.7rem);
+              letter-spacing: 0.5em;
+              padding: 0.1em 0 0.35em 0.5em;
+              color: var(--ink);
+            "
+          >
+            처 방 전
+          </div>
 
-    <!-- 레터헤드: 엠블럼 + 약사 전용 tag -->
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem">
-      <img src="./assets/brand-emblem.png" alt="약사 AI 커뮤니티 엠블럼" style="width:clamp(42px,11vw,56px);height:auto">
-      <span style="border:1.2px solid var(--red);color:var(--red);font-weight:700;font-size:.85em;letter-spacing:.05em;padding:.2em .6em">[ 약사 전용 ]</span>
-    </div>
+          <!-- checkbox row -->
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              gap: 0.35rem 1.15rem;
+              border-top: 1.5px solid var(--ln);
+              border-bottom: 1px solid var(--ln2);
+              padding: 0.5rem 0.1rem;
+              font-size: 0.94em;
+              color: var(--ink2);
+            "
+          >
+            <span style="white-space: nowrap"
+              ><span style="color: var(--red); font-weight: 700">☑</span>
+              무료</span
+            >
+            <span style="white-space: nowrap">☐ 유료</span>
+            <span style="white-space: nowrap"
+              ><span style="color: var(--red); font-weight: 700">☑</span> 대면
+              교육</span
+            >
+            <span style="white-space: nowrap"
+              ><span style="color: var(--red); font-weight: 700">☑</span> 온라인
+              웨비나</span
+            >
+            <span
+              style="margin-left: auto; color: var(--ink3); white-space: nowrap"
+              >( 격주 진행 )</span
+            >
+          </div>
 
-    <!-- Title -->
-    <div style="text-align:center;font-family:'Noto Serif KR',serif;font-weight:700;font-size:clamp(1.9rem,7.5vw,2.7rem);letter-spacing:.5em;padding:.1em 0 .35em .5em;color:var(--ink)">처 방 전</div>
+          <!-- 교부번호 / 발행 -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              border-bottom: 1px solid var(--ln2);
+            "
+          >
+            <div
+              style="
+                padding: 0.5rem 0.1rem;
+                border-right: 1px dashed var(--ln2);
+              "
+            >
+              <span style="color: var(--ink3); letter-spacing: 0.02em"
+                >교부번호</span
+              >&nbsp;&nbsp;<b
+                style="
+                  font-variant-numeric: tabular-nums;
+                  letter-spacing: 0.04em;
+                "
+                >2026 - 제 001 호</b
+              >
+            </div>
+            <div style="padding: 0.5rem 0.1rem 0.5rem 0.7rem">
+              <span style="color: var(--ink3)">모집 구분</span>&nbsp;&nbsp;<b
+                >창립 1기</b
+              >
+              · 상시 모집
+            </div>
+          </div>
 
-    <!-- checkbox row -->
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:.35rem 1.15rem;border-top:1.5px solid var(--ln);border-bottom:1px solid var(--ln2);padding:.5rem .1rem;font-size:.94em;color:var(--ink2)">
-      <span style="white-space:nowrap"><span style="color:var(--red);font-weight:700">☑</span> 무료</span>
-      <span style="white-space:nowrap">☐ 유료</span>
-      <span style="white-space:nowrap"><span style="color:var(--red);font-weight:700">☑</span> 대면 교육</span>
-      <span style="white-space:nowrap"><span style="color:var(--red);font-weight:700">☑</span> 온라인 웨비나</span>
-      <span style="margin-left:auto;color:var(--ink3);white-space:nowrap">( 격주 진행 )</span>
-    </div>
+          <!-- 수신 / 발행기관 -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: auto 1fr;
+              border-bottom: 1px solid var(--ln2);
+            "
+          >
+            <div
+              style="
+                background: var(--fill);
+                border-right: 1px solid var(--ln2);
+                padding: 0.55rem 0.7rem;
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                color: var(--ink2);
+                white-space: nowrap;
+              "
+            >
+              복용<br />대상
+            </div>
+            <div style="padding: 0.55rem 0.7rem">
+              <div>
+                <span style="color: var(--ink3); font-size: 0.9em">대상</span
+                >&nbsp;&nbsp;<b>AI가 궁금한 전국의 약사</b>
+              </div>
+              <div style="margin-top: 0.25rem; color: var(--ink2)">
+                <span style="color: var(--ink3); font-size: 0.9em">비고</span
+                >&nbsp;&nbsp;컴퓨터가 어려워도 첫날 바로 씁니다
+              </div>
+            </div>
+          </div>
 
-    <!-- 교부번호 / 발행 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--ln2)">
-      <div style="padding:.5rem .1rem;border-right:1px dashed var(--ln2)"><span style="color:var(--ink3);letter-spacing:.02em">교부번호</span>&nbsp;&nbsp;<b style="font-variant-numeric:tabular-nums;letter-spacing:.04em">2026 - 제 001 호</b></div>
-      <div style="padding:.5rem .1rem .5rem .7rem"><span style="color:var(--ink3)">모집 구분</span>&nbsp;&nbsp;<b>창립 1기</b> · 상시 모집</div>
-    </div>
+          <!-- 발행 약사 -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: auto 1fr;
+              border-bottom: 1.5px solid var(--ln);
+            "
+          >
+            <div
+              style="
+                background: var(--fill);
+                border-right: 1px solid var(--ln2);
+                padding: 0.55rem 0.7rem;
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                color: var(--ink2);
+                white-space: nowrap;
+              "
+            >
+              발행<br />약사
+            </div>
+            <div
+              style="
+                padding: 0.55rem 0.7rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.15rem 1.1rem;
+                align-items: baseline;
+              "
+            >
+              <span
+                ><span style="color: var(--ink3); font-size: 0.9em">성명</span
+                >&nbsp;&nbsp;<b>강재현 약사</b></span
+              >
+              <span
+                ><span style="color: var(--ink3); font-size: 0.9em">면허</span
+                >&nbsp;&nbsp;약사 15년 · 약국 운영</span
+              >
+              <span style="color: var(--ink3); font-size: 0.9em"
+                >(서명 또는 날인)</span
+              >
+            </div>
+          </div>
 
-    <!-- 수신 / 발행기관 -->
-    <div style="display:grid;grid-template-columns:auto 1fr;border-bottom:1px solid var(--ln2)">
-      <div style="background:var(--fill);border-right:1px solid var(--ln2);padding:.55rem .7rem;display:flex;align-items:center;font-weight:700;color:var(--ink2);white-space:nowrap">복용<br>대상</div>
-      <div style="padding:.55rem .7rem">
-        <div><span style="color:var(--ink3);font-size:.9em">대상</span>&nbsp;&nbsp;<b>AI가 궁금한 전국의 약사</b></div>
-        <div style="margin-top:.25rem;color:var(--ink2)"><span style="color:var(--ink3);font-size:.9em">비고</span>&nbsp;&nbsp;컴퓨터가 어려워도 첫날 바로 씁니다</div>
-      </div>
-    </div>
+          <!-- 처방 요지 -->
+          <div
+            style="
+              padding: 0.6rem 0.2rem;
+              border-bottom: 1.5px solid var(--ln);
+              font-size: 0.96em;
+              color: var(--ink2);
+            "
+          >
+            <span style="color: var(--red); font-weight: 700">※</span> 이 처방의
+            목적: 약사를 AI <b style="color: var(--ink)">소비자</b>가 아니라
+            <b style="color: var(--red)">창작자</b>로. 팁을 받아쓰는 자리가
+            아니라, 스스로 도구를 만드는 약사가 됩니다.
+          </div>
 
-    <!-- 발행 약사 -->
-    <div style="display:grid;grid-template-columns:auto 1fr;border-bottom:1.5px solid var(--ln)">
-      <div style="background:var(--fill);border-right:1px solid var(--ln2);padding:.55rem .7rem;display:flex;align-items:center;font-weight:700;color:var(--ink2);white-space:nowrap">발행<br>약사</div>
-      <div style="padding:.55rem .7rem;display:flex;flex-wrap:wrap;gap:.15rem 1.1rem;align-items:baseline">
-        <span><span style="color:var(--ink3);font-size:.9em">성명</span>&nbsp;&nbsp;<b>강재현 약사</b></span>
-        <span><span style="color:var(--ink3);font-size:.9em">면허</span>&nbsp;&nbsp;약사 15년 · 약국 운영</span>
-        <span style="color:var(--ink3);font-size:.9em">(서명 또는 날인)</span>
-      </div>
-    </div>
+          <!-- 처방 의약품 표 -->
+          <table
+            style="width: 100%; border-collapse: collapse; table-layout: fixed"
+          >
+            <thead>
+              <tr style="background: var(--hd)">
+                <th
+                  style="
+                    border: 1px solid var(--hdln);
+                    padding: 0.45rem 0.3rem;
+                    font-weight: 700;
+                    color: #1c3d5f;
+                    width: 3.4rem;
+                  "
+                >
+                  단계
+                </th>
+                <th
+                  style="
+                    border: 1px solid var(--hdln);
+                    padding: 0.45rem 0.5rem;
+                    font-weight: 700;
+                    color: #1c3d5f;
+                    text-align: left;
+                  "
+                >
+                  처 방 의 약 품 (교육 과정)
+                </th>
+                <th
+                  style="
+                    border: 1px solid var(--hdln);
+                    padding: 0.45rem 0.2rem;
+                    font-weight: 700;
+                    color: #1c3d5f;
+                    width: 3.4rem;
+                  "
+                >
+                  난이도
+                </th>
+                <th
+                  style="
+                    border: 1px solid var(--hdln);
+                    padding: 0.45rem 0.3rem;
+                    font-weight: 700;
+                    color: #1c3d5f;
+                    width: 5.2rem;
+                  "
+                >
+                  용　법
+                </th>
+              </tr>
+            </thead>
+            <tbody style="font-size: 0.96em">
+              <tr>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.5rem 0.15rem;
+                    text-align: center;
+                  "
+                >
+                  <img
+                    src="./assets/icon-lv1.png"
+                    alt=""
+                    style="
+                      width: 38px;
+                      height: 38px;
+                      display: block;
+                      margin: 0 auto 0.12rem;
+                    "
+                  /><span
+                    style="
+                      font-family: &quot;Noto Serif KR&quot;, serif;
+                      font-weight: 700;
+                      color: var(--ink);
+                    "
+                    >01</span
+                  >
+                </td>
+                <td
+                  style="border: 1px solid var(--ln2); padding: 0.55rem 0.5rem"
+                >
+                  <b>AI 활용</b> — POP · 복약안내문 · 환자설명자료
+                  <div
+                    style="
+                      color: var(--ink3);
+                      font-size: 0.88em;
+                      margin-top: 0.12rem;
+                    "
+                  >
+                    말 몇 마디로 30초 완성
+                  </div>
+                </td>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.55rem 0.2rem;
+                    text-align: center;
+                    color: var(--red);
+                    letter-spacing: 0.06em;
+                  "
+                >
+                  ★☆☆
+                </td>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.55rem 0.3rem;
+                    text-align: center;
+                  "
+                >
+                  오늘 당장
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.5rem 0.15rem;
+                    text-align: center;
+                  "
+                >
+                  <img
+                    src="./assets/icon-lv2.png"
+                    alt=""
+                    style="
+                      width: 38px;
+                      height: 38px;
+                      display: block;
+                      margin: 0 auto 0.12rem;
+                    "
+                  /><span
+                    style="
+                      font-family: &quot;Noto Serif KR&quot;, serif;
+                      font-weight: 700;
+                      color: var(--ink);
+                    "
+                    >02</span
+                  >
+                </td>
+                <td
+                  style="border: 1px solid var(--ln2); padding: 0.55rem 0.5rem"
+                >
+                  <b>에이전트</b> — 환자 FAQ · 상담 스크립트 · 문서/엑셀
+                  <div
+                    style="
+                      color: var(--ink3);
+                      font-size: 0.88em;
+                      margin-top: 0.12rem;
+                    "
+                  >
+                    반복 업무를 AI에게 위임
+                  </div>
+                </td>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.55rem 0.2rem;
+                    text-align: center;
+                    color: var(--red);
+                    letter-spacing: 0.06em;
+                  "
+                >
+                  ★★☆
+                </td>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.55rem 0.3rem;
+                    text-align: center;
+                  "
+                >
+                  격주 실습
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.5rem 0.15rem;
+                    text-align: center;
+                  "
+                >
+                  <img
+                    src="./assets/icon-lv3.png"
+                    alt=""
+                    style="
+                      width: 38px;
+                      height: 38px;
+                      display: block;
+                      margin: 0 auto 0.12rem;
+                    "
+                  /><span
+                    style="
+                      font-family: &quot;Noto Serif KR&quot;, serif;
+                      font-weight: 700;
+                      color: var(--ink);
+                    "
+                    >03</span
+                  >
+                </td>
+                <td
+                  style="border: 1px solid var(--ln2); padding: 0.55rem 0.5rem"
+                >
+                  <b>바이브코딩</b> — 재고 · 유효기간 · 환자관리 도구
+                  <div
+                    style="
+                      color: var(--ink3);
+                      font-size: 0.88em;
+                      margin-top: 0.12rem;
+                    "
+                  >
+                    코드 몰라도 말로 직접 제작
+                  </div>
+                </td>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.55rem 0.2rem;
+                    text-align: center;
+                    color: var(--red);
+                    letter-spacing: 0.06em;
+                  "
+                >
+                  ★★★
+                </td>
+                <td
+                  style="
+                    border: 1px solid var(--ln2);
+                    padding: 0.55rem 0.3rem;
+                    text-align: center;
+                  "
+                >
+                  직접 만들기
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-    <!-- 처방 요지 -->
-    <div style="padding:.6rem .2rem;border-bottom:1.5px solid var(--ln);font-size:.96em;color:var(--ink2)">
-      <span style="color:var(--red);font-weight:700">※</span> 이 처방의 목적: 약사를 AI <b style="color:var(--ink)">소비자</b>가 아니라 <b style="color:var(--red)">창작자</b>로. 팁을 받아쓰는 자리가 아니라, 스스로 도구를 만드는 약사가 됩니다.
-    </div>
+          <!-- 참고사항 -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: auto 1fr;
+              border-left: 1px solid var(--ln2);
+              border-right: 1px solid var(--ln2);
+              border-bottom: 1px solid var(--ln2);
+            "
+          >
+            <div
+              style="
+                background: var(--fill);
+                border-right: 1px solid var(--ln2);
+                padding: 0.55rem 0.6rem;
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                color: var(--ink2);
+                white-space: nowrap;
+                font-size: 0.92em;
+              "
+            >
+              조제 시<br />참고사항
+            </div>
+            <div
+              style="
+                padding: 0.55rem 0.7rem;
+                color: var(--ink2);
+                font-size: 0.96em;
+              "
+            >
+              약사들의 AI 학습 수요는 빠르게 커지고 있습니다. 본 처방은 전국
+              약사를 대상으로 <b style="color: var(--red)">창립 1기</b>를
+              모집합니다.
+            </div>
+          </div>
 
-    <!-- 처방 의약품 표 -->
-    <table style="width:100%;border-collapse:collapse;table-layout:fixed">
-      <thead>
-        <tr style="background:var(--hd)">
-          <th style="border:1px solid var(--hdln);padding:.45rem .3rem;font-weight:700;color:#1c3d5f;width:3.4rem">단계</th>
-          <th style="border:1px solid var(--hdln);padding:.45rem .5rem;font-weight:700;color:#1c3d5f;text-align:left">처 방 의 약 품 (교육 과정)</th>
-          <th style="border:1px solid var(--hdln);padding:.45rem .2rem;font-weight:700;color:#1c3d5f;width:3.4rem">난이도</th>
-          <th style="border:1px solid var(--hdln);padding:.45rem .3rem;font-weight:700;color:#1c3d5f;width:5.2rem">용　법</th>
-        </tr>
-      </thead>
-      <tbody style="font-size:.96em">
-        <tr>
-          <td style="border:1px solid var(--ln2);padding:.5rem .15rem;text-align:center"><img src="./assets/icon-lv1.png" alt="" style="width:38px;height:38px;display:block;margin:0 auto .12rem"><span style="font-family:'Noto Serif KR',serif;font-weight:700;color:var(--ink)">01</span></td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .5rem">
-            <b>AI 활용</b> — POP · 복약안내문 · 환자설명자료
-            <div style="color:var(--ink3);font-size:.88em;margin-top:.12rem">말 몇 마디로 30초 완성</div>
-          </td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .2rem;text-align:center;color:var(--red);letter-spacing:.06em">★☆☆</td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .3rem;text-align:center">오늘 당장</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid var(--ln2);padding:.5rem .15rem;text-align:center"><img src="./assets/icon-lv2.png" alt="" style="width:38px;height:38px;display:block;margin:0 auto .12rem"><span style="font-family:'Noto Serif KR',serif;font-weight:700;color:var(--ink)">02</span></td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .5rem">
-            <b>에이전트</b> — 환자 FAQ · 상담 스크립트 · 문서/엑셀
-            <div style="color:var(--ink3);font-size:.88em;margin-top:.12rem">반복 업무를 AI에게 위임</div>
-          </td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .2rem;text-align:center;color:var(--red);letter-spacing:.06em">★★☆</td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .3rem;text-align:center">격주 실습</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid var(--ln2);padding:.5rem .15rem;text-align:center"><img src="./assets/icon-lv3.png" alt="" style="width:38px;height:38px;display:block;margin:0 auto .12rem"><span style="font-family:'Noto Serif KR',serif;font-weight:700;color:var(--ink)">03</span></td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .5rem">
-            <b>바이브코딩</b> — 재고 · 유효기간 · 환자관리 도구
-            <div style="color:var(--ink3);font-size:.88em;margin-top:.12rem">코드 몰라도 말로 직접 제작</div>
-          </td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .2rem;text-align:center;color:var(--red);letter-spacing:.06em">★★★</td>
-          <td style="border:1px solid var(--ln2);padding:.55rem .3rem;text-align:center">직접 만들기</td>
-        </tr>
-      </tbody>
-    </table>
+          <!-- 사용기간 -->
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.3rem 0.8rem;
+              align-items: center;
+              border-left: 1px solid var(--ln2);
+              border-right: 1px solid var(--ln2);
+              border-bottom: 1.5px solid var(--ln);
+              padding: 0.6rem 0.7rem;
+              background: var(--fill);
+            "
+          >
+            <b style="color: var(--ink2)">사용기간</b>
+            <span
+              >교부일로부터 (&nbsp;<b style="color: var(--red)">즉시</b>&nbsp;)
+              유효</span
+            >
+            <span
+              style="margin-left: auto; color: var(--ink3); font-size: 0.9em"
+              >＊등록은 아래에서 접수하십시오.</span
+            >
+          </div>
 
-    <!-- 참고사항 -->
-    <div style="display:grid;grid-template-columns:auto 1fr;border-left:1px solid var(--ln2);border-right:1px solid var(--ln2);border-bottom:1px solid var(--ln2)">
-      <div style="background:var(--fill);border-right:1px solid var(--ln2);padding:.55rem .6rem;display:flex;align-items:center;font-weight:700;color:var(--ink2);white-space:nowrap;font-size:.92em">조제 시<br>참고사항</div>
-      <div style="padding:.55rem .7rem;color:var(--ink2);font-size:.96em">약사들의 AI 학습 수요는 빠르게 커지고 있습니다. 본 처방은 전국 약사를 대상으로 <b style="color:var(--red)">창립 1기</b>를 모집합니다.</div>
-    </div>
+          <!-- 조제 내역 (강사 이력) -->
+          <div
+            style="
+              border-left: 1px solid var(--ln2);
+              border-right: 1px solid var(--ln2);
+              border-bottom: 1.5px solid var(--ln);
+            "
+          >
+            <div
+              style="
+                background: var(--hd);
+                border-bottom: 1px solid var(--hdln);
+                text-align: center;
+                font-weight: 700;
+                color: #1c3d5f;
+                padding: 0.4rem;
+                letter-spacing: 0.25em;
+              "
+            >
+              의 약 품 조 제 내 역
+            </div>
+            <div style="display: grid; grid-template-columns: auto 1fr">
+              <div
+                style="
+                  background: var(--fill);
+                  border-right: 1px solid var(--ln2);
+                  padding: 0.6rem 0.55rem;
+                  display: flex;
+                  align-items: center;
+                  writing-mode: horizontal-tb;
+                  font-weight: 700;
+                  color: var(--ink2);
+                  white-space: nowrap;
+                  font-size: 0.9em;
+                "
+              >
+                조제자<br />이력
+              </div>
+              <div style="padding: 0.6rem 0.75rem">
+                <div
+                  style="font-weight: 700; color: var(--ink); font-size: 1.02em"
+                >
+                  강재현 약사
+                  <span
+                    style="
+                      color: var(--ink3);
+                      font-weight: 500;
+                      font-size: 0.85em;
+                      letter-spacing: 0.1em;
+                    "
+                    >· PHARMACIST · BUILDER · DATA ANALYST</span
+                  >
+                </div>
+                <ul
+                  style="
+                    list-style: none;
+                    margin: 0.4rem 0 0;
+                    padding: 0;
+                    display: grid;
+                    gap: 0.28rem;
+                    color: var(--ink2);
+                  "
+                >
+                  <li style="display: flex; gap: 0.5rem">
+                    <span style="color: var(--red); flex: none">·</span
+                    ><span
+                      >마이팜 <b style="color: var(--ink)">공동대표</b> — 약국
+                      자동화 솔루션 개발</span
+                    >
+                  </li>
+                  <li style="display: flex; gap: 0.5rem">
+                    <span style="color: var(--red); flex: none">·</span
+                    ><span
+                      >피코이노베이션
+                      <b style="color: var(--ink)">플랫폼 개발 리드</b></span
+                    >
+                  </li>
+                  <li style="display: flex; gap: 0.5rem">
+                    <span style="color: var(--red); flex: none">·</span
+                    ><span
+                      >경기도약사학술대회
+                      <b style="color: var(--ink)">논문 금상</b> — 약학 전용
+                      AI(RAG) 직접 구축</span
+                    >
+                  </li>
+                  <li style="display: flex; gap: 0.5rem">
+                    <span style="color: var(--red); flex: none">·</span
+                    ><span
+                      ><b style="color: var(--ink)"
+                        >2025 중소벤처기업부 장관상</b
+                      >
+                      수상</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-    <!-- 사용기간 -->
-    <div style="display:flex;flex-wrap:wrap;gap:.3rem .8rem;align-items:center;border-left:1px solid var(--ln2);border-right:1px solid var(--ln2);border-bottom:1.5px solid var(--ln);padding:.6rem .7rem;background:var(--fill)">
-      <b style="color:var(--ink2)">사용기간</b>
-      <span>교부일로부터 (&nbsp;<b style="color:var(--red)">즉시</b>&nbsp;) 유효</span>
-      <span style="margin-left:auto;color:var(--ink3);font-size:.9em">＊등록은 아래에서 접수하십시오.</span>
-    </div>
+          <!-- 접수 도장 -->
+          <div
+            data-stamp
+            style="
+              position: absolute;
+              right: clamp(0.6rem, 3vw, 1.4rem);
+              bottom: clamp(0.6rem, 3vw, 1.2rem);
+              width: 6.4rem;
+              height: 6.4rem;
+              border: 3px double var(--red);
+              border-radius: 50%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              color: var(--red);
+              transform: rotate(-8deg);
+              opacity: 0.9;
+              pointer-events: none;
+              animation: stampin 0.55s cubic-bezier(0.2, 0.8, 0.3, 1.2) 0.35s
+                both;
+              box-shadow: inset 0 0 0 1px var(--red);
+            "
+          >
+            <span
+              style="
+                font-size: 0.66rem;
+                letter-spacing: 0.22em;
+                font-weight: 700;
+              "
+              >창 립 1 기</span
+            >
+            <span
+              style="
+                font-family: &quot;Noto Serif KR&quot;, serif;
+                font-weight: 700;
+                font-size: 1.5rem;
+                letter-spacing: 0.14em;
+                margin-top: 0.06rem;
+                line-height: 1;
+              "
+              >接受</span
+            >
+            <span
+              style="
+                font-size: 0.6rem;
+                letter-spacing: 0.1em;
+                margin-top: 0.1rem;
+              "
+              >2026 · 全國</span
+            >
+          </div>
+        </div>
 
-    <!-- 조제 내역 (강사 이력) -->
-    <div style="border-left:1px solid var(--ln2);border-right:1px solid var(--ln2);border-bottom:1.5px solid var(--ln)">
-      <div style="background:var(--hd);border-bottom:1px solid var(--hdln);text-align:center;font-weight:700;color:#1c3d5f;padding:.4rem;letter-spacing:.25em">의 약 품 조 제 내 역</div>
-      <div style="display:grid;grid-template-columns:auto 1fr">
-        <div style="background:var(--fill);border-right:1px solid var(--ln2);padding:.6rem .55rem;display:flex;align-items:center;writing-mode:horizontal-tb;font-weight:700;color:var(--ink2);white-space:nowrap;font-size:.9em">조제자<br>이력</div>
-        <div style="padding:.6rem .75rem">
-          <div style="font-weight:700;color:var(--ink);font-size:1.02em">강재현 약사 <span style="color:var(--ink3);font-weight:500;font-size:.85em;letter-spacing:.1em">· PHARMACIST · BUILDER</span></div>
-          <ul style="list-style:none;margin:.4rem 0 0;padding:0;display:grid;gap:.28rem;color:var(--ink2)">
-            <li style="display:flex;gap:.5rem"><span style="color:var(--red);flex:none">·</span><span>마이팜 <b style="color:var(--ink)">공동대표</b> — 약국 자동화 솔루션 개발</span></li>
-            <li style="display:flex;gap:.5rem"><span style="color:var(--red);flex:none">·</span><span>피코 플랫폼 <b style="color:var(--ink)">마케팅팀 개발 리드</b></span></li>
-            <li style="display:flex;gap:.5rem"><span style="color:var(--red);flex:none">·</span><span>경기도약사학술대회 <b style="color:var(--ink)">논문 금상</b> — 약학 전용 AI(RAG) 직접 구축</span></li>
-            <li style="display:flex;gap:.5rem"><span style="color:var(--red);flex:none">·</span><span><b style="color:var(--ink)">2025 중소벤처기업부 장관상</b> 수상</span></li>
-          </ul>
+        <!-- ══ 운영 안내 (복용 안내) ══ -->
+        <div
+          style="
+            margin-top: clamp(1.3rem, 4vw, 1.9rem);
+            background: var(--paper);
+            border: 1.5px solid var(--ln);
+            box-shadow: 0 22px 48px -30px rgba(30, 25, 15, 0.45);
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              background: var(--hd);
+              border-bottom: 1px solid var(--hdln);
+              text-align: center;
+              font-weight: 700;
+              color: #1c3d5f;
+              padding: 0.45rem;
+              letter-spacing: 0.22em;
+              font-size: clamp(12px, 3.2vw, 13.5px);
+            "
+          >
+            복 용 안 내 · 이 렇 게 운 영 합 니 다
+          </div>
+          <div
+            style="
+              padding: clamp(0.9rem, 3.5vw, 1.3rem);
+              display: grid;
+              gap: 0.85rem;
+              font-size: 0.98em;
+            "
+          >
+            <div>
+              <b style="color: var(--red)">격주 무료 웨비나</b>
+              <span style="color: var(--ink2)"
+                >— 강의 일정을 미리 공지합니다. 순서대로 다 들을 필요 없이,
+                <b style="color: var(--ink)"
+                  >관심 있는 주제만 골라 들으세요.</b
+                ></span
+              >
+            </div>
+            <div>
+              <b style="color: var(--red)">주 3~4회 AI 뉴스 브리핑</b>
+              <span style="color: var(--ink2)"
+                >— 약사가 알아야 할 AI 소식을 쉽게 요약해 카톡으로.</span
+              >
+              <div
+                style="
+                  color: var(--ink3);
+                  font-size: 0.9em;
+                  margin-top: 0.12rem;
+                "
+              >
+                웨비나에 못 나와도, 매주 최신 흐름은 놓치지 않습니다.
+              </div>
+            </div>
+            <div>
+              <b style="color: var(--red)">단체 카카오톡방</b>
+              <span style="color: var(--ink2)"
+                >— 프롬프트·사례·질문을 함께 나눕니다.</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ 왜 필요한가 (경고 라벨 / PAS) ══ -->
+        <div
+          style="
+            margin-top: clamp(1.3rem, 4vw, 1.9rem);
+            border: 2px solid var(--red);
+            background: var(--paper);
+            box-shadow: 0 22px 48px -30px rgba(140, 40, 30, 0.5);
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              background: var(--red);
+              color: #fff;
+              padding: 0.45rem 0.9rem;
+              font-weight: 700;
+              letter-spacing: 0.16em;
+              font-size: 0.82em;
+            "
+          >
+            ⚠ 경 고 · 복 용 전 반 드 시 확 인
+          </div>
+          <div style="padding: clamp(1rem, 4vw, 1.6rem)">
+            <div
+              style="
+                font-family: &quot;Noto Serif KR&quot;, serif;
+                font-weight: 700;
+                font-size: clamp(1.15rem, 4.8vw, 1.6rem);
+                line-height: 1.34;
+                color: var(--ink);
+              "
+            >
+              AI는 약사를 대체하지 않습니다.<br />AI를 쓰는 약사가,
+              <span style="color: var(--red)">안 쓰는 약사를 대체</span>합니다.
+            </div>
+            <div
+              style="
+                margin-top: 0.9rem;
+                color: var(--ink2);
+                font-size: 0.98em;
+                line-height: 1.65;
+                display: grid;
+                gap: 0.55rem;
+              "
+            >
+              <p style="margin: 0">
+                환자는 이미 챗GPT로 ‘예습’하고 약국에 옵니다.
+                재고·POP·복약안내·문의 응대에 하루가 다 가고, 정작 환자와 마주
+                앉을 시간은 줄어듭니다.
+              </p>
+              <p style="margin: 0">
+                AI는 매달 빨라지는데 “어디서부터 시작하지?”에서 멈춰 있으면,
+                격차는 해마다 벌어집니다.
+              </p>
+              <p style="margin: 0; color: var(--ink); font-weight: 600">
+                그래서 <b style="color: var(--red)">‘창작자’</b>입니다. 남이
+                만든 AI를 구경하는 게 아니라, 내 약국에 맞는 도구를 직접 만드는
+                약사 — 오늘 당장 쓰는 것부터, 낙오 없이.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ 접수 버튼 (처방 조제 = 등록) ══ -->
+        <div style="margin-top: clamp(1.4rem, 4vw, 2rem); text-align: center">
+          <a
+            class="cta-receipt"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdnrW-Mqogz8w3iOhiRNyLs7vZPgFLPflMonTCuzHMHuMnqxA/viewform"
+            target="_blank"
+            rel="noopener"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 0.6rem;
+              background: var(--red);
+              color: #fff;
+              text-decoration: none;
+              font-weight: 700;
+              font-size: 1.05rem;
+              padding: 1rem 1.9rem;
+              border: 1.5px solid #8f2c1f;
+              box-shadow:
+                0 2px 0 #8f2c1f,
+                0 14px 26px -14px rgba(140, 40, 30, 0.7);
+              letter-spacing: 0.02em;
+            "
+            >이 처방, 접수하기 &nbsp;—&nbsp; 창립 1기 등록 <span>→</span></a
+          >
+          <p
+            style="font-size: 0.82rem; color: var(--ink3); margin: 0.85rem 0 0"
+          >
+            무료 · 30초면 끝납니다 · 등록하면 격주 웨비나와 프롬프트팩을 가장
+            먼저 받습니다
+          </p>
+        </div>
+
+        <!-- ══ 기록 헤드 ══ -->
+        <div style="text-align: center; margin-top: clamp(2rem, 6vw, 3rem)">
+          <div
+            style="
+              font-weight: 700;
+              letter-spacing: 0.24em;
+              font-size: 0.74rem;
+              color: #c2402f;
+            "
+          >
+            RECORD · 기록
+          </div>
+          <div
+            style="
+              font-family: &quot;Noto Serif KR&quot;, serif;
+              font-size: clamp(1.15rem, 4.6vw, 1.5rem);
+              font-weight: 700;
+              margin-top: 0.35rem;
+              color: #141414;
+            "
+          >
+            이미 현장에서 하고 있습니다
+          </div>
+        </div>
+
+        <!-- ══ 첨부① 강의 실황 ══ -->
+        <div
+          style="
+            margin-top: clamp(1.1rem, 3vw, 1.5rem);
+            background: var(--paper);
+            border: 1.5px solid var(--ln);
+            box-shadow: 0 22px 48px -30px rgba(30, 25, 15, 0.45);
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              background: var(--hd);
+              border-bottom: 1px solid var(--hdln);
+              text-align: center;
+              font-weight: 700;
+              color: #1c3d5f;
+              padding: 0.45rem;
+              letter-spacing: 0.22em;
+              font-size: clamp(12px, 3.2vw, 13.5px);
+            "
+          >
+            첨 부 ① · 강 의 실 황
+          </div>
+          <div
+            style="
+              padding: clamp(0.7rem, 3vw, 1.1rem);
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 0.6rem;
+            "
+          >
+            <figure style="margin: 0">
+              <img
+                src="./assets/lecture-main.jpg"
+                alt="제21회 경기약사학술대회에서 강재현 약사가 AI 활용을 강연하는 모습"
+                loading="lazy"
+                style="
+                  width: 100%;
+                  aspect-ratio: 4/3;
+                  object-fit: cover;
+                  border: 1px solid var(--ln2);
+                  display: block;
+                "
+              />
+              <figcaption
+                style="
+                  font-size: 0.8em;
+                  color: var(--ink3);
+                  margin-top: 0.35rem;
+                  line-height: 1.4;
+                "
+              >
+                제21회 경기약사학술대회 강연 · KINTEX
+              </figcaption>
+            </figure>
+            <figure style="margin: 0">
+              <img
+                src="./assets/demo-vibecoding.jpg"
+                alt="청중 앞에서 직접 만든 복약안내 도구를 시연하는 바이브코딩 강의 장면"
+                loading="lazy"
+                style="
+                  width: 100%;
+                  aspect-ratio: 4/3;
+                  object-fit: cover;
+                  border: 1px solid var(--ln2);
+                  display: block;
+                "
+              />
+              <figcaption
+                style="
+                  font-size: 0.8em;
+                  color: var(--ink3);
+                  margin-top: 0.35rem;
+                  line-height: 1.4;
+                "
+              >
+                바이브코딩 라이브 시연 — 복약안내 도구 직접 제작
+              </figcaption>
+            </figure>
+            <figure style="margin: 0">
+              <img
+                src="./assets/award.jpg"
+                alt="경기약사학술대회 논문·홍보영상 시상식에서 강재현 약사가 수상하는 모습"
+                loading="lazy"
+                style="
+                  width: 100%;
+                  aspect-ratio: 4/3;
+                  object-fit: cover;
+                  object-position: center 72%;
+                  border: 1px solid var(--ln2);
+                  display: block;
+                "
+              />
+              <figcaption
+                style="
+                  font-size: 0.8em;
+                  color: var(--ink3);
+                  margin-top: 0.35rem;
+                  line-height: 1.4;
+                "
+              >
+                논문 시상식 (경기약사학술대회)
+              </figcaption>
+            </figure>
+            <figure style="margin: 0">
+              <img
+                src="./assets/panel.jpg"
+                alt="학술대회 발표 및 패널 장면"
+                loading="lazy"
+                style="
+                  width: 100%;
+                  aspect-ratio: 4/3;
+                  object-fit: cover;
+                  object-position: center 55%;
+                  border: 1px solid var(--ln2);
+                  display: block;
+                "
+              />
+              <figcaption
+                style="
+                  font-size: 0.8em;
+                  color: var(--ink3);
+                  margin-top: 0.35rem;
+                  line-height: 1.4;
+                "
+              >
+                심포지엄 패널 발표
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- ══ 첨부② 언론 보도 ══ -->
+        <div
+          style="
+            margin-top: 1rem;
+            background: var(--paper);
+            border: 1.5px solid var(--ln);
+            box-shadow: 0 22px 48px -30px rgba(30, 25, 15, 0.45);
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              background: var(--hd);
+              border-bottom: 1px solid var(--hdln);
+              text-align: center;
+              font-weight: 700;
+              color: #1c3d5f;
+              padding: 0.45rem;
+              letter-spacing: 0.22em;
+              font-size: clamp(12px, 3.2vw, 13.5px);
+            "
+          >
+            첨 부 ② · 언 론 보 도
+          </div>
+          <a
+            class="press-link"
+            href="https://www.dailypharm.com/user/news/338691"
+            target="_blank"
+            rel="noopener"
+            style="
+              display: block;
+              border-bottom: 1px solid var(--ln2);
+              padding: 0.75rem 0.9rem;
+              text-decoration: none;
+              color: inherit;
+            "
+          >
+            <div
+              style="
+                font-weight: 700;
+                color: var(--ink);
+                font-size: 0.98em;
+                line-height: 1.4;
+              "
+            >
+              약국으로 들어온 AI…재고관리·처방해석·복약지도 ‘일당백’
+            </div>
+            <div
+              style="font-size: 0.82em; color: var(--red); margin-top: 0.2rem"
+            >
+              데일리팜 · 2026.06.02 ↗
+            </div>
+          </a>
+          <a
+            class="press-link"
+            href="https://www.dailypharm.com/user/news/338315"
+            target="_blank"
+            rel="noopener"
+            style="
+              display: block;
+              border-bottom: 1px solid var(--ln2);
+              padding: 0.75rem 0.9rem;
+              text-decoration: none;
+              color: inherit;
+            "
+          >
+            <div
+              style="
+                font-weight: 700;
+                color: var(--ink);
+                font-size: 0.98em;
+                line-height: 1.4;
+              "
+            >
+              챗-GPT로 예습하고 온 환자들…“약사 역량을 증강하라”
+            </div>
+            <div
+              style="font-size: 0.82em; color: var(--red); margin-top: 0.2rem"
+            >
+              데일리팜 · 2026.05.11 ↗
+            </div>
+          </a>
+          <a
+            class="press-link"
+            href="https://www.dailypharm.com/user/news/337671"
+            target="_blank"
+            rel="noopener"
+            style="
+              display: block;
+              border-bottom: 1px solid var(--ln2);
+              padding: 0.75rem 0.9rem;
+              text-decoration: none;
+              color: inherit;
+            "
+          >
+            <div
+              style="
+                font-weight: 700;
+                color: var(--ink);
+                font-size: 0.98em;
+                line-height: 1.4;
+              "
+            >
+              대체조제 통보 더 쉽게…오픈소스로 프로그램 만든 약사
+            </div>
+            <div
+              style="font-size: 0.82em; color: var(--red); margin-top: 0.2rem"
+            >
+              데일리팜 · 2026.04.20 ↗
+            </div>
+          </a>
+          <a
+            class="press-link"
+            href="https://www.dailypharm.com/user/news/782"
+            target="_blank"
+            rel="noopener"
+            style="
+              display: block;
+              border-bottom: 1px solid var(--ln2);
+              padding: 0.75rem 0.9rem;
+              text-decoration: none;
+              color: inherit;
+            "
+          >
+            <div
+              style="
+                font-weight: 700;
+                color: var(--ink);
+                font-size: 0.98em;
+                line-height: 1.4;
+              "
+            >
+              “프로그램·조제장비 직접 개발”…소청과 약국 무한도전
+            </div>
+            <div
+              style="font-size: 0.82em; color: var(--red); margin-top: 0.2rem"
+            >
+              데일리팜 · 2025.10.31 ↗
+            </div>
+          </a>
+        </div>
+
+        <!-- ══ 왜 무료인가 (신뢰 클로저) ══ -->
+        <div
+          style="
+            margin-top: clamp(1.6rem, 4vw, 2.2rem);
+            background: var(--paper);
+            border: 1.5px solid var(--ln);
+            box-shadow: 0 22px 48px -30px rgba(30, 25, 15, 0.45);
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              background: var(--hd);
+              border-bottom: 1px solid var(--hdln);
+              text-align: center;
+              font-weight: 700;
+              color: #1c3d5f;
+              padding: 0.45rem;
+              letter-spacing: 0.22em;
+              font-size: clamp(12px, 3.2vw, 13.5px);
+            "
+          >
+            왜 무 료 인 가 · 솔 직 하 게
+          </div>
+          <div
+            style="
+              padding: clamp(1rem, 4vw, 1.5rem);
+              color: var(--ink2);
+              line-height: 1.72;
+              display: grid;
+              gap: 0.7rem;
+              font-size: 0.98em;
+            "
+          >
+            <p style="margin: 0">
+              “공짜로 모아서 나중에 뭘 팔려는 거 아니냐” — 당연한 의심입니다.
+              그래서 먼저 밝힙니다.
+            </p>
+            <p style="margin: 0">
+              저는 약사이자
+              <b style="color: var(--ink)">마이팜 공동대표</b>이고,
+              <b style="color: var(--ink)">피코이노베이션</b>에서 개발을 합니다.
+              이 커뮤니티는 <b style="color: var(--red)">피코의 후원</b>으로
+              운영되고, 저는 그 후원으로 먹고삽니다. 숨길 이유가 없어요.
+            </p>
+            <p style="margin: 0">
+              <b style="color: var(--ink)"
+                >‘약사가 스스로 AI 도구를 만드는 사람이 되면, 이 판이
+                바뀐다.’</b
+              >
+              이건
+              <b style="color: var(--red)">마이팜과 피코가 함께 믿는 생각</b
+              >입니다. 약국이 AI를 못 쓰는 건 약사가 부족해서가 아니라 닫힌 구조
+              때문이고, 그 구조를 여는 건 결국 약사 자신이니까요. 그래서 두
+              회사가 이 교육을 무료로 엽니다.
+            </p>
+            <p style="margin: 0">
+              여러분께 받는 건 돈이 아니라,
+              <b style="color: var(--ink)">배운 걸 약국에서 써보고 나누는 것</b>
+              하나입니다. 교육은 특정 제품 강매 없이 중립으로 갑니다.
+            </p>
+            <p
+              style="
+                margin: 0.3rem 0 0;
+                text-align: right;
+                font-family: &quot;Noto Serif KR&quot;, serif;
+                color: var(--ink);
+                font-weight: 600;
+              "
+            >
+              — 강재현 약사
+            </p>
+          </div>
+        </div>
+
+        <!-- ══ 반복 CTA ══ -->
+        <div style="margin-top: clamp(1.4rem, 4vw, 1.9rem); text-align: center">
+          <a
+            class="cta-receipt"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdnrW-Mqogz8w3iOhiRNyLs7vZPgFLPflMonTCuzHMHuMnqxA/viewform"
+            target="_blank"
+            rel="noopener"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 0.6rem;
+              background: var(--red);
+              color: #fff;
+              text-decoration: none;
+              font-weight: 700;
+              font-size: 1.05rem;
+              padding: 1rem 1.9rem;
+              border: 1.5px solid #8f2c1f;
+              box-shadow:
+                0 2px 0 #8f2c1f,
+                0 14px 26px -14px rgba(140, 40, 30, 0.7);
+              letter-spacing: 0.02em;
+            "
+            >이 처방, 접수하기 &nbsp;—&nbsp; 창립 1기 등록 <span>→</span></a
+          >
+        </div>
+
+        <!-- ══ 후원 각주 ══ -->
+        <div
+          style="
+            margin-top: clamp(1.6rem, 4vw, 2.2rem);
+            border-top: 1px dashed #a9a69d;
+            padding-top: 1.1rem;
+            font-size: 0.8rem;
+            color: #6a675f;
+            line-height: 1.6;
+            max-width: 40rem;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          <div style="font-weight: 700; color: #4a4740; letter-spacing: 0.02em">
+            후원 · 피코이노베이션 (Pico Innovation)
+          </div>
+          <p style="margin: 0.45rem 0 0">
+            등록 시 받는 정보는 커뮤니티 운영과 웨비나 안내에만 사용됩니다.
+          </p>
         </div>
       </div>
     </div>
-
-    <!-- 접수 도장 -->
-    <div data-stamp style="position:absolute;right:clamp(.6rem,3vw,1.4rem);bottom:clamp(.6rem,3vw,1.2rem);width:6.4rem;height:6.4rem;border:3px double var(--red);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--red);transform:rotate(-8deg);opacity:.9;pointer-events:none;animation:stampin .55s cubic-bezier(.2,.8,.3,1.2) .35s both;box-shadow:inset 0 0 0 1px var(--red)">
-      <span style="font-size:.66rem;letter-spacing:.22em;font-weight:700">창 립 1 기</span>
-      <span style="font-family:'Noto Serif KR',serif;font-weight:700;font-size:1.5rem;letter-spacing:.14em;margin-top:.06rem;line-height:1">接受</span>
-      <span style="font-size:.6rem;letter-spacing:.1em;margin-top:.1rem">2026 · 全國</span>
-    </div>
-
-  </div>
-
-  <!-- ══ 운영 안내 (복용 안내) ══ -->
-  <div style="margin-top:clamp(1.3rem,4vw,1.9rem);background:var(--paper);border:1.5px solid var(--ln);box-shadow:0 22px 48px -30px rgba(30,25,15,.45);overflow:hidden">
-    <div style="background:var(--hd);border-bottom:1px solid var(--hdln);text-align:center;font-weight:700;color:#1c3d5f;padding:.45rem;letter-spacing:.22em;font-size:clamp(12px,3.2vw,13.5px)">복 용 안 내 · 이 렇 게 운 영 합 니 다</div>
-    <div style="padding:clamp(.9rem,3.5vw,1.3rem);display:grid;gap:.85rem;font-size:.98em">
-      <div><b style="color:var(--red)">격주 무료 웨비나</b> <span style="color:var(--ink2)">— 강의 일정을 미리 공지합니다. 순서대로 다 들을 필요 없이, <b style="color:var(--ink)">관심 있는 주제만 골라 들으세요.</b></span></div>
-      <div><b style="color:var(--red)">주 3~4회 AI 뉴스 브리핑</b> <span style="color:var(--ink2)">— 약사가 알아야 할 AI 소식을 쉽게 요약해 카톡으로.</span>
-        <div style="color:var(--ink3);font-size:.9em;margin-top:.12rem">웨비나에 못 나와도, 매주 최신 흐름은 놓치지 않습니다.</div></div>
-      <div><b style="color:var(--red)">단체 카카오톡방</b> <span style="color:var(--ink2)">— 프롬프트·사례·질문을 함께 나눕니다.</span></div>
-    </div>
-  </div>
-
-  <!-- ══ 왜 필요한가 (경고 라벨 / PAS) ══ -->
-  <div style="margin-top:clamp(1.3rem,4vw,1.9rem);border:2px solid var(--red);background:var(--paper);box-shadow:0 22px 48px -30px rgba(140,40,30,.5);overflow:hidden">
-    <div style="background:var(--red);color:#fff;padding:.45rem .9rem;font-weight:700;letter-spacing:.16em;font-size:.82em">⚠ 경 고 · 복 용 전 반 드 시 확 인</div>
-    <div style="padding:clamp(1rem,4vw,1.6rem)">
-      <div style="font-family:'Noto Serif KR',serif;font-weight:700;font-size:clamp(1.15rem,4.8vw,1.6rem);line-height:1.34;color:var(--ink)">AI는 약사를 대체하지 않습니다.<br>AI를 쓰는 약사가, <span style="color:var(--red)">안 쓰는 약사를 대체</span>합니다.</div>
-      <div style="margin-top:.9rem;color:var(--ink2);font-size:.98em;line-height:1.65;display:grid;gap:.55rem">
-        <p style="margin:0">환자는 이미 챗GPT로 ‘예습’하고 약국에 옵니다. 재고·POP·복약안내·문의 응대에 하루가 다 가고, 정작 환자와 마주 앉을 시간은 줄어듭니다.</p>
-        <p style="margin:0">AI는 매달 빨라지는데 “어디서부터 시작하지?”에서 멈춰 있으면, 격차는 해마다 벌어집니다.</p>
-        <p style="margin:0;color:var(--ink);font-weight:600">그래서 <b style="color:var(--red)">‘창작자’</b>입니다. 남이 만든 AI를 구경하는 게 아니라, 내 약국에 맞는 도구를 직접 만드는 약사 — 오늘 당장 쓰는 것부터, 낙오 없이.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ 접수 버튼 (처방 조제 = 등록) ══ -->
-  <div style="margin-top:clamp(1.4rem,4vw,2rem);text-align:center">
-    <a class="cta-receipt" href="https://docs.google.com/forms/d/e/1FAIpQLSdnrW-Mqogz8w3iOhiRNyLs7vZPgFLPflMonTCuzHMHuMnqxA/viewform" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:1rem 1.9rem;border:1.5px solid #8f2c1f;box-shadow:0 2px 0 #8f2c1f,0 14px 26px -14px rgba(140,40,30,.7);letter-spacing:.02em">이 처방, 접수하기 &nbsp;—&nbsp; 창립 1기 등록 <span>→</span></a>
-    <p style="font-size:.82rem;color:var(--ink3);margin:.85rem 0 0">무료 · 30초면 끝납니다 · 등록하면 격주 웨비나와 프롬프트팩을 가장 먼저 받습니다</p>
-  </div>
-
-  <!-- ══ 기록 헤드 ══ -->
-  <div style="text-align:center;margin-top:clamp(2rem,6vw,3rem)">
-    <div style="font-weight:700;letter-spacing:.24em;font-size:.74rem;color:#c2402f">RECORD · 기록</div>
-    <div style="font-family:'Noto Serif KR',serif;font-size:clamp(1.15rem,4.6vw,1.5rem);font-weight:700;margin-top:.35rem;color:#141414">이미 현장에서 하고 있습니다</div>
-  </div>
-
-  <!-- ══ 첨부① 강의 실황 ══ -->
-  <div style="margin-top:clamp(1.1rem,3vw,1.5rem);background:var(--paper);border:1.5px solid var(--ln);box-shadow:0 22px 48px -30px rgba(30,25,15,.45);overflow:hidden">
-    <div style="background:var(--hd);border-bottom:1px solid var(--hdln);text-align:center;font-weight:700;color:#1c3d5f;padding:.45rem;letter-spacing:.22em;font-size:clamp(12px,3.2vw,13.5px)">첨 부 ① · 강 의 실 황</div>
-    <div style="padding:clamp(.7rem,3vw,1.1rem);display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem">
-      <figure style="margin:0">
-        <img src="./assets/lecture-main.jpg" alt="제21회 경기약사학술대회에서 강재현 약사가 AI 활용을 강연하는 모습" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--ln2);display:block">
-        <figcaption style="font-size:.8em;color:var(--ink3);margin-top:.35rem;line-height:1.4">제21회 경기약사학술대회 강연 · KINTEX</figcaption>
-      </figure>
-      <figure style="margin:0">
-        <img src="./assets/demo-vibecoding.jpg" alt="청중 앞에서 직접 만든 복약안내 도구를 시연하는 바이브코딩 강의 장면" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--ln2);display:block">
-        <figcaption style="font-size:.8em;color:var(--ink3);margin-top:.35rem;line-height:1.4">바이브코딩 라이브 시연 — 복약안내 도구 직접 제작</figcaption>
-      </figure>
-      <figure style="margin:0">
-        <img src="./assets/award.jpg" alt="경기약사학술대회 논문·홍보영상 시상식에서 강재현 약사가 수상하는 모습" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 72%;border:1px solid var(--ln2);display:block">
-        <figcaption style="font-size:.8em;color:var(--ink3);margin-top:.35rem;line-height:1.4">논문·홍보영상 시상식 (경기약사학술대회)</figcaption>
-      </figure>
-      <figure style="margin:0">
-        <img src="./assets/panel.jpg" alt="학술대회 발표 및 패널 장면" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 55%;border:1px solid var(--ln2);display:block">
-        <figcaption style="font-size:.8em;color:var(--ink3);margin-top:.35rem;line-height:1.4">학술대회 발표</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- ══ 첨부② 언론 보도 ══ -->
-  <div style="margin-top:1rem;background:var(--paper);border:1.5px solid var(--ln);box-shadow:0 22px 48px -30px rgba(30,25,15,.45);overflow:hidden">
-    <div style="background:var(--hd);border-bottom:1px solid var(--hdln);text-align:center;font-weight:700;color:#1c3d5f;padding:.45rem;letter-spacing:.22em;font-size:clamp(12px,3.2vw,13.5px)">첨 부 ② · 언 론 보 도</div>
-    <a class="press-link" href="https://www.dailypharm.com/user/news/338691" target="_blank" rel="noopener" style="display:block;border-bottom:1px solid var(--ln2);padding:.75rem .9rem;text-decoration:none;color:inherit">
-      <div style="font-weight:700;color:var(--ink);font-size:.98em;line-height:1.4">약국으로 들어온 AI…재고관리·처방해석·복약지도 ‘일당백’</div>
-      <div style="font-size:.82em;color:var(--red);margin-top:.2rem">데일리팜 · 2026.06.02 ↗</div>
-    </a>
-    <a class="press-link" href="https://www.dailypharm.com/user/news/338315" target="_blank" rel="noopener" style="display:block;border-bottom:1px solid var(--ln2);padding:.75rem .9rem;text-decoration:none;color:inherit">
-      <div style="font-weight:700;color:var(--ink);font-size:.98em;line-height:1.4">챗-GPT로 예습하고 온 환자들…“약사 역량을 증강하라”</div>
-      <div style="font-size:.82em;color:var(--red);margin-top:.2rem">데일리팜 · 2026.05.11 ↗</div>
-    </a>
-    <a class="press-link" href="https://www.dailypharm.com/user/news/337671" target="_blank" rel="noopener" style="display:block;border-bottom:1px solid var(--ln2);padding:.75rem .9rem;text-decoration:none;color:inherit">
-      <div style="font-weight:700;color:var(--ink);font-size:.98em;line-height:1.4">대체조제 통보 더 쉽게…오픈소스로 프로그램 만든 약사</div>
-      <div style="font-size:.82em;color:var(--red);margin-top:.2rem">데일리팜 · 2026.04.20 ↗</div>
-    </a>
-    <a class="press-link" href="https://www.dailypharm.com/user/news/782" target="_blank" rel="noopener" style="display:block;border-bottom:1px solid var(--ln2);padding:.75rem .9rem;text-decoration:none;color:inherit">
-      <div style="font-weight:700;color:var(--ink);font-size:.98em;line-height:1.4">“프로그램·조제장비 직접 개발”…소청과 약국 무한도전</div>
-      <div style="font-size:.82em;color:var(--red);margin-top:.2rem">데일리팜 · 2025.10.31 ↗</div>
-    </a>
-  </div>
-
-  <!-- ══ 왜 무료인가 (신뢰 클로저) ══ -->
-  <div style="margin-top:clamp(1.6rem,4vw,2.2rem);background:var(--paper);border:1.5px solid var(--ln);box-shadow:0 22px 48px -30px rgba(30,25,15,.45);overflow:hidden">
-    <div style="background:var(--hd);border-bottom:1px solid var(--hdln);text-align:center;font-weight:700;color:#1c3d5f;padding:.45rem;letter-spacing:.22em;font-size:clamp(12px,3.2vw,13.5px)">왜 무 료 인 가 · 솔 직 하 게</div>
-    <div style="padding:clamp(1rem,4vw,1.5rem);color:var(--ink2);line-height:1.72;display:grid;gap:.7rem;font-size:.98em">
-      <p style="margin:0">“공짜로 모아서 나중에 뭘 팔려는 거 아니냐” — 당연한 의심입니다. 그래서 먼저 밝힙니다.</p>
-      <p style="margin:0">저는 약사이자 <b style="color:var(--ink)">마이팜 공동대표</b>이고, <b style="color:var(--ink)">피코이노베이션</b>에서 개발을 합니다. 이 커뮤니티는 <b style="color:var(--red)">피코의 후원</b>으로 운영되고, 저는 그 후원으로 먹고삽니다. 숨길 이유가 없어요.</p>
-      <p style="margin:0"><b style="color:var(--ink)">‘약사가 스스로 AI 도구를 만드는 사람이 되면, 이 판이 바뀐다.’</b> 이건 <b style="color:var(--red)">마이팜과 피코가 함께 믿는 생각</b>입니다. 약국이 AI를 못 쓰는 건 약사가 부족해서가 아니라 닫힌 구조 때문이고, 그 구조를 여는 건 결국 약사 자신이니까요. 그래서 두 회사가 이 교육을 무료로 엽니다.</p>
-      <p style="margin:0">여러분께 받는 건 돈이 아니라, <b style="color:var(--ink)">배운 걸 약국에서 써보고 나누는 것</b> 하나입니다. 교육은 특정 제품 강매 없이 중립으로 갑니다.</p>
-      <p style="margin:.3rem 0 0;text-align:right;font-family:'Noto Serif KR',serif;color:var(--ink);font-weight:600">— 강재현 약사</p>
-    </div>
-  </div>
-
-  <!-- ══ 반복 CTA ══ -->
-  <div style="margin-top:clamp(1.4rem,4vw,1.9rem);text-align:center">
-    <a class="cta-receipt" href="https://docs.google.com/forms/d/e/1FAIpQLSdnrW-Mqogz8w3iOhiRNyLs7vZPgFLPflMonTCuzHMHuMnqxA/viewform" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6rem;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:1rem 1.9rem;border:1.5px solid #8f2c1f;box-shadow:0 2px 0 #8f2c1f,0 14px 26px -14px rgba(140,40,30,.7);letter-spacing:.02em">이 처방, 접수하기 &nbsp;—&nbsp; 창립 1기 등록 <span>→</span></a>
-  </div>
-
-  <!-- ══ 후원 각주 ══ -->
-  <div style="margin-top:clamp(1.6rem,4vw,2.2rem);border-top:1px dashed #a9a69d;padding-top:1.1rem;font-size:.8rem;color:#6a675f;line-height:1.6;max-width:40rem;margin-left:auto;margin-right:auto">
-    <div style="font-weight:700;color:#4a4740;letter-spacing:.02em">후원 · 피코이노베이션 (Pico Innovation)</div>
-    <p style="margin:.45rem 0 0">등록 시 받는 정보는 커뮤니티 운영과 웨비나 안내에만 사용됩니다.</p>
-  </div>
-
-</div>
-</div>
-</body>
+  </body>
 </html>
