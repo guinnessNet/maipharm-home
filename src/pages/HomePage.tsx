@@ -20,6 +20,14 @@ const HomePage = () => {
     isPress?: boolean;
   };
   const newsItems: NewsItem[] = [
+    {
+      date: '2026.04.20',
+      isoDate: '2026-04-20',
+      key: '2026_press_dailypharm_opensource',
+      link: 'https://dailypharm.com/user/news/337671',
+      source: '데일리팜',
+      isPress: true,
+    },
     { date: '2026.02.20', isoDate: '2026-02-20', key: '2026_1' },
     { date: '2025.11.13', isoDate: '2025-11-13', key: '2025_3' },
     {
