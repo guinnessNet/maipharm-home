@@ -182,6 +182,67 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .site-shell .shadow-sm,.site-shell .shadow-lg{box-shadow:none}
 .site-shell main .bg-white.border,.site-shell main .bg-white.rounded-lg{border:1px solid #d5ded6}
 .site-shell main .text-center h1{font-weight:500;letter-spacing:0}
+/* Wide screens use editorial tracks while the existing mobile flow stays linear */
+@media(min-width:1024px){
+ .brand-header{padding-inline:max(48px,calc((100% - 1280px)/2))}
+ .brand-section{padding:88px max(48px,calc((100% - 1280px)/2));gap:40px}
+ .brand-section>.section-lead,.ndsd-page .brand-section>p:not(.section-label){max-width:720px}
+ .hub-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:64px;row-gap:32px;align-items:start}
+ .hub-hero>.section-label{grid-column:1/-1}
+ .hub-hero h1{grid-column:1;grid-row:2;font-size:clamp(36px,3.35vw,48px)}
+ .hub-hero>.hero-description{grid-column:1;grid-row:3;max-width:580px}
+ .hub-hero>.brand-button{grid-column:1;grid-row:4;justify-self:start}
+ .hub-hero>.pharmacy-photo{grid-column:2;grid-row:2/5;height:auto;width:100%;align-self:center}
+ .hub-hero>.photo-caption{grid-column:2;grid-row:5}
+ #solutions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:64px;row-gap:32px;align-items:start}
+ #solutions>.section-label,#solutions>h2{grid-column:1/-1}
+ #solutions>.ndsd-feature{grid-column:1;grid-row:3/6;height:100%;padding:40px;gap:24px}
+ .ndsd-feature h3{font-size:36px}
+ #solutions>.brand-text-link{grid-column:2;grid-row:3}
+ #solutions>.solution-links{grid-column:2;grid-row:4;gap:24px 32px}
+ #solutions .solution-links>a{font-size:21px}
+ #solutions>.scope-note{grid-column:2;grid-row:5}
+ .news-item{display:grid;grid-template-columns:160px minmax(0,1fr);gap:12px 32px;align-items:baseline}
+ .news-item>time{grid-column:1;grid-row:1}
+ .news-item>h3,.news-item>p{grid-column:2;max-width:900px}
+ .people-section{display:grid;grid-template-columns:minmax(280px,380px) minmax(0,1fr);column-gap:80px;row-gap:32px;align-items:start}
+ .people-section>.section-label,.people-section>h2{grid-column:1/-1}
+ .people-section>.founder-photo{grid-column:1;grid-row:3/6;width:100%;height:auto}
+ .people-section>.founder-name{grid-column:2;grid-row:3}
+ .people-section>.experience{grid-column:2;grid-row:4;max-width:700px}
+ .people-section>.brand-text-link{grid-column:2;grid-row:5}
+ .faq-section{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:32px 80px;align-items:start}
+ .faq-section>.section-label{grid-column:1;grid-row:1}
+ .faq-section>h2{grid-column:1;grid-row:2;font-size:36px}
+ .faq-section>.brand-faq{grid-column:2;grid-row:2/4}
+ .faq-section>.scope-note{grid-column:2;grid-row:4}
+ .brand-faq h3{font-size:24px}
+ .brand-footer{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px 48px;align-items:start}
+ .brand-footer>.section-label{grid-column:1/-1}
+ .brand-footer>h2{grid-column:1;grid-row:2;font-size:40px}
+ .brand-footer>.contact-email{grid-column:2/4;grid-row:2;align-self:end;font-size:36px}
+ .brand-footer>.footer-rule{grid-column:1/-1}
+ .brand-footer>.footer-company{grid-column:1;max-width:460px}
+ .brand-footer>nav{flex-direction:column;align-items:flex-start;gap:8px}
+ .brand-footer>nav:nth-of-type(1){grid-column:2;grid-row:4/6}
+ .brand-footer>nav:nth-of-type(2){grid-column:3;grid-row:4/6}
+ .ndsd-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px 80px;align-items:start}
+ .ndsd-hero>.section-label{grid-column:1/-1}
+ .ndsd-hero>h1{grid-column:1;grid-row:2}
+ .ndsd-hero>h2{grid-column:1;grid-row:3/5;font-size:40px}
+ .ndsd-hero>.hero-description{grid-column:2;grid-row:2;font-size:23px}
+ .ndsd-hero>.brand-button{grid-column:2;grid-row:3;justify-self:start}
+ .ndsd-hero>.brand-text-link{grid-column:2;grid-row:4}
+ .ndsd-overview{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:32px 80px;align-items:start}
+ .ndsd-overview>.section-label{grid-column:1;grid-row:1}
+ .ndsd-overview>h2{grid-column:1;grid-row:2;font-size:40px}
+ .ndsd-overview>.section-lead{grid-column:1;grid-row:3;font-size:23px}
+ .ndsd-overview>.ndsd-facts{grid-column:2;grid-row:1/4;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+ .ndsd-facts dd{font-size:23px}
+ .start-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;width:100%}
+ .start-steps li{gap:20px;border-top:1px solid #d5ded6;padding-top:20px}
+ .start-steps h3{font-size:26px}
+}
 @media(max-width:1023px) and (min-width:768px){.brand-section{padding:56px}.brand-header nav{width:520px;gap:12px}.brand-section h1,.brand-section h2{font-size:40px}.intro-message h1{font-size:60px}.brand-columns{gap:32px}}
 @media(max-width:767px){
  html{scroll-padding-top:88px}

@@ -1,0 +1,118 @@
+/* The intro owns its atmosphere; the existing responsive composition stays intact. */
+.intro-motion .intro-atmosphere {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.intro-motion .intro-light {
+  position: absolute;
+  width: 100%;
+  height: 110%;
+  left: -30%;
+  top: -20%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgb(111 221 167 / 16%), transparent 64%);
+  animation: intro-mint-drift 18s ease-in-out infinite;
+}
+
+.intro-motion .intro-light-cyan {
+  left: 38%;
+  top: 12%;
+  width: 85%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgb(70 192 201 / 12%), transparent 65%);
+  animation: intro-cyan-drift 23s ease-in-out infinite;
+}
+
+.intro-motion .intro-orbit {
+  position: absolute;
+  inset: 11% -12% -8%;
+  background: url('/img/brand/intro-field.svg') center / 100% 100% no-repeat;
+  opacity: .38;
+  transform-origin: 54% 56%;
+  animation: intro-orbit-drift 28s ease-in-out infinite;
+}
+
+.intro-motion .intro-orbit,
+.intro-motion .intro-field {
+  mask-image: linear-gradient(transparent, #000 14%, #000 82%, transparent);
+}
+
+.intro-motion .intro-field {
+  animation: intro-contour-drift 22s ease-in-out infinite;
+  transform-origin: 50% 55%;
+}
+
+.intro-motion .intro-message > * {
+  animation: intro-copy-reveal 900ms cubic-bezier(.2, .65, .3, 1) backwards;
+}
+
+.intro-motion .intro-message h1 { animation-delay: 100ms; }
+.intro-motion .intro-subtitle { animation-delay: 230ms; }
+.intro-motion [data-enter] { animation-delay: 360ms; }
+.intro-motion .intro-direct { z-index: 1; }
+
+.intro-motion a:focus-visible,
+.intro-motion button:focus-visible {
+  outline: 2px solid #cbe7ad;
+  outline-offset: 6px;
+}
+
+.intro-motion[data-motion-paused='true'] *,
+.intro-motion[data-motion-paused='true'] *::before,
+.intro-motion[data-motion-paused='true'] *::after {
+  animation-play-state: paused;
+}
+
+@keyframes intro-contour-drift {
+  0%, 100% { transform: translate3d(-1%, 0, 0) scale(1.025) rotate(-2deg); }
+  50% { transform: translate3d(1.5%, -2%, 0) scale(1.075) rotate(2deg); }
+}
+
+@keyframes intro-orbit-drift {
+  0%, 100% { transform: translate3d(2%, 3%, 0) rotate(5deg) scale(1.04); }
+  50% { transform: translate3d(-3%, -2%, 0) rotate(-7deg) scale(1.12); }
+}
+
+@keyframes intro-mint-drift {
+  0%, 100% { transform: translate3d(-8%, 3%, 0) rotate(-15deg); opacity: .65; }
+  50% { transform: translate3d(30%, 10%, 0) rotate(12deg); opacity: 1; }
+}
+
+@keyframes intro-cyan-drift {
+  0%, 100% { transform: translate3d(10%, 8%, 0) scale(.95); opacity: .6; }
+  50% { transform: translate3d(-40%, -12%, 0) scale(1.15); opacity: 1; }
+}
+
+@keyframes intro-copy-reveal {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 767px) {
+  .intro-motion .intro-orbit {
+    inset: 16% -35% 0;
+    background-image: url('/img/brand/intro-field-mobile.svg');
+    opacity: .3;
+  }
+  .intro-motion .intro-light { width: 170%; left: -65%; }
+  .intro-motion .intro-light-cyan { left: 15%; }
+}
+
+@media (min-width: 1024px) and (max-height: 899px) {
+  .intro-motion.brand-intro { min-height: 640px; }
+  .intro-motion .intro-message { padding-top: clamp(170px, 25vh, 252px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-motion .intro-field,
+  .intro-motion .intro-orbit,
+  .intro-motion .intro-light,
+  .intro-motion .intro-message > * {
+    animation: none;
+    transform: none;
+  }
+  .intro-motion .intro-message > * { opacity: 1; }
+}
