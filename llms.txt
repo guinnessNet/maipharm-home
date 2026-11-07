@@ -1,0 +1,13 @@
+# 마이팜 (MaiPharm)
+
+> 마이팜의 공식 회사 및 제품 안내 웹사이트입니다.
+
+## 공식 페이지
+- [회사 소개](https://maipharm.com/about): 회사와 솔루션 소개
+- [제품 안내](https://maipharm.com/products): 제품 목록 및 개별 제품 안내
+- [NDSD](https://maipharm.com/products/ndsd): NDSD 제품 안내
+- [문의](https://maipharm.com/customer): 제품 및 도입 관련 문의
+- [소식](https://maipharm.com/about#news): 회사 소식
+
+가격, 지원 환경 및 도입 조건은 각 제품 페이지와 문의 안내를 확인해 주세요.
+이 파일은 공식 페이지를 찾기 위한 보조 안내입니다.
