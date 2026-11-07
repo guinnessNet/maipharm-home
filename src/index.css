@@ -87,3 +87,150 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(66, 100, 251, 0.1);
 }
+
+/* Approved MaiPharm Figma palette and responsive composition */
+:root{font-family:'IBM Plex Sans KR',sans-serif;color:#102d24;background:#fff;font-synthesis:none}
+html{scroll-behavior:smooth;scroll-padding-top:112px;font-family:'IBM Plex Sans KR',sans-serif}
+body{background:#fff;color:#102d24;font-family:'IBM Plex Sans KR',sans-serif}
+button,input,textarea,select{font:inherit}
+a,button{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #78a4cd;outline-offset:5px}
+.site-shell{padding-top:88px;min-height:100vh}
+.brand-header{position:fixed;inset:0 0 auto;z-index:50;height:88px;padding:10px 40px;display:flex;align-items:center;justify-content:space-between;background:#f7fafa;color:#102d24;transition:background-color .16s,color .16s}
+.brand-header[data-theme=dark]{background:#08231c;color:#fff}
+.brand-home{display:flex;align-items:center;justify-content:center;min-height:44px;flex-shrink:0}
+.brand-home img{display:block;width:128px;height:auto;aspect-ratio:128/48.988;object-fit:contain}
+.brand-header nav{display:flex;align-items:center;justify-content:space-between;width:600px;font-size:16px;gap:20px}
+.brand-header nav a,.language-switch{display:inline-flex;min-height:44px;align-items:center;white-space:nowrap}
+.language-switch{background:none;border:0;color:inherit;padding:0;cursor:pointer;justify-content:center}
+.brand-section{padding:88px;display:flex;flex-direction:column;align-items:flex-start;gap:40px;background:#fff}
+.brand-section h1,.brand-section h2{font-size:48px;line-height:1.5;font-weight:500;letter-spacing:0;margin:0;color:#102d24;word-break:keep-all;overflow-wrap:anywhere}
+.brand-section p{line-height:1.5;margin:0;font-size:18px;color:#52665f;word-break:keep-all;overflow-wrap:anywhere}
+.brand-section .section-label{font-size:14px;line-height:1.5;font-weight:500;color:#52665f}
+.mist{background:#f5f6f1}
+.brand-section .hero-description{font-size:23px;max-width:880px}
+.brand-button{display:inline-flex;align-items:center;justify-content:center;background:#184230;color:#fff;padding:16px 24px;min-height:56px;min-width:242px;font-size:16px;font-weight:500;line-height:24px;border:0;border-radius:2px;text-align:center}
+.brand-button:hover{background:#24563f}
+.pharmacy-photo{display:block;width:100%;height:430px;object-fit:cover}
+.brand-section .photo-caption{font-size:14px}
+.brand-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:64px;width:100%;padding:0;list-style:none}
+.brand-columns h3{font-size:23px;font-weight:500;line-height:1.5;letter-spacing:0;margin:0}
+.ruled{border-top:1px solid #d5ded6;padding-top:16px;display:flex;flex-direction:column;gap:16px}
+.ndsd-feature{background:#184230;color:white;padding:40px;display:flex;flex-direction:column;gap:24px;width:100%;align-items:flex-start}
+.ndsd-feature h3{font-size:42px;line-height:1.5;font-weight:500;letter-spacing:0;margin:0}
+.ndsd-feature .section-label{color:#cbe7ad;font-weight:400}
+.ndsd-feature p{color:#dfe9e1;max-width:900px}
+.ndsd-feature .brand-button,.brand-intro .brand-button{background:#cbe7ad;color:#102d24}
+.ndsd-feature .brand-button:hover,.brand-intro .brand-button:hover{background:#dbefc6}
+.ndsd-feature>a:not(.brand-button){font-size:16px;min-height:44px;display:inline-flex;align-items:center}
+.brand-text-link{color:#184230;font-size:18px;min-height:44px;display:inline-flex;align-items:center;background:none;border:none;text-align:left;padding:0;cursor:pointer}
+.solution-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 48px;width:100%}
+.solution-links>a{border-top:1px solid #d5ded6;padding:16px 0 0;font-size:25px;line-height:1.5;font-weight:500;min-height:55px}
+.brand-section .scope-note{font-size:16px;color:#52665f}
+.news-list{width:100%;display:flex;flex-direction:column;gap:40px}
+.news-item{border-top:1px solid #d5ded6;padding-top:12px;display:flex;flex-direction:column;gap:12px}
+.news-item time{font-size:14px;color:#52665f}
+.news-item h3{font-size:28px;line-height:1.5;font-weight:500;letter-spacing:0}
+.people-section{gap:32px}
+.founder-photo{display:block;width:100%;height:420px;object-fit:cover}
+.founder-name{font-size:32px;line-height:1.5;font-weight:500;letter-spacing:0}
+.experience{display:flex;flex-direction:column;gap:32px;width:100%}
+.experience p{line-height:29px}
+.brand-faq{width:100%;display:flex;flex-direction:column;gap:40px}
+.brand-faq article{border-top:1px solid #d5ded6;padding-top:16px;display:flex;flex-direction:column;gap:16px}
+.brand-faq h3{font-size:25px;line-height:1.5;font-weight:500;letter-spacing:0}
+.brand-faq p{max-width:1060px}
+.brand-footer{background:#08231c;color:#fff}
+.brand-footer h2,.brand-footer .section-label{color:#fff}
+.contact-email{font-size:40px;line-height:1.5;overflow-wrap:anywhere}
+.footer-rule{border-top:1px solid #385248;width:100%}
+.brand-footer .footer-company{font-size:14px;color:#c6d3cc}
+.brand-footer nav{display:flex;flex-wrap:wrap;gap:28px;align-items:center;color:#c6d3cc;font-size:14px}
+.brand-footer nav a{display:flex;min-height:44px;align-items:center}
+.intro-shell{padding-top:0}
+.brand-intro{position:relative;min-height:900px;height:100svh;background:#08231c;color:#fff;overflow:hidden}
+.intro-field{position:absolute;top:150px;left:0;width:100%;height:700px;pointer-events:none}
+.intro-field img{display:block;width:100%;height:700px;object-fit:cover}
+.intro-message{position:relative;padding:252px 24px 0;display:flex;flex-direction:column;gap:28px;align-items:center;text-align:center;z-index:1}
+.intro-label{font-size:14px;line-height:1.5;font-weight:500;color:#cbe7ad}
+.intro-message h1{font-size:76px;font-weight:500;line-height:1.5;letter-spacing:0;color:white;word-break:keep-all}
+.intro-subtitle{font-size:21px;line-height:1.5;color:#d0ddd4}
+.mobile-break{display:none}
+.intro-direct{position:absolute;left:0;right:0;bottom:40px;display:flex;align-items:center;justify-content:center;gap:32px;font-size:16px}
+.intro-direct a{display:inline-flex;align-items:center;min-height:44px}
+.intro-direct>div{display:flex;gap:32px}
+.intro-direct .intro-extra{display:none}
+.brand-section .section-lead{font-size:25px;color:#102d24;max-width:1080px}
+.ndsd-facts{display:flex;flex-direction:column;gap:40px;width:100%}
+.ndsd-facts>div{border-top:1px solid #d5ded6;padding-top:12px;display:flex;flex-direction:column;gap:12px}
+.ndsd-facts dt{font-size:16px;color:#52665f}
+.ndsd-facts dd{font-size:27px;line-height:1.5;font-weight:500}
+.forest{background:#184230;color:white}
+.forest h2,.forest .section-label{color:white}
+.workflow{gap:50px}
+.workflow li{display:flex;flex-direction:column;gap:18px}
+.workflow p{color:#cbe7ad;font-size:17px}
+.workflow h3{font-size:29px;font-weight:500;line-height:1.5;color:white}
+.start-steps{display:flex;flex-direction:column;gap:40px;list-style:none;padding:0}
+.start-steps li{display:flex;flex-direction:column;gap:40px}
+.start-steps h3{font-size:29px;font-weight:500;line-height:1.5;letter-spacing:0}
+.download-links{display:flex;flex-wrap:wrap;gap:24px;color:#184230}
+.download-links a{display:inline-flex;align-items:center;min-height:44px}
+/* Existing product catalog and inquiry interactions retain their data and controls */
+.site-shell main>.container,.site-shell main>div>.container{max-width:1440px;padding:88px}
+.site-shell .rounded-lg,.site-shell .rounded-xl,.site-shell .rounded-2xl{border-radius:2px}
+.site-shell .shadow-sm,.site-shell .shadow-lg{box-shadow:none}
+.site-shell main .bg-white.border,.site-shell main .bg-white.rounded-lg{border:1px solid #d5ded6}
+.site-shell main .text-center h1{font-weight:500;letter-spacing:0}
+@media(max-width:1023px) and (min-width:768px){.brand-section{padding:56px}.brand-header nav{width:520px;gap:12px}.brand-section h1,.brand-section h2{font-size:40px}.intro-message h1{font-size:60px}.brand-columns{gap:32px}}
+@media(max-width:767px){
+ html{scroll-padding-top:88px}
+ .site-shell{padding-top:64px}.intro-shell{padding-top:0}
+ .brand-header{height:64px;padding:10px 24px;justify-content:center}
+ .brand-home img{width:104px;height:auto;aspect-ratio:104/39.802}
+ .brand-header nav{display:none}
+ .brand-section{padding:24px;gap:28px}
+ .brand-section h1,.brand-section h2{font-size:30px;line-height:1.5}
+ .brand-section p{font-size:18px}
+ .brand-section .section-label,.brand-section .photo-caption{font-size:14px}
+ .brand-section .hero-description{font-size:18px}
+ .pharmacy-photo{height:236px}
+ .brand-columns{grid-template-columns:1fr;gap:28px}
+ .brand-columns h3{font-size:23px}
+ .ndsd-feature{padding:24px;gap:24px}
+ .ndsd-feature h3{font-size:30px}
+ .ndsd-feature p{font-size:18px}
+ .brand-text-link{font-size:18px}
+ .solution-links{grid-template-columns:1fr;gap:24px}
+ .solution-links>a{font-size:21px;padding:16px 0 6px;min-height:54px}
+ .brand-section .scope-note{font-size:16px}
+ .news-list{gap:28px}.news-item h3{font-size:23px}
+ .people-section{gap:28px}.founder-photo{height:280px}.founder-name{font-size:23px}
+ .experience{gap:28px}.experience p{font-size:18px;line-height:29px}
+ .brand-faq{gap:28px}.brand-faq h3{font-size:23px}.brand-faq p{font-size:18px}
+ .brand-footer .contact-email{font-size:29px}.brand-footer nav{gap:24px;font-size:14px}.brand-footer .footer-company{font-size:14px}
+ .brand-intro{height:100svh;min-height:844px}
+ .intro-field{top:130px;height:660px}.intro-field img{height:660px;object-fit:cover}
+ .intro-message{padding:240px 24px 0;gap:28px}
+ .intro-label{font-size:12px;white-space:nowrap}
+ .intro-message h1{font-size:43px;line-height:1.5}
+ .mobile-break{display:block}
+ .intro-subtitle{font-size:16px;max-width:320px}
+ .intro-direct{bottom:14px;padding:0 24px;flex-direction:column;gap:8px}
+ .intro-direct>div{gap:24px}.intro-direct .intro-extra{display:flex;color:#c7d4cc;font-size:14px}
+ .intro-direct .language-switch{font-size:14px}
+ .brand-section .section-lead{font-size:23px}
+ .ndsd-facts{gap:28px}.ndsd-facts dd{font-size:23px}
+ .workflow{gap:28px}.workflow h3{font-size:25px}
+ .start-steps{gap:28px}.start-steps li{gap:28px}.start-steps h3{font-size:25px}
+ .site-shell main>.container,.site-shell main>div>.container{padding:32px 24px}
+ .site-shell main .p-8{padding:24px}
+}
+@media(max-width:359px){.intro-message{padding-top:200px}.intro-message h1{font-size:37px}.intro-label{font-size:10px}.brand-section h1,.brand-section h2{font-size:27px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+.catalog-ndsd{display:block;background:#184230;color:#fff;font-size:20px;line-height:1.5;padding:24px;margin-bottom:40px}
+@media(max-width:767px){.pharmacy-photo{height:230px}.ndsd-page .section-lead{font-size:19px}.ndsd-page .hero-description{font-size:18px}}
+@media(max-width:767px){.ndsd-page>section:first-child h2{font-size:32px}.ndsd-facts dd{font-size:21px}.ndsd-page>section:nth-child(4) .section-lead{font-size:20px}.start-steps h3{font-size:23px}.brand-faq h3{font-size:20px}.ndsd-feature h3{font-size:28px}.news-item h3{font-size:22px}.founder-name{font-size:24px}.brand-footer .contact-email{font-size:23px}}
+.brand-section h3{word-break:keep-all;overflow-wrap:anywhere}
+.people-title-last{display:block}
+@media(max-width:767px){.people-title-part{display:block}}

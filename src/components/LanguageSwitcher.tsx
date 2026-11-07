@@ -1,36 +1,12 @@
 import { useTranslation } from 'react-i18next';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 export const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
-
-  return (
-    <div className="flex items-center space-x-2">
-      <button
-        onClick={() => changeLanguage('ko')}
-        className={`px-2 py-1 rounded`}
-      style={{
-        backgroundColor: i18n.language === 'ko' ? '#184230' : '#EEE',
-        color: i18n.language === 'ko' ? '#fff' : '#000',
-      }}
-      >
-        한국어
-      </button>
-      <button
-        onClick={() => changeLanguage('en')}
-        className={`px-2 py-1 rounded ${
-          i18n.language === 'en' ? 'bg-indigo-600 text-white' : 'bg-gray-200'
-        }`}
-        style={{
-          backgroundColor: i18n.language === 'en' ? '#184230' : '#EEE',
-          color: i18n.language === 'en' ? '#fff' : '#000',
-        }}
-      >
-        English
-      </button>
-    </div>
-  );
-}; 
+  const {i18n} = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  return <button className="language-switch" aria-label={i18n.resolvedLanguage === 'en' ? '한국어로 변경' : 'Switch to English'} onClick={() => {
+    const lang = i18n.resolvedLanguage === 'en' ? 'ko' : 'en';
+    const params = new URLSearchParams(location.search); params.set('lang',lang);
+    i18n.changeLanguage(lang); navigate(`${location.pathname}?${params}${location.hash}`, {preventScrollReset:true});
+  }}>KR / EN</button>;
+};

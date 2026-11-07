@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import ts from 'typescript';
+const source=await fs.readFile(new URL('../src/lib/hydrationState.ts',import.meta.url),'utf8');
+const compiled=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2020}}).outputText;
+const {getLanguageState,readSnapshotCaptcha}=await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`);
+test('Korean snapshot first render remains Korean for English query',()=>{assert.deepEqual(getLanguageState({snapshotLanguage:'ko',queryLanguage:'en',storedLanguage:'ko',browserLanguage:'ko-KR'}),{initialLanguage:'ko',requestedLanguage:'en'});});
+test('Cached English preference is applied only after Korean snapshot hydration',()=>{assert.deepEqual(getLanguageState({snapshotLanguage:'ko',storedLanguage:'en',browserLanguage:'ko-KR'}),{initialLanguage:'ko',requestedLanguage:'en'});});
+test('Empty dev root renders preferred language immediately',()=>{assert.deepEqual(getLanguageState({browserLanguage:'en-US'}),{initialLanguage:'en',requestedLanguage:'en'});});
+test('Query Korean overrides cached English',()=>{assert.equal(getLanguageState({snapshotLanguage:'ko',queryLanguage:'ko',storedLanguage:'en'}).requestedLanguage,'ko');});
+test('Snapshot captcha restores the exact original random question',()=>{assert.deepEqual(readSnapshotCaptcha('보안 질문: 3 + 8 = ?'),{question:'3 + 8 = ?',answer:11});assert.equal(readSnapshotCaptcha(''),null);});

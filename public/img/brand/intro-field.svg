@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1440" height="700" viewBox="0 0 1440 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Editable cinematic field &#194;&#183; time to care" clip-path="url(#clip0_0_27)">
+<circle id="Time contour 0" opacity="0.42" cx="720" cy="370" r="434" stroke-width="2" stroke="#456D50"/>
+<circle id="Time contour 1" opacity="0.38" cx="720" cy="370" r="477" stroke="#2F6550"/>
+<circle id="Time contour 2" opacity="0.34" cx="720" cy="370" r="519.5" stroke="#456D50"/>
+<circle id="Time contour 3" opacity="0.3" cx="720" cy="370" r="562" stroke="#2F6550"/>
+<circle id="Time contour 4" opacity="0.26" cx="720" cy="370" r="604.5" stroke="#456D50"/>
+<circle id="Time contour 5" opacity="0.22" cx="720" cy="370" r="647" stroke="#2F6550"/>
+<circle id="Time contour 6" opacity="0.18" cx="720" cy="370" r="689.5" stroke="#456D50"/>
+</g>
+<defs>
+<clipPath id="clip0_0_27">
+<rect width="1440" height="700" fill="white"/>
+</clipPath>
+</defs>
+</svg>

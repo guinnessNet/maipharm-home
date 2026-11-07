@@ -1,238 +1,29 @@
-import { Helmet } from 'react-helmet-async';
-import SectionTitle from '../components/SectionTitle';
-import { Award, ChartBar, Briefcase, Cpu, Globe, Users } from 'lucide-react';
+import { getCompanyFaq } from '../content/faq';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Button, Section, repository, useCopy } from '../components/BrandUI';
 
-const AboutPage = () => {
-  const { t } = useTranslation();
-
-  return (
-    <div>
-      <Helmet>
-        <title>{t('about.title')} | {t('site.name')} - {t('site.description')}</title>
-        <meta name="description" content={t('about.subtitle')} />
-        <meta name="keywords" content="마이팜 소개, 약국 관리 시스템, AI 약국, 스마트 약국 솔루션, 약국 운영 혁신, 마이팜 회사소개, 약국 SaaS, 디지털 약국" />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
-        <link rel="canonical" href="https://maipharm.com/about" />
-        <link rel="alternate" hrefLang="ko" href="https://maipharm.com/about" />
-        <link rel="alternate" hrefLang="en" href="https://maipharm.com/about?lang=en" />
-        <link rel="alternate" hrefLang="x-default" href="https://maipharm.com/about" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://maipharm.com/about" />
-        <meta property="og:title" content={`${t('about.title')} | ${t('site.name')}`} />
-        <meta property="og:description" content={t('about.subtitle')} />
-        <meta property="og:image" content="https://maipharm.com/img/about-og.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content={t('site.name')} />
-        <meta property="og:locale" content="ko_KR" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://maipharm.com/about" />
-        <meta name="twitter:title" content={`${t('about.title')} | ${t('site.name')}`} />
-        <meta name="twitter:description" content={t('about.subtitle')} />
-        <meta name="twitter:image" content="https://maipharm.com/img/about-og.jpg" />
-
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'AboutPage',
-          name: `${t('about.title')} | ${t('site.name')}`,
-          description: t('about.subtitle'),
-          url: 'https://maipharm.com/about',
-          inLanguage: 'ko-KR',
-          publisher: {
-            '@type': 'Organization',
-            name: t('site.name'),
-            logo: { '@type': 'ImageObject', url: 'https://maipharm.com/img/logo.png' },
-          },
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: 'https://maipharm.com/' },
-            { '@type': 'ListItem', position: 2, name: t('about.title'), item: 'https://maipharm.com/about' },
-          ],
-        })}</script>
-      </Helmet>
-
-      <div className="container mx-auto px-4 py-16">
-        <SectionTitle 
-          title={t('about.title')} 
-          subtitle={t('about.subtitle')}
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
-          <div className="order-2 md:order-1">
-            <h3 className="text-2xl font-bold mb-4 ezpharm-text-blue">{t('about.intro.title')}</h3>
-            <p className="mb-4 text-gray-700">
-              {t('about.intro.description1')}
-            </p>
-            <p className="mb-4 text-gray-700">
-              {t('about.intro.description2')}
-            </p>
-            <p className="text-gray-700">
-              {t('about.intro.description3')}
-            </p>
-            <p className="text-gray-700">
-              {t('about.intro.description4')}
-            </p>
-            <p className="text-gray-700">
-              {t('about.intro.description5')}
-            </p>
-          </div>
-          {/* <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-lg">
-            <img 
-              src="/img/man.webp" 
-              alt="EzPharm 팀" 
-              className="w-full h-auto"
-            />
-          </div> */}
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <div className="flex items-center mb-6">
-              <div className="p-4 rounded-full ezpharm-gradient text-white mr-4">
-                <Briefcase size={24} />
-              </div>
-              <h3 className="text-xl font-semibold">{t('about.mission.title')}</h3>
-            </div>
-            <p className="text-gray-700 mb-4">
-              {t('about.mission.description')}
-            </p>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <div className="flex items-center mb-6">
-              <div className="p-4 rounded-full ezpharm-gradient text-white mr-4">
-                <Globe size={24} />
-              </div>
-              <h3 className="text-xl font-semibold">{t('about.vision.title')}</h3>
-            </div>
-            <p className="text-gray-700 mb-4">
-              {t('about.vision.description')}
-            </p>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <div className="flex items-center mb-6">
-              <div className="p-4 rounded-full ezpharm-gradient text-white mr-4">
-                <Award size={24} />
-              </div>
-              <h3 className="text-xl font-semibold">{t('about.values.title')}</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h4 className="font-semibold mb-1">{t('about.values.innovation.title')}</h4>
-                <p className="text-gray-600 text-sm">{t('about.values.innovation.description')}</p>
-              </div>
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h4 className="font-semibold mb-1">{t('about.values.customer.title')}</h4>
-                <p className="text-gray-600 text-sm">{t('about.values.customer.description')}</p>
-              </div>
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h4 className="font-semibold mb-1">{t('about.values.data.title')}</h4>
-                <p className="text-gray-600 text-sm">{t('about.values.data.description')}</p>
-              </div>
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h4 className="font-semibold mb-1">{t('about.values.trust.title')}</h4>
-                <p className="text-gray-600 text-sm">{t('about.values.trust.description')}</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <div className="flex items-center mb-6">
-              <div className="p-4 rounded-full ezpharm-gradient text-white mr-4">
-                <Users size={24} />
-              </div>
-              <h3 className="text-xl font-semibold">{t('about.history.title')}</h3>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="w-24 font-semibold ezpharm-text-blue shrink-0">2025</div>
-                <div className="flex flex-col">
-                  <p className="font-medium">{t('about.history.2025.title')}</p>
-                  <p className="text-gray-600 text-sm">{t('about.history.2025.description')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-24 font-semibold ezpharm-text-blue shrink-0">2024</div>
-                <div className="flex flex-col">
-                  <p className="font-medium">{t('about.history.2024_1.title')}</p>
-                  <p className="text-gray-600 text-sm">{t('about.history.2024_1.description')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-24 font-semibold ezpharm-text-blue shrink-0">2024</div>
-                <div className="flex flex-col">
-                  <p className="font-medium">{t('about.history.2024_2.title')}</p>
-                  <p className="text-gray-600 text-sm">{t('about.history.2024_2.description')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-24 font-semibold ezpharm-text-blue shrink-0">2024</div>
-                <div className="flex flex-col">
-                  <p className="font-medium">{t('about.history.2024_3.title')}</p>
-                  <p className="text-gray-600 text-sm">{t('about.history.2024_3.description')}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-white rounded-lg shadow-sm p-8 mb-16">
-          <h3 className="text-xl font-bold mb-6 ezpharm-text-blue flex items-center">
-            <Cpu className="mr-2" size={24} />
-            {t('about.tech.title')}
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border rounded-lg p-6">
-              <h4 className="font-semibold mb-2">{t('about.tech.ai.title')}</h4>
-              <p className="text-gray-600">{t('about.tech.ai.description')}</p>
-            </div>
-            <div className="border rounded-lg p-6">
-              <h4 className="font-semibold mb-2">{t('about.tech.inventory.title')}</h4>
-              <p className="text-gray-600">{t('about.tech.inventory.description')}</p>
-            </div>
-            <div className="border rounded-lg p-6">
-              <h4 className="font-semibold mb-2">{t('about.tech.data.title')}</h4>
-              <p className="text-gray-600">{t('about.tech.data.description')}</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-white rounded-lg shadow-sm p-8">
-          <h3 className="text-xl font-bold mb-6 ezpharm-text-blue flex items-center">
-            <ChartBar className="mr-2" size={24} />
-            {t('about.achievements.title')}
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-6">
-              <div className="text-4xl font-bold ezpharm-text-blue mb-2">5+</div>
-              <p className="text-gray-700">{t('about.achievements.pharmacies')}</p>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold ezpharm-text-blue mb-2">70%</div>
-              <p className="text-gray-700">{t('about.achievements.efficiency')}</p>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold ezpharm-text-blue mb-2">25%</div>
-              <p className="text-gray-700">{t('about.achievements.cost')}</p>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold ezpharm-text-blue mb-2">100K+</div>
-              <p className="text-gray-700">{t('about.achievements.prescriptions')}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default AboutPage;
+const news = [
+  ['2026.04.20','2026_press_dailypharm_opensource','https://dailypharm.com/user/news/337671'],
+  ['2026.02.20','2026_1',''],['2025.11.13','2025_3',''],
+  ['2025.10.31','2025_press_dailypharm','https://www.dailypharm.com/user/news/782'],
+  ['2025.07.29','2025_2',''],['2025.06.23','2025_1',''],['2025.03.29','2025',''],['2024.09.15','2024_1',''],['2024.04.29','2024_2','']
+];
+export default function AboutPage() {
+  const c=useCopy(); const {t}=useTranslation(); const [allNews,setAllNews]=useState(false);
+  const products = ['팜스퀘어','메디믹스','팜스퀘어 인사이트','마이팜 대시보드','오토CG','마이팜 CRM','마이팜 마케팅','팜스퀘어 API'];
+  const productsEn = ['PharmSquare','MediMix','PharmSquare Insight','MaiPharm Dashboard','AutoCG','MaiPharm CRM','MaiPharm Marketing','PharmSquare API'];
+  return <div className="company-hub">
+    <section className="brand-section mist hub-hero"><p className="section-label">ABOUT MAIPHARM</p><h1>{c('약국의 일에서 출발해','Starting with pharmacy work')}<br />{c('약료의 가능성을','Expanding the possibilities')}<br className="mobile-break" />{c(' 넓힙니다',' of care')}</h1><p className="hero-description">{c('약사가 이끄는 마이팜은 약국 현장의 반복 업무를 살피고 AI와 자동화 기술로 풀어갑니다','Led by a pharmacist MaiPharm studies repetitive work in pharmacies and develops AI and automation to help')}</p><Button to="/about#people">{c('마이팜 이야기','Our story')} ↗</Button><img className="pharmacy-photo" src="/img/brand/pharmacy-field.png" width="1264" height="430" alt={c('약병과 실험 기구를 담은 약국 현장 이미지','Illustrative pharmacy glassware')} /><p className="photo-caption">{c('약국 업무를 이해하는 기술 현장에서 시작합니다','Technology that understands pharmacy work starts in the field')}</p></section>
+    <Section label="01 / FIELD" title={<>{c('반복되는 절차 사이','Between repetitive procedures')}<br />{c('환자를 위한 시간을 찾습니다','Finding time for patients')}</>}><div className="brand-columns">{[
+      [c('01   기록과 확인','01   Records and checks'),c('여러 화면을 오가며 같은 정보를 다시 확인하는 일','Checking the same information across different screens')],
+      [c('02   운영과 관리','02   Operations'),c('조제·재고·경영 데이터를 따로 살펴야 하는 일','Reviewing dispensing inventory and management data separately')],
+      [c('03   변화와 연결','03   Change and connection'),c('새로운 제도와 시스템에 현장의 흐름을 맞추는 일','Adapting everyday work to new policies and systems')]
+    ].map(([title,desc])=><article className="ruled" key={title}><h3>{title}</h3><p>{desc}</p></article>)}</div></Section>
+    <Section label="02 / SOLUTIONS" tone="mist" id="solutions" title={<>{c('필요한 곳부터','Where it is needed')}<br />{c('현장에 맞게 연결합니다','Connected to your practice')}</>}><article className="ndsd-feature"><p className="section-label">OPEN SOURCE / NDSD</p><h3>{c('대체조제 사후통보','Substitution reporting')}<br />{c('전송부터 확인까지','From upload to verification')}</h3><p>{c('NDSD 업로드와 결과 확인을 돕는 Windows 모듈 공개 문서에서 기능과 연동 조건을 확인하세요','A Windows module for NDSD uploads and result checks See public documentation for features and integration requirements')}</p><Button to="/products/ndsd">{c('NDSD 자세히 보기','Explore NDSD')} →</Button><a href={repository}>{c('공개 저장소','Public repository')} ↗</a></article><Link className="brand-text-link" to="/products">{c('전체 솔루션 보기','All solutions')} ↗</Link><div className="solution-links">{products.map((name,i)=><Link key={name} to={`/products/${i+1}`}>{String(i+1).padStart(2,'0')}　{c(name,productsEn[i])} ↗</Link>)}</div><p className="scope-note">{c('서비스별 제공 범위와 도입 가능 여부는 상담에서 확인해 주세요','Please contact us to confirm availability and scope for each service')}</p></Section>
+    <Section label="03 / PROGRESS" id="news" title={c('말보다 공개된 기록으로','A public record of our work')}><div className="news-list" id="company-news-list">{news.slice(0,allNews ? news.length : 3).map(([date,key,url])=><article key={key} className="news-item"><time dateTime={date.replace(/\./g,'-')}>{date}</time><h3>{url ? <a href={url} target="_blank" rel="noopener noreferrer">{!allNews && key==='2026_press_dailypharm_opensource' ? c('NDSD 오픈소스 프로그램 소개 · 데일리팜','NDSD open source program · DailyPharm') : t(`about.history.${key}.title`)} ↗</a> : !allNews && key==='2026_1' ? c('Dalpha 서비스 양수도 계약','Dalpha service transfer agreement') : !allNews && key==='2025_3' ? c('마이팜 수상 소식','MaiPharm award news') : t(`about.history.${key}.title`)}</h3>{allNews && <p>{t(`about.history.${key}.description`)}</p>}</article>)}</div><button className="brand-text-link" onClick={()=>setAllNews(!allNews)} aria-expanded={allNews} aria-controls="company-news-list">{allNews ? c('소식 접기','Show less') : c('모든 소식 보기','All news')} {allNews ? '−' : '+'}</button></Section>
+    <Section label="04 / PEOPLE & HISTORY" tone="mist people-section" id="people" title={<><span className="people-title-part">{c('현장에서 익히고','Learn in practice')}</span>{' '}<span className="people-title-part">{c('직접 만들고','Build directly')}</span><span className="people-title-last">{c('함께 나눕니다','Share what we learn')}</span></>}><img className="founder-photo" src="/img/brand/founder-panel.png" width="1264" height="420" alt={c('공개 행사 패널에 참여한 강재현 대표 약사','Pharmacist and founder Jaehyun Kang at a public panel')} /><h3 className="founder-name">{c('강재현  /  대표 · 약사','Jaehyun Kang / Founder · Pharmacist')}</h3><div className="experience"><p>{c('01  약국 운영','01  Pharmacy practice')}<br />{c('약국을 운영하며 반복 업무와 환자 응대의 흐름을 살펴왔습니다','Operating a pharmacy provided firsthand insight into repetitive work and patient care')}</p><p>{c('02  프로그램·조제장비 개발','02  Software and dispensing equipment')}<br />{c('약국 프로그램과 조제장비를 직접 만들며 업무를 도구로 바꿔 왔습니다','Developing pharmacy software and dispensing equipment turns daily work into practical tools')}</p><p>{c('03  AI 교육·오픈소스 공개','03  AI education and open source')}<br />{c('AI 활용 강연과 오픈소스 공개로 현장에서 쓸 수 있는 방법을 나눕니다','AI lectures and open source projects share methods that can be used in practice')}</p></div><a className="brand-text-link" href="/rx/">{c('AI 교육·공개 활동 보기','AI education and public activities')} ↗</a></Section>
+    <Section label="05 / FAQ" title={c('먼저 궁금하실 이야기','Questions you may have')}><div className="brand-faq">{getCompanyFaq(c).map(([question,answer])=><article key={question}><h3>{question}</h3><p>{answer}</p></article>)}</div></Section>
+  </div>;
+}

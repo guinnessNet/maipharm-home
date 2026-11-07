@@ -1,8 +1,9 @@
+import { getCustomerFaq } from '../content/faq';
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { readSnapshotCaptcha } from '../lib/hydrationState';
 import emailjs from '@emailjs/browser';
 import SectionTitle from '../components/SectionTitle';
-import { CircleHelp, Mail, MapPin, MessageSquare, Phone, Server } from 'lucide-react';
+import { CircleHelp, Mail, MapPin, MessageSquare, Server } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 type FaqItem = {
@@ -38,7 +39,7 @@ const CustomerServicePage = () => {
     return { question: `${left} + ${right} = ?`, answer: left + right };
   };
 
-  const [captcha, setCaptcha] = useState(createCaptcha);
+  const [captcha, setCaptcha] = useState(() => readSnapshotCaptcha(document.querySelector('label[for="captcha"]')?.textContent || '') || createCaptcha());
   const [captchaInput, setCaptchaInput] = useState('');
 
   const sanitizeInput = (value: string) =>
@@ -57,33 +58,7 @@ const CustomerServicePage = () => {
   const isValidEmail = (value: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-  const faqs: FaqItem[] = [
-    {
-      id: 1,
-      question: t('customer.faq.q1'),
-      answer: t('customer.faq.a1')
-    },
-    {
-      id: 2,
-      question: t('customer.faq.q2'),
-      answer: t('customer.faq.a2')
-    },
-    {
-      id: 3,
-      question: t('customer.faq.q3'),
-      answer: t('customer.faq.a3')
-    },
-    {
-      id: 4,
-      question: t('customer.faq.q4'),
-      answer: t('customer.faq.a4')
-    },
-    {
-      id: 5,
-      question: t('customer.faq.q5'),
-      answer: t('customer.faq.a5')
-    }
-  ];
+  const faqs: FaqItem[] = getCustomerFaq(t);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -211,56 +186,6 @@ const CustomerServicePage = () => {
 
   return (
     <div>
-      <Helmet>
-        <title>{t('customer.title')} | {t('site.name')} - {t('site.description')}</title>
-        <meta name="description" content={t('customer.subtitle')} />
-        <meta name="keywords" content={`마이팜 고객지원, 약국 관리 시스템 문의, ${t('customer.title')}, ${t('customer.inquiry.title')}, 약국 솔루션 도입 상담, FAQ`} />
-        <meta name="robots" content="index, follow, max-image-preview:large" />
-        <link rel="canonical" href="https://maipharm.com/customer" />
-        <link rel="alternate" hrefLang="ko" href="https://maipharm.com/customer" />
-        <link rel="alternate" hrefLang="en" href="https://maipharm.com/customer?lang=en" />
-        <link rel="alternate" hrefLang="x-default" href="https://maipharm.com/customer" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://maipharm.com/customer" />
-        <meta property="og:title" content={`${t('customer.title')} | ${t('site.name')}`} />
-        <meta property="og:description" content={t('customer.subtitle')} />
-        <meta property="og:image" content="https://maipharm.com/img/customer-og.jpg" />
-        <meta property="og:site_name" content={t('site.name')} />
-        <meta property="og:locale" content="ko_KR" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://maipharm.com/customer" />
-        <meta name="twitter:title" content={`${t('customer.title')} | ${t('site.name')}`} />
-        <meta name="twitter:description" content={t('customer.subtitle')} />
-        <meta name="twitter:image" content="https://maipharm.com/img/customer-og.jpg" />
-
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'ContactPage',
-          name: `${t('customer.title')} | ${t('site.name')}`,
-          description: t('customer.subtitle'),
-          url: 'https://maipharm.com/customer',
-          inLanguage: 'ko-KR',
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: 'https://maipharm.com/' },
-            { '@type': 'ListItem', position: 2, name: t('customer.title'), item: 'https://maipharm.com/customer' },
-          ],
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: faqs.map((f) => ({
-            '@type': 'Question',
-            name: f.question,
-            acceptedAnswer: { '@type': 'Answer', text: f.answer },
-          })),
-        })}</script>
-      </Helmet>
 
       <div className="container mx-auto px-4 py-16">
         <SectionTitle 
@@ -278,13 +203,6 @@ const CustomerServicePage = () => {
               <p className="text-gray-700">
                 {t('customer.support.description')}
               </p>
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                <Phone size={20} className="text-green-500" />
-                <div>
-                  <div className="font-medium">{t('customer.support.phone')}</div>
-                  <span className="text-gray-600">{t('footer.phone')}</span>
-                </div>
-              </div>
               <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                 <Mail size={20} className="text-green-500" />
                 <div>

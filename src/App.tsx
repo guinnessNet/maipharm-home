@@ -1,48 +1,22 @@
-import { useEffect, Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Seo from './components/Seo';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import CustomerServicePage from './pages/CustomerServicePage';
-import Navigation from './components/Navigation';
-import { ProductProvider } from './components/Provider.tsx';
-// import LoadingSpinner from './components/LoadingSpinner';
-
+import ProductDetail from './pages/ProductDetail';
+import NdsdPage from './pages/NdsdPage';
+import { ProductProvider } from './components/Provider';
 import './index.css';
-import { CgSpinner } from 'react-icons/cg';
-import ProductDetail from './pages/ProductDetail.tsx';
-
-
 export function App() {
-  useEffect(() => {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-  }, []);
-
-  return (
-    <div className="min-h-screen flex flex-col" style={{ fontFamily: 'Noto Sans KR, sans-serif' }}>
-      <Header />
-      <Navigation />
-      <main className="flex-grow">
-        <Suspense fallback={<CgSpinner className="animate-spin text-2xl" />}>
-          <ProductProvider> {/* ProductProvider를 Routes 외부로 이동 */}
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/customer" element={<CustomerServicePage />} />
-              <Route path="/products/:id" element={<ProductDetail />} />
-            </Routes>
-          </ProductProvider>
-        </Suspense>
-      </main>
-      <Footer />
-    </div>
-  );
+  const {pathname,hash}=useLocation();
+  useEffect(()=>{
+    if(hash) requestAnimationFrame(()=>document.getElementById(hash.slice(1))?.scrollIntoView());
+    else window.scrollTo({top:0,behavior:'instant'});
+  },[pathname,hash]);
+  return <div className={`site-shell ${pathname==='/'?'intro-shell':''}`}><Seo/><Header/><main id="main-content"><ProductProvider><Routes><Route path="/" element={<HomePage/>}/><Route path="/about" element={<AboutPage/>}/><Route path="/products" element={<ProductsPage/>}/><Route path="/products/ndsd" element={<NdsdPage/>}/><Route path="/products/:id" element={<ProductDetail/>}/><Route path="/customer" element={<CustomerServicePage/>}/></Routes></ProductProvider></main>{pathname!=='/'&&<Footer/>}</div>;
 }
-
 export default App;

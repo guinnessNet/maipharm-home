@@ -1,11 +1,23 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { getLanguageState } from './lib/hydrationState';
+
+let storedLanguage: string | null = null;
+try { storedLanguage = localStorage.getItem('i18nextLng'); } catch { /* Storage may be disabled */ }
+const languageState = getLanguageState({
+  snapshotLanguage: document.getElementById('root')?.hasChildNodes() ? document.documentElement.lang : undefined,
+  queryLanguage: new URLSearchParams(location.search).get('lang'),
+  storedLanguage,
+  browserLanguage: navigator.language,
+});
+export const requestedLanguage = languageState.requestedLanguage;
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    lng: languageState.initialLanguage,
     resources: {
       ko: {
         translation: {
@@ -323,7 +335,6 @@ i18n
 
           //footer
           "footer.address": "경기 시흥시 공단1대로 204, 32동 306호",
-          "footer.phone": "010-2991-6610",
           "footer.email": "kjh@maipharm.com",
           "footer.copyright": "Copyright 2025 MaiPharm. All rights reserved.",
 
@@ -1024,7 +1035,6 @@ i18n
           //footer
           "footer.address":
             "204 Gongdan 1-daero, 32-dong 306-ho, Siheung-si, Gyeonggi-do",
-          "footer.phone": "(82) 10-2991-6610",
           "footer.email": "kjh@maipharm.com",
           "footer.copyright": "Copyright 2025 MaiPharm. All rights reserved.",
 
@@ -1419,10 +1429,28 @@ i18n
         },
       },
     },
+    detection: { order: ["querystring", "localStorage", "navigator"], lookupQuerystring: "lang" },
     fallbackLng: "ko",
     interpolation: {
       escapeValue: false,
     },
   });
+
+// Editorial punctuation is removed from display copy while functional addresses
+// dates decimal values and filenames retain their literal punctuation
+function cleanEditorial(value: unknown): void {
+  if (!value || typeof value !== 'object') return;
+  for (const [key, item] of Object.entries(value)) {
+    if (typeof item === 'string') {
+      const protectedParts: string[] = [];
+      const text = item.replace(/(?:https?:\/\/[^\s<>]+|[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|(?:[A-Za-z0-9_-]+\.)+[A-Za-z]{2,}(?:\/[^\s]*)?|\d+(?:[.,]\d+)+)/g, match => {
+        protectedParts.push(match);
+        return `⟦${protectedParts.length - 1}⟧`;
+      }).replace(/[,.]/g, '').replace(/⟦(\d+)⟧/g, (_, index) => protectedParts[Number(index)]);
+      (value as Record<string, unknown>)[key] = text;
+    } else cleanEditorial(item);
+  }
+}
+for (const language of ['ko', 'en']) cleanEditorial(i18n.getResourceBundle(language, 'translation'));
 
 export default i18n;
