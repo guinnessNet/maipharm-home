@@ -335,10 +335,10 @@ const CustomerServicePage = () => {
               <button
                 type="submit"
                 disabled={status.loading}
-                className={`w-full px-6 py-3 rounded-md text-white font-medium ${
+                className={`inquiry-submit w-full px-6 py-3 rounded-md text-white font-medium ${
                   status.loading 
                     ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-indigo-600 hover:bg-indigo-700'
+                    : 'bg-[#184230] hover:bg-[#245b43]'
                 }`}
               >
                 {status.loading ? t('customer.inquiry.sending') : t('customer.inquiry.submit')}

@@ -132,7 +132,7 @@ i18n
           "customer.subtitle": "문의사항을 남겨주시면 빠르게 답변 드리겠습니다",
           "customer.support.title": "고객 지원 안내",
           "customer.support.description":
-            "마이팜 솔루션과 서비스에 관한 문의사항이 있으시면 아래 연락처로 문의해 주세요. 평일 09:00~18:00 사이에 전문 기술 지원팀이 신속하게 응대해 드립니다.",
+            "마이팜 솔루션에 관한 문의나 협력 제안을 보내주세요. 아래 이메일이나 문의 양식으로 내용을 남겨주시면 확인 후 답변드리겠습니다.",
           "customer.support.phone": "기술 지원 핫라인",
           "customer.support.email": "이메일 지원",
           "customer.support.portal": "온라인 지원 포털(준비중)",
@@ -822,7 +822,7 @@ i18n
             "Leave your inquiries and we will respond quickly",
           "customer.support.title": "Customer Support Guide",
           "customer.support.description":
-            "If you have any questions about MaiPharm solutions and services, please contact us using the information below. Our technical support team will respond promptly during business hours (09:00-18:00 on weekdays).",
+            "Send us your questions about MaiPharm solutions or proposals for collaboration. Use the email address or inquiry form below, and we will review your message and get back to you.",
           "customer.support.phone": "Technical Support Hotline",
           "customer.support.email": "Email Support",
           "customer.support.portal": "Online Support Portal (Coming Soon)",
