@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "android": { "min": "1.0.0", "recommended": "1.0.0", "store": "https://play.google.com/store/apps/details?id=com.maipharm.melodysketch" },
+  "ios": { "min": "1.0.0", "recommended": "1.0.0", "store": "" },
+  "message": "",
+  "ad": {
+    "enabled": false,
+    "url": "https://maipharm.com/apps/melody-sketch/ad.html",
+    "height": 100,
+    "disclosure": "이 광고는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
+  }
+}
