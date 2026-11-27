@@ -4,6 +4,7 @@ type StructuredDataInput = {
   description: string;
   language: string;
   productNames: string[];
+  productIds?: (number | string)[];
   faq?: string[][];
   category?: string;
 };
@@ -34,7 +35,7 @@ export function buildStructuredData(input: StructuredDataInput): Record<string, 
   }
   if (path === '/products') schema.push({
     '@context': 'https://schema.org', '@type': 'ItemList',
-    itemListElement: input.productNames.map((name, index) => ({ '@type': 'ListItem', position: index + 1, name, url: `https://maipharm.com/products/${index + 1}` })),
+    itemListElement: input.productNames.map((name, index) => ({ '@type': 'ListItem', position: index + 1, name, url: `https://maipharm.com/products/${input.productIds?.[index] ?? index + 1}` })),
   });
   if (input.faq?.length) schema.push({
     '@context': 'https://schema.org', '@type': 'FAQPage',

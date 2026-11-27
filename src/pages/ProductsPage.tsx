@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { productImages } from '../content/productImages';
 import { useCopy } from '../components/BrandUI';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
@@ -17,7 +17,7 @@ const ProductsPage = () => {
     { id: 'core', label: t('products.filter.core') },
     { id: 'automation', label: t('products.filter.automation') },
     { id: 'data', label: t('products.filter.data') },
-    { id: 'marketing', label: t('products.filter.marketing') },
+    { id: 'marketing', label: c('고객 관리 솔루션', 'Customer management') },
     { id: 'developer', label: t('products.filter.developer') }
   ];
   
@@ -27,56 +27,49 @@ const ProductsPage = () => {
       name: t('products.list.core.1.name'),
       category: 'core',
       description: t('products.list.core.1.description'),
-      image: 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=500&auto=format&fit=crop'
+      image: productImages['1']
     },
     {
       id: 2,
       name: t('products.list.automation.1.name'),
       category: 'automation',
       description: t('products.list.automation.1.description'),
-      image: '/img/stock.jpg'
+      image: productImages['2']
     },
     {
       id: 3,
       name: t('products.list.core.2.name'),
       category: 'core',
       description: t('products.list.core.2.description'),
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=500&auto=format&fit=crop'
+      image: productImages['3']
     },
     {
       id: 4,
       name: t('products.list.data.1.name'),
       category: 'data',
       description: t('products.list.data.1.description'),
-      image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=500&auto=format&fit=crop'
-    },
-    {
-      id: 5,
-      name: t('products.list.automation.2.name'),
-      category: 'automation',
-      description: t('products.list.automation.2.description'),
-      image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=500&auto=format&fit=crop'
+      image: productImages['4']
     },
     {
       id: 6,
       name: t('products.list.marketing.1.name'),
       category: 'marketing',
       description: t('products.list.marketing.1.description'),
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=500&auto=format&fit=crop'
-    },
-    {
-      id: 7,
-      name: t('products.list.marketing.2.name'),
-      category: 'marketing',
-      description: t('products.list.marketing.2.description'),
-      image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?q=80&w=500&auto=format&fit=crop'
+      image: productImages['6']
     },
     {
       id: 8,
       name: t('products.list.developer.1.name'),
       category: 'developer',
       description: t('products.list.developer.1.description'),
-      image: '/img/25225792_7015995.jpg'
+      image: productImages['8']
+    },
+    {
+      id: 'ndsd',
+      name: c('대체조제 사후통보 모듈 - NDSD', 'Substitution reporting module - NDSD'),
+      category: 'automation',
+      description: c('대체조제 사후통보 데이터의 업로드와 결과 확인을 돕는 Windows용 모듈', 'A Windows module for uploading substitution reports and checking results'),
+      image: productImages.ndsd
     }
   ];
   
@@ -86,7 +79,6 @@ const ProductsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <Link to="/products/ndsd" className="catalog-ndsd">NDSD · {c('대체조제 사후통보 모듈 자세히 보기','Explore the substitution reporting module')} ↗</Link>
       <SectionTitle
         title={t('products.title')}
         subtitle={t('products.subtitle')}
@@ -120,13 +112,13 @@ const ProductsPage = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="product-grid grid auto-rows-fr grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProducts.map(product => (
           <ProductCard 
             key={product.id}
             id={product.id}
             name={product.name}
-            category={t(`category.${product.category}`)}
+            category={product.category === 'marketing' ? c('고객 관리 솔루션', 'Customer management') : t(`category.${product.category}`)}
             image={product.image}
             description={product.description}
           />

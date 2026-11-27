@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { productImages } from '../content/productImages';
 import SectionTitle from '../components/SectionTitle';
 import { ArrowLeft, CheckCircle2, Clock, Shield, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -48,19 +49,7 @@ const ProductDetail = () => {
     }
   };
 
-  const getProductImage = (id: number): string => {
-    switch(id) {
-      case 1: return 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=500&auto=format&fit=crop';
-      case 2: return 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500&auto=format&fit=crop';
-      case 3: return 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=500&auto=format&fit=crop';
-      case 4: return 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=500&auto=format&fit=crop';
-      case 5: return 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=500&auto=format&fit=crop';
-      case 6: return 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=500&auto=format&fit=crop';
-      case 7: return 'https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=500&auto=format&fit=crop';
-      case 8: return 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=500&auto=format&fit=crop';
-      default: return 'https://images.unsplash.com/photo-1576671081837-49000212a370?q=80&w=500&auto=format&fit=crop';
-    }
-  };
+  const getProductImage = (id: number): string => productImages[String(id)] || productImages['1'];
 
   const productPage = getProductData(productId);
 

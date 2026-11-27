@@ -11,3 +11,11 @@ for(const [pathname,type] of [['/about/','AboutPage'],['/customer/','ContactPage
 }
 test('FAQ matches caller-rendered questions and answers without fabricated offers',()=>{const schema=buildStructuredData(base);const faq=schema.find(s=>s['@type']==='FAQPage');assert.deepEqual(faq.mainEntity,[{'@type':'Question',name:'질문',acceptedAnswer:{'@type':'Answer',text:'답변'}}]);assert.doesNotMatch(JSON.stringify(schema),/telephone|offers|rating|price/);});
 test('Product list retains eight destinations when provided',()=>{const data=buildStructuredData({...base,pathname:'/products',productNames:Array.from({length:8},(_,i)=>'제품'+i)});assert.equal(data.find(s=>s['@type']==='ItemList').itemListElement.length,8);});
+
+test('Product list preserves actual destinations after products are removed',()=>{
+ const productIds=[1,2,3,4,6,8,'ndsd'];
+ const data=buildStructuredData({...base,pathname:'/products',productNames:productIds.map(String),productIds});
+ const list=data.find(s=>s['@type']==='ItemList').itemListElement;
+ assert.deepEqual(list.map(item=>item.url),productIds.map(id=>'https://maipharm.com/products/'+id));
+ assert.deepEqual(list.map(item=>item.position),[1,2,3,4,5,6,7]);
+});

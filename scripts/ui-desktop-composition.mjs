@@ -14,7 +14,7 @@ for(const width of [1440,1920,1024,768,390]) {
    const box=s=>{const e=document.querySelector(s);if(!e)return null;const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height,right:r.right,bottom:r.bottom}};
    const boxes=s=>[...document.querySelectorAll(s)].map(e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height,right:r.right,bottom:r.bottom}});
    const images=[...document.querySelectorAll('.pharmacy-photo,.founder-photo')].map(e=>({src:e.getAttribute('src'),loaded:e.complete&&e.naturalWidth>0,ratio:e.getBoundingClientRect().width/e.getBoundingClientRect().height,native:e.naturalWidth/e.naturalHeight}));
-   return {width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth,heroTitle:box('main h1'),heroSummary:box('main section:first-child .hero-description'),photo:box('.pharmacy-photo'),founder:box('.founder-photo'),identity:box('.founder-name'),experience:box('.experience'),feature:box('.ndsd-feature'),links:box('.solution-links'),faqTitle:box('main section:last-child h2'),faq:box('.brand-faq'),facts:boxes('.ndsd-facts>div'),steps:boxes('.start-steps>li'),field:boxes('.brand-columns>article'),images,sections:[...document.querySelectorAll('.brand-section')].map(e=>{const cs=getComputedStyle(e);return {content:e.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight)}})};
+   return {width:innerWidth,overflow:document.documentElement.scrollWidth>innerWidth,heroTitle:box('main h1'),heroSummary:box('main section:first-child .hero-description'),photo:box('.pharmacy-photo'),founder:box('.founder-photo'),identity:box('.founder-name'),experience:box('.experience'),feature:box('.hub-solutions-grid'),links:box('#solutions>.brand-text-link'),faqTitle:box('main section:last-child h2'),faq:box('.brand-faq'),facts:boxes('.ndsd-facts>div'),steps:boxes('.start-steps>li'),field:boxes('.brand-columns>article'),images,sections:[...document.querySelectorAll('.brand-section')].map(e=>{const cs=getComputedStyle(e);return {content:e.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight)}})};
   });
   const beside=(a,b)=>a&&b&&a.right<=b.x+1&&Math.min(a.bottom,b.bottom)>Math.max(a.y,b.y);
   const stacked=(a,b)=>a&&b&&a.bottom<=b.y+1;
@@ -26,7 +26,7 @@ for(const width of [1440,1920,1024,768,390]) {
    if(route==='/about') {
     check(prefix+' story beside pharmacy photo',beside(evidence.heroTitle,evidence.photo),{title:evidence.heroTitle,photo:evidence.photo});
     check(prefix+' founder portrait beside identity and experience',beside(evidence.founder,evidence.identity)&&beside(evidence.founder,evidence.experience),{photo:evidence.founder,identity:evidence.identity,experience:evidence.experience});
-    check(prefix+' feature beside eight solution links',beside(evidence.feature,evidence.links),{feature:evidence.feature,links:evidence.links});
+    check(prefix+' three solutions above all solutions link',stacked(evidence.feature,evidence.links),{feature:evidence.feature,links:evidence.links});
     check(prefix+' native photo ratios and loaded assets',evidence.images.every(i=>i.loaded&&Math.abs(i.ratio-i.native)<.015),evidence.images);
     check(prefix+' field retains three columns',evidence.field.length===3&&evidence.field.every(b=>Math.abs(b.y-evidence.field[0].y)<1),evidence.field);
    } else {
